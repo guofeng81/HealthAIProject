@@ -84,16 +84,16 @@ class StepsViewController: UIViewController {
         startTimer()
         pedometer.startUpdates(from: Date(), withHandler: { (pedometerData, error) in
             if let pedData = pedometerData{
-                self.numberOfSteps = Int(pedData.numberOfSteps)
+                self.numberOfSteps = Int(truncating: pedData.numberOfSteps)
                 //self.stepsLabel.text = "Steps:\(pedData.numberOfSteps)"
                 if let distance = pedData.distance{
-                    self.distance = Double(distance)
+                    self.distance = Double(truncating: distance)
                 }
                 if let averageActivePace = pedData.averageActivePace {
-                    self.averagePace = Double(averageActivePace)
+                    self.averagePace = Double(truncating: averageActivePace)
                 }
                 if let currentPace = pedData.currentPace {
-                    self.pace = Double(currentPace)
+                    self.pace = Double(truncating: currentPace)
                 }
             } else {
                 self.numberOfSteps = nil

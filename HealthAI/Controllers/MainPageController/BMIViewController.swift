@@ -66,7 +66,7 @@ class BMIViewController: UIViewController {
         heightValueLabel.text = "\(heightStr) inches"
     }
     @IBAction func weightValueChanged(_ sender: UISlider) {
-        var currentValue = Float(sender.value)
+        let currentValue = Float(sender.value)
         let weightStr = String(format: "%.0f", currentValue)
         weightValueLabel.text = "\(weightStr) pounds"
     }
