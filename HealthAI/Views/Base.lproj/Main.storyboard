@@ -106,6 +106,9 @@
                                                 <rect key="frame" x="79" y="189" width="100" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Google Sign In"/>
+                                                <connections>
+                                                    <action selector="googleLoginPressed:" destination="ru6-BC-kGW" eventType="touchUpInside" id="Jpi-bK-HlO"/>
+                                                </connections>
                                             </button>
                                             <button alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zU1-3j-7In" customClass="TKTransitionSubmitButton" customModule="TKSubmitTransition">
                                                 <rect key="frame" x="61" y="128" width="271" height="52"/>
@@ -159,6 +162,7 @@
                     <navigationItem key="navigationItem" id="z5q-BL-Vbs"/>
                     <connections>
                         <outlet property="emailTextField" destination="H6E-bm-S0Y" id="Y34-SG-Jjr"/>
+                        <outlet property="googleLoginBtn" destination="5Sv-h7-O8q" id="Hml-hB-auu"/>
                         <outlet property="heightConstraint" destination="09t-ef-nuQ" id="Nmt-aj-m2P"/>
                         <outlet property="loginBtn" destination="zU1-3j-7In" id="CKa-cX-qNk"/>
                         <outlet property="loginView" destination="GIh-ti-Mp9" id="pZH-E3-Rgl"/>

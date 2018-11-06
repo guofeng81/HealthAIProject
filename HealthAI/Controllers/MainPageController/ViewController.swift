@@ -5,10 +5,17 @@
 
 import UIKit
 import TKSubmitTransition
+import GoogleSignIn
 
-class ViewController: UIViewController,UITextFieldDelegate {
+class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate {
     
 
+    @IBOutlet var googleLoginBtn: UIButton!
+    
+    
+    
+    
+    
     @IBOutlet weak var loginView: UIView!
     
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
@@ -23,12 +30,16 @@ class ViewController: UIViewController,UITextFieldDelegate {
         setupLoginView()
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
        
          let tapGesture = UITapGestureRecognizer(target: self, action: #selector (loginViewTapped))
          loginView.addGestureRecognizer(tapGesture)
         
     }
     
+    @IBAction func googleLoginPressed(_ sender: UIButton) {
+        GIDSignIn.sharedInstance()?.signIn()
+    }
     
     @objc func loginViewTapped() {
         emailTextField.endEditing(true)

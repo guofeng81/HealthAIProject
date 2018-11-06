@@ -42,14 +42,14 @@ class AuthServices{
             if error != nil {
                 self.handleFirebaseError(error: error! as NSError, onComplete: onComplete)
             }else{
-                self.createUserProfile(result!.user)
+                AuthServices.createUserProfile(result!.user)
                 onComplete?(nil,result?.user)
                 print("Successfully Sign up!!")
             }
         }
     }
     
-    func createUserProfile(_ user: User!){
+    static func createUserProfile(_ user: User!){
         
         let delimiter = "@"
         let email = user.email
@@ -57,7 +57,7 @@ class AuthServices{
         
         let newUser = ["email":email,"username": uName?[0],"photo":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/empty_profile.png?alt=media&token=d25ab88e-e758-407d-bed9-cb6def5385a6","height": "","weight":"","glucose": "","bloodpressure":""]
         
-        self.databaseRef.child("profile").child(user.uid).setValue(newUser) { (error, ref) in
+        Database.database().reference().child("profile").child(user.uid).setValue(newUser) { (error, ref) in
             if error != nil {
                 print(error!)
                 return

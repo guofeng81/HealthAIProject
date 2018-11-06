@@ -8,21 +8,82 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
+    
+    
+//    func crateUserProfile(user: User){
+//
+//        let googleLoginUserId = user.uid
+//
+//        print("Successfully log in Firebase with google", user.uid)
+//        print("Email", user.email!)
+//
+//        let delimiter = "@"
+//        let email = user.email!
+//        let uName = email.components(separatedBy: delimiter)
+//
+//
+//        let newUser = ["email":email,"username": uName[0],"photo":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/empty_profile.png?alt=media&token=d25ab88e-e758-407d-bed9-cb6def5385a6","height": "","weight":"","glucose": "","bloodpressure":""]
+//
+//        Database.database().reference().child("profile").child(googleLoginUserId).setValue(newUser) { (error, ref) in
+//            if error != nil {
+//                print(error!)
+//                return
+//            }else{
+//                print("Profile successfully created!")
+//            }
+//        }
+//    }
+    
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
 
+
+        Auth.auth().signInAndRetrieveData(with: credential) { (auth, error) in
+            if error != nil {
+                print(error!)
+            }else{
+                //user signed in with google
+                AuthServices.createUserProfile(auth!.user)
+            }
+        }
+        
+        //TODO - pop to the Health Main Screen
+        
+    
+        
+    }
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+       
         FirebaseApp.configure()
         
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
         
         
         
         return true
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url,
+                                                 sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+                                                 annotation:options[UIApplication.OpenURLOptionsKey.annotation])
+    }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
