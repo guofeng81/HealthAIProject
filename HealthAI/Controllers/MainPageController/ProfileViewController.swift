@@ -10,9 +10,11 @@ import UIKit
 import FirebaseDatabase
 import Firebase
 import FirebaseStorage
+import ChameleonFramework
 
 class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
+    @IBOutlet var backgroundView: UIView!
     @IBOutlet var bioTableView: UITableView!
     @IBOutlet var usernameLabel: UILabel!
     @IBOutlet var profileImageView: UIImageView!
@@ -85,7 +87,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
     }
     
-    
     //MARK - Build the edit method for the UITableView
      func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
@@ -99,7 +100,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         return [editAction]
         
     }
-    
     
     //Set all the values to the database.
     func setBioValues(values: [String]){
@@ -164,19 +164,36 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef,user: LoginUser, imageView: profileImageView)
         DatabaseHelper.setDatabaseUsername(databaseRef: databaseRef, user: LoginUser, label: usernameLabel)
         
+        setImageViewTap()
+    
+        setGridentBackgroundColor()
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
-        profileImageView.isUserInteractionEnabled = true
-        profileImageView.addGestureRecognizer(tapGestureRecognizer)
+       
         
        //loadBioVlaues()
         
     }
     
+    func setImageViewTap(){
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        profileImageView.isUserInteractionEnabled = true
+        profileImageView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    //set gradient color using chamleonframework
+    
+    func setGridentBackgroundColor(){
+        backgroundView.backgroundColor = UIColor.init(
+            gradientStyle: UIGradientStyle.radial,
+            withFrame: backgroundView.frame,
+            andColors: [ UIColor.flatBlue, UIColor.flatGreen,UIColor.flatLime]
+        )
+    }
+    
     
     @objc func imageTapped()
     {
-        //let tappedImage = tapGestureRecognizer.view as! UIImageView
         
         let myActionSheet = UIAlertController(title: "Profile Picture", message: "Select the photo you want to change.", preferredStyle: .actionSheet)
         
@@ -197,7 +214,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
             self.view.addSubview(newImageView)
             
         }
-        
         
         let photoGallery = UIAlertAction(title: "Photos", style: .default) { (action) in
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.savedPhotosAlbum) {
@@ -229,7 +245,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         myActionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         self.present(myActionSheet, animated: true, completion: nil)
-        
         
     }
     

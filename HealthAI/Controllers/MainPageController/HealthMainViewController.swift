@@ -12,6 +12,7 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 import FirebaseDatabase
+import ChameleonFramework
 
 class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
@@ -21,6 +22,8 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
     
     //@IBOutlet weak var backgroundImageView: UIImageView!
     
+    
+    @IBOutlet var backgroundView: UIView!
     
     @IBOutlet var backgroundImageView: UIImageView!
     
@@ -68,7 +71,19 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
         setupTapView()
         setupMenu()
         loadLocationManager()
+        //need to extract out
+        setupBackgroundView()
+    }
+    
+    //extract this function out
+    
+    func setupBackgroundView(){
         
+        backgroundView.backgroundColor = UIColor.init(
+            gradientStyle: UIGradientStyle.leftToRight,
+            withFrame: backgroundView.frame,
+            andColors: [ UIColor.flatBlue, UIColor.orange, UIColor.green]
+        )
     }
     
     

@@ -318,7 +318,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="0.8318707191780822" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="WEA-8z-20n" firstAttribute="top" secondItem="RRh-dA-A5A" secondAttribute="top" constant="15" id="206-eb-Okv"/>
                                             <constraint firstAttribute="trailing" secondItem="Koj-1H-Zly" secondAttribute="trailing" constant="8" id="5X5-Qa-nbn"/>
@@ -397,6 +397,7 @@
                         <viewLayoutGuide key="safeArea" id="nns-y7-20v"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundView" destination="RRh-dA-A5A" id="Of7-wO-QcR"/>
                         <outlet property="bioTableView" destination="slj-rL-ovj" id="Gx3-XK-gsR"/>
                         <outlet property="profileImageView" destination="upe-KQ-QY3" id="Giz-MS-tH3"/>
                         <outlet property="usernameLabel" destination="baf-HO-7xL" id="5GN-Il-OiJ"/>
@@ -767,7 +768,6 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HJF-r1-6Y5">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                        <color key="backgroundColor" red="0.097387246787548065" green="0.52260202169418335" blue="0.56187105178833008" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bGZ-Te-SYd">
                                         <rect key="frame" x="305" y="0.0" width="70" height="136"/>
@@ -1018,6 +1018,7 @@
                     <connections>
                         <outlet property="BMIView" destination="nRo-vi-Tar" id="IJ7-sS-Q9U"/>
                         <outlet property="backgroundImageView" destination="HJF-r1-6Y5" id="DM9-8G-OVS"/>
+                        <outlet property="backgroundView" destination="AuZ-dV-alS" id="cVu-p1-S7a"/>
                         <outlet property="cityLabel" destination="dUj-2c-pXA" id="xdJ-TC-9GB"/>
                         <outlet property="counterView" destination="hWC-YI-f8C" id="FLq-ft-IbT"/>
                         <outlet property="diabeteView" destination="xK6-XQ-CUv" id="b3W-HC-QPG"/>
