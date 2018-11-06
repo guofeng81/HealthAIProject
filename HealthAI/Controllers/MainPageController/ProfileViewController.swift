@@ -12,11 +12,11 @@ import Firebase
 import FirebaseStorage
 
 
-
 class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
     @IBOutlet var bioTableView: UITableView!
     @IBOutlet var usernameLabel: UILabel!
+    @IBOutlet var profileImageView: UIImageView!
     
     var databaseRef : DatabaseReference!
     var storageRef : StorageReference!
@@ -48,6 +48,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         print("Values in the table view \(bio[indexPath.row])")
         
+        
+        print("Load database values!!!!")
+        
         loadBioValues { (values) in
             
             self.numberOfvalues = values
@@ -56,12 +59,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
             }
         
-        
            return cell
         
         }
-    
-        
     
     typealias CompletionHandler = (_ newValue:[String]) -> Void
     
@@ -69,22 +69,31 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         var newValues = [String]()
         
-            databaseRef.child("profile").child(LoginUser.uid).observeSingleEvent(of: .value, with:{ (snapshop) in
-                let dictionary = snapshop.value as? NSDictionary
-                
-                 let value = dictionary!["height"] as! String
-                 let value1 = dictionary!["weight"] as! String
-                let value2 = dictionary!["glucose"] as! String
-                let value3 = dictionary!["bloodpressure"] as! String
+        databaseRef.child("profile").child(LoginUser.uid).observeSingleEvent(of: .value, with:{ (snapshop) in
+            
+            let dictionary = snapshop.value as? NSDictionary
+            
+            
+            for index in 0..<self.bio.count {
+                let value = dictionary![self.bio[index]] as! String
                 newValues.append(value)
-                newValues.append(value1)
-                newValues.append(value2)
-                newValues.append(value3)
                 
-                print(newValues)
-                completionHandler(newValues)
-               
-            })
+            }
+            
+//            let value = dictionary!["height"] as! String
+//            let value1 = dictionary!["weight"] as! String
+//            let value2 = dictionary!["glucose"] as! String
+//            let value3 = dictionary!["bloodpressure"] as! String
+//            newValues.append(value)
+//            newValues.append(value1)
+//            newValues.append(value2)
+//            newValues.append(value3)
+//
+            print(newValues)
+            
+            completionHandler(newValues)
+            
+        })
         
     }
     
@@ -92,10 +101,10 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     //MARK - Build the edit method for the UITableView
      func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        let value = numberOfvalues[indexPath.row]
+        //let value = numberOfvalues[indexPath.row]
         
         let editAction = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
-            self.updateAction(value: value, indePath: indexPath)
+            self.updateAction(indexPath: indexPath)
         }
         
         editAction.backgroundColor = UIColor.blue
@@ -103,7 +112,31 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
     }
     
-    private func updateAction(value: String, indePath: IndexPath){
+    
+    
+    
+    //Set all the values to the database.
+    func setBioValues(values: [String]){
+        
+        for index in 0..<bio.count {
+            databaseRef.child("profile").child(LoginUser.uid).updateChildValues([bio[index]:values[index]])
+        }
+        
+        //        databaseRef.child("profile").child(LoginUser.uid).updateChildValues(["height":values[0]])
+        //        databaseRef.child("profile").child(LoginUser.uid).updateChildValues(["weight": values[1]])
+        //        databaseRef.child("profile").child(LoginUser.uid).updateChildValues(["glucose": values[2]])
+        //        databaseRef.child("profile").child(LoginUser.uid).updateChildValues(["bloodpressure": values[3]])
+        
+    }
+    
+    // Set Bio Value in the screen, no the database.
+    func setBioValue(value: String, indexPath: IndexPath){
+        
+        databaseRef.child("profile").child(LoginUser.uid).updateChildValues([bio[indexPath.row]:value])
+        
+    }
+    
+    private func updateAction(indexPath: IndexPath){
         
         let alert = UIAlertController(title: "Update", message: "Update your Bio", preferredStyle: .alert)
         
@@ -116,10 +149,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
                     return
                 }else{
                     //let the label to be the textToEdit
-                    self.numberOfvalues[indePath.row] = textToEdit
+                    self.numberOfvalues[indexPath.row] = textToEdit
                     print(self.numberOfvalues)
-                    self.setBioValues(values: self.numberOfvalues)
-                    self.bioTableView.reloadRows(at: [indePath], with: .automatic)
+                    self.setBioValue(value: textToEdit, indexPath: indexPath)
+                    //self.setBioValues(values: self.numberOfvalues)
+                    self.bioTableView.reloadRows(at: [indexPath], with: .automatic)
                 }
                 
             }else{
@@ -134,7 +168,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
             return
         }
         
-        textField.placeholder = "Update your Bio Info"
+        textField.placeholder = "Update your Personal Information"
         
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
@@ -144,7 +178,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     //MARK - Set up the Profile UIViewController
     
-    @IBOutlet var profileImageView: UIImageView!
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,7 +189,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef,user: LoginUser, imageView: profileImageView)
         DatabaseHelper.setDatabaseUsername(databaseRef: databaseRef, user: LoginUser, label: usernameLabel)
         
-        print("Load Value function is called")
+        //print("Load Value function is called")
        //loadBioVlaues()
         
        
@@ -163,10 +197,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
     }
     
-    
-   
-    
-
     func getReferences(){
         databaseRef = Database.database().reference()
         storageRef = Storage.storage().reference()
@@ -242,16 +272,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         self.dismiss(animated: true, completion: nil)
         
     }
-    
-    func setBioValues(values: [String]){
-
-        databaseRef.child("profile").child(LoginUser.uid).updateChildValues(["height":values[0]])
-        databaseRef.child("profile").child(LoginUser.uid).updateChildValues(["weight": values[1]])
-        databaseRef.child("profile").child(LoginUser.uid).updateChildValues(["glucose": values[2]])
-        databaseRef.child("profile").child(LoginUser.uid).updateChildValues(["bloodpressure": values[3]])
-
-    }
-    
     
     @objc func dismissFullScreenImage(sender : UITapGestureRecognizer){
         sender.view?.removeFromSuperview()

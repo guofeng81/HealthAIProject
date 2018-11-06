@@ -15,13 +15,13 @@ import FirebaseDatabase
 
 class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
-//    @IBOutlet weak var cityLabel: UILabel!
-//    @IBOutlet weak var weatherImage: UIImageView!
-//    @IBOutlet weak var temperatureLabel: UILabel!
+    //    @IBOutlet weak var cityLabel: UILabel!
+    //    @IBOutlet weak var weatherImage: UIImageView!
+    //    @IBOutlet weak var temperatureLabel: UILabel!
     
     //@IBOutlet weak var backgroundImageView: UIImageView!
     
-   
+    
     @IBOutlet var backgroundImageView: UIImageView!
     
     @IBOutlet weak var weatherConditionLbl: UILabel!
@@ -36,7 +36,7 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
     
     var databaseRef : DatabaseReference!
     
-   // @IBOutlet weak var workoutCardView: CardView!
+    // @IBOutlet weak var workoutCardView: CardView!
     
     //@IBOutlet weak var conditionLabel: UILabel!
     
@@ -63,12 +63,12 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
         super.viewDidLoad()
         databaseRef = Database.database().reference()
         
-//MARK - Add CardView Gesture
+        //MARK - Add CardView Gesture
         
         setupTapView()
         setupMenu()
         loadLocationManager()
-       
+        
     }
     
     
@@ -80,16 +80,16 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
         let workoutGesture = UITapGestureRecognizer(target: self, action: #selector(workouthandleTap(sender:)))
         self.workoutView.addGestureRecognizer(workoutGesture)
         
-//        let diabeteGesture = UITapGestureRecognizer(target: self, action: #selector(diabetehandleTap(sender:)))
-//        self.workoutView.addGestureRecognizer(diabeteGesture)
-//
-//        let caloriesCounterGesture = UITapGestureRecognizer(target: self, action: #selector(counterhandleTap(sender:)))
-//        self.workoutView.addGestureRecognizer(caloriesCounterGesture)
-//
-   let BMIGesture = UITapGestureRecognizer(target: self, action: #selector(BMIhandleTap(sender:)))
-      self.BMIView.addGestureRecognizer(BMIGesture)
+        //        let diabeteGesture = UITapGestureRecognizer(target: self, action: #selector(diabetehandleTap(sender:)))
+        //        self.workoutView.addGestureRecognizer(diabeteGesture)
+        //
+        //        let caloriesCounterGesture = UITapGestureRecognizer(target: self, action: #selector(counterhandleTap(sender:)))
+        //        self.workoutView.addGestureRecognizer(caloriesCounterGesture)
+        //
+        let BMIGesture = UITapGestureRecognizer(target: self, action: #selector(BMIhandleTap(sender:)))
+        self.BMIView.addGestureRecognizer(BMIGesture)
         
-    
+        
         let DiabetesGesture = UITapGestureRecognizer(target: self, action: #selector(DiabeteshandleTap(sender:)))
         self.diabeteView.addGestureRecognizer(DiabetesGesture)
         
@@ -104,23 +104,23 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
     @objc func workouthandleTap(sender:UITapGestureRecognizer){
         performSegue(withIdentifier: "goToWorkout", sender: self)
     }
-
-//    @objc func diabetehandleTap(sender:UITapGestureRecognizer){
-//        performSegue(withIdentifier: "goToDiabete", sender: self)
-//    }
-//
-//    @objc func counterhandleTap(sender:UITapGestureRecognizer){
-//        performSegue(withIdentifier: "goToCounter", sender: self)
-//    }
-//    
-@objc func BMIhandleTap(sender:UITapGestureRecognizer){
+    
+    //    @objc func diabetehandleTap(sender:UITapGestureRecognizer){
+    //        performSegue(withIdentifier: "goToDiabete", sender: self)
+    //    }
+    //
+    //    @objc func counterhandleTap(sender:UITapGestureRecognizer){
+    //        performSegue(withIdentifier: "goToCounter", sender: self)
+    //    }
+    //
+    @objc func BMIhandleTap(sender:UITapGestureRecognizer){
         performSegue(withIdentifier: "goToBMI", sender: self)
     }
-
-
-@objc func DiabeteshandleTap(sender:UITapGestureRecognizer){
-    performSegue(withIdentifier: "dashboardToDiabetesForm", sender: self)
-}
+    
+    
+    @objc func DiabeteshandleTap(sender:UITapGestureRecognizer){
+        performSegue(withIdentifier: "dashboardToDiabetesForm", sender: self)
+    }
     
     @objc func CounterhandleTap(sender:UITapGestureRecognizer){
         performSegue(withIdentifier: "maintosub", sender: self)
@@ -152,12 +152,12 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-             backgroundImageView.image = image
+            backgroundImageView.image = image
         }else{
             print("Can't get the background image.")
         }
         
-       self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     //MARK - didUpdate the location methods which check the location update
@@ -167,7 +167,7 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
         if location.horizontalAccuracy > 1{
             locationManager.stopUpdatingLocation()
             print("logititude= \(location.coordinate.longitude)")
-
+            
             let logititude = location.coordinate.longitude
             let latitude = location.coordinate.latitude
             let params : [String:String] = ["lat":String(latitude), "lon":String(logititude),"appId": APP_ID]
@@ -177,12 +177,12 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
     
     func getWeatherData(url:String,parameters:[String:String]){
         
-    Alamofire.request(url,method:.get,parameters:parameters).responseJSON { (response) in
+        Alamofire.request(url,method:.get,parameters:parameters).responseJSON { (response) in
             if response.result.isSuccess{
                 print("Success! Got the weather data")
                 
                 let weatherJSON :JSON = JSON(response.result.value!)
-                print(weatherJSON)
+                //print(weatherJSON)
                 self.updateWeatherData(json: weatherJSON)
             }else{
                 print("Error, \(String(describing: response.result.error))")
@@ -191,7 +191,7 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
     }
     
     func updateWeatherData(json:JSON){
-    
+        
         weatherDataModel.temperature = Int(json["main"]["temp"].double! - 273.15)
         weatherDataModel.city = json["name"].stringValue
         weatherDataModel.condition = json["weather"][0]["id"].intValue
@@ -199,18 +199,18 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
         weatherDataModel.weatherCondition = json["weather"][0]["description"].stringValue
         
         updateUIWeatherData(weatherDataModel: weatherDataModel)
-//        print(weatherDataModel.temperature)
-//        print(weatherDataModel.city)
-//        print(weatherDataModel.weatherIconName)
-//        print(weatherDataModel.weatherCondition)
-     
+        //        print(weatherDataModel.temperature)
+        //        print(weatherDataModel.city)
+        //        print(weatherDataModel.weatherIconName)
+        //        print(weatherDataModel.weatherCondition)
+        
     }
     
     
     //MARK - Update the Weather UI
     
     func updateUIWeatherData(weatherDataModel: WeatherDataModel){
-    
+        
         cityLabel.text = weatherDataModel.city
         temperatureLabel.text = "\(weatherDataModel.temperature)°C"
         weatherImage.image = UIImage(named: weatherDataModel.weatherIconName)
@@ -310,7 +310,7 @@ extension HealthMainViewController: SidebarViewDelegate {
                         present(vc, animated: true, completion: nil)
                     }
                     
-
+                    
                 }else{
                     print("There is no user log in. ")
                 }
@@ -318,7 +318,7 @@ extension HealthMainViewController: SidebarViewDelegate {
             catch {
                 print("error: there was a problem signing out")
             }
-                break;
+            break;
         case .none:
             break
         }
