@@ -91,7 +91,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
-  - ChameleonFramework/Swift
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
   - Charts
   - Firebase/Auth
   - Firebase/Core
@@ -106,7 +106,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - ChameleonFramework
     - Charts
     - Firebase
     - FirebaseAnalytics
@@ -128,11 +127,17 @@ SPEC REPOS:
     - SwipeCellKit
 
 EXTERNAL SOURCES:
+  ChameleonFramework:
+    :branch: wip/swift4
+    :git: https://github.com/ViccAlexander/Chameleon.git
   TKSubmitTransition:
     :branch: swift4
     :git: https://github.com/entotsu/TKSubmitTransition.git
 
 CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: db432ca1b1a3d8f83ee1f881208c0c960a325e73
+    :git: https://github.com/ViccAlexander/Chameleon.git
   TKSubmitTransition:
     :commit: 29fac6072451a4def5cde567075bfc62a728bb1f
     :git: https://github.com/entotsu/TKSubmitTransition.git
@@ -161,6 +166,6 @@ SPEC CHECKSUMS:
   SwipeCellKit: d8f2617538ce3021cb0a11d1b93856a06a2f2e20
   TKSubmitTransition: 647b907508da58ba864141e3c4382442ec536d40
 
-PODFILE CHECKSUM: 804d7b58c2bd526c037e4c1df8bd39a51f74fb42
+PODFILE CHECKSUM: c682f147cee13f3c38a3a7e81338593129315c88
 
 COCOAPODS: 1.5.3

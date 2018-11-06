@@ -17,7 +17,7 @@ pod 'TKSubmitTransition', :git => 'https://github.com/entotsu/TKSubmitTransition
 pod 'Firebase/Storage'
 pod 'RealmSwift'
 pod 'SwipeCellKit'
-pod 'ChameleonFramework/Swift'
+pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', :branch => 'wip/swift4'
 pod 'Charts'
 
 
