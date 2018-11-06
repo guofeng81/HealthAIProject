@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     let bioList = ["Height","Weight","Glucose","Blood Pressure"]
     
-    let unitList = ["cm","lb","mm","mm"]
+    let unitList = ["cm","kg","mm/dl","mmHg"]
     
     let bio = ["height","weight","glucose","bloodpressure"]
     
@@ -78,18 +78,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
                 newValues.append(value)
                 
             }
-            
-//            let value = dictionary!["height"] as! String
-//            let value1 = dictionary!["weight"] as! String
-//            let value2 = dictionary!["glucose"] as! String
-//            let value3 = dictionary!["bloodpressure"] as! String
-//            newValues.append(value)
-//            newValues.append(value1)
-//            newValues.append(value2)
-//            newValues.append(value3)
-//
-            print(newValues)
-            
+        
             completionHandler(newValues)
             
         })
@@ -114,16 +103,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     //Set all the values to the database.
     func setBioValues(values: [String]){
-        
         for index in 0..<bio.count {
             databaseRef.child("profile").child(LoginUser.uid).updateChildValues([bio[index]:values[index]])
         }
-        
-        //        databaseRef.child("profile").child(LoginUser.uid).updateChildValues(["height":values[0]])
-        //        databaseRef.child("profile").child(LoginUser.uid).updateChildValues(["weight": values[1]])
-        //        databaseRef.child("profile").child(LoginUser.uid).updateChildValues(["glucose": values[2]])
-        //        databaseRef.child("profile").child(LoginUser.uid).updateChildValues(["bloodpressure": values[3]])
-        
     }
     
     // Set Bio Value in the screen, no the database.
@@ -173,7 +155,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     //MARK - Set up the Profile UIViewController
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -184,9 +165,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         DatabaseHelper.setDatabaseUsername(databaseRef: databaseRef, user: LoginUser, label: usernameLabel)
         
        //loadBioVlaues()
-        
-       
-        //print(values)
         
     }
     

@@ -817,13 +817,13 @@
                                     <stackView opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wfm-IH-iJR">
                                         <rect key="frame" x="312" y="167" width="55" height="25"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHF-Zj-gCc">
+                                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHF-Zj-gCc">
                                                 <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="2yQ-TJ-6wn"/>
                                                     <constraint firstAttribute="width" constant="25" id="zTi-h6-vGg"/>
                                                 </constraints>
-                                                <state key="normal" title="Take Photo" image="camera_image">
+                                                <state key="normal" title="Take Photo" image="cam-1">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -839,7 +839,7 @@
                                                     <constraint firstAttribute="height" constant="25" id="maA-Bp-Cn9"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="oc4-uc-ydY"/>
                                                 </constraints>
-                                                <state key="normal" title="Load Image" image="album">
+                                                <state key="normal" title="Load Image" image="album-1">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -2161,8 +2161,8 @@
     </scenes>
     <resources>
         <image name="BMI" width="400" height="300"/>
-        <image name="album" width="225" height="225"/>
-        <image name="camera_image" width="900" height="520"/>
+        <image name="album-1" width="325" height="291"/>
+        <image name="cam-1" width="796" height="534"/>
         <image name="cloudy2" width="128" height="128"/>
         <image name="dbPredictor" width="800" height="500"/>
         <image name="healthAI" width="564" height="1002"/>
