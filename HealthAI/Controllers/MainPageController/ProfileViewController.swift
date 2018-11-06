@@ -11,7 +11,6 @@ import FirebaseDatabase
 import Firebase
 import FirebaseStorage
 
-
 class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
     @IBOutlet var bioTableView: UITableView!
@@ -113,8 +112,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     }
     
     
-    
-    
     //Set all the values to the database.
     func setBioValues(values: [String]){
         
@@ -131,9 +128,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     // Set Bio Value in the screen, no the database.
     func setBioValue(value: String, indexPath: IndexPath){
-        
         databaseRef.child("profile").child(LoginUser.uid).updateChildValues([bio[indexPath.row]:value])
-        
     }
     
     private func updateAction(indexPath: IndexPath){
@@ -178,7 +173,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     //MARK - Set up the Profile UIViewController
     
- 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -189,7 +183,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef,user: LoginUser, imageView: profileImageView)
         DatabaseHelper.setDatabaseUsername(databaseRef: databaseRef, user: LoginUser, label: usernameLabel)
         
-        //print("Load Value function is called")
        //loadBioVlaues()
         
        
@@ -211,7 +204,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     @IBAction func editProfileImage(_ sender: UIButton) {
         
-        let myActionSheet = UIAlertController(title: "Profile Picture", message: "Select the photo you like.", preferredStyle: .actionSheet)
+        let myActionSheet = UIAlertController(title: "Profile Picture", message: "Select the photo you want to change.", preferredStyle: .actionSheet)
         
         let viewPicture = UIAlertAction(title: "View Picture", style: .default) { (action) in
             
@@ -268,7 +261,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         //TODO - push all data which save in the screen to the database
         
-        setBioValues(values: numberOfvalues)
+        //setBioValues(values: numberOfvalues)
         self.dismiss(animated: true, completion: nil)
         
     }
@@ -292,7 +285,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refresh"), object: nil, userInfo: nil)
         
-        
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -310,11 +302,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
                         profilePicReference.downloadURL { (url, error) in
                             if let downloadUrl = url {
                                 
-                                print(downloadUrl)
+                                print("Download URL:",downloadUrl)
                                 self.databaseRef.child("profile").child(self.LoginUser.uid).updateChildValues(["photo":downloadUrl.absoluteString])
                                 
                             }else {
-                                print("error downloading the url!")
+                                print("error downloading from the url!")
                             }
                         }
                         
