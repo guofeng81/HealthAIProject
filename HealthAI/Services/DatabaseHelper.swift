@@ -60,6 +60,39 @@ class DatabaseHelper {
     }
     
     
+    static func savePictureToStorage(storageRef: StorageReference!, databaseRef: DatabaseReference!, user: User,imageView: UIImageView, imageName: String){
+        
+        if let imageData: Data = imageView.image!.pngData() {
+            
+            let profilePicReference = storageRef.child("user_profile/\(user.uid)/\(imageName)")
+            
+            DispatchQueue.main.async {
+                profilePicReference.putData(imageData, metadata: nil) { (metadata, error) in
+                    if error == nil {
+                        print("Successfuly putting the data to the storage.")
+                        
+                        profilePicReference.downloadURL { (url, error) in
+                            if let downloadUrl = url {
+                                
+                                print("Download URL:",downloadUrl)
+                                databaseRef.child("profile").child(user.uid).updateChildValues(["photo":downloadUrl.absoluteString])
+                                
+                            }else {
+                                print("error downloading from the url!")
+                            }
+                        }
+                        
+                    }else {
+                        print("error putting the data into the storage.")
+                    }
+                }
+            }
+        }
+    }
+    
+
+    
+    
     
     
 }

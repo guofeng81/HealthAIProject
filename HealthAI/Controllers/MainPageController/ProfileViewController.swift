@@ -289,42 +289,46 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
             profileImageView.image = image
         }
         
-        savePictureToStorage(imageView: profileImageView)
+        
+        DatabaseHelper.savePictureToStorage(storageRef: storageRef, databaseRef: databaseRef, user: LoginUser, imageView: profileImageView, imageName: "profile_image")
+        
+        
+        //savePictureToStorage(imageView: profileImageView)
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refresh"), object: nil, userInfo: nil)
         
         self.dismiss(animated: true, completion: nil)
     }
     
-    func savePictureToStorage(imageView: UIImageView){
-        
-        if let imageData: Data = imageView.image!.pngData() {
-            
-            let profilePicReference = storageRef.child("user_profile/\(LoginUser.uid)/profile_pic")
-            
-            DispatchQueue.main.async {
-                profilePicReference.putData(imageData, metadata: nil) { (metadata, error) in
-                    if error == nil {
-                        print("Successfuly putting the data to the storage.")
-                        
-                        profilePicReference.downloadURL { (url, error) in
-                            if let downloadUrl = url {
-                                
-                                print("Download URL:",downloadUrl)
-                                self.databaseRef.child("profile").child(self.LoginUser.uid).updateChildValues(["photo":downloadUrl.absoluteString])
-                                
-                            }else {
-                                print("error downloading from the url!")
-                            }
-                        }
-                        
-                    }else {
-                        print("error putting the data into the storage.")
-                    }
-                }
-            }
-        }
-    }
+//    func savePictureToStorage(imageView: UIImageView){
+//
+//        if let imageData: Data = imageView.image!.pngData() {
+//
+//            let profilePicReference = storageRef.child("user_profile/\(LoginUser.uid)/profile_pic")
+//
+//            DispatchQueue.main.async {
+//                profilePicReference.putData(imageData, metadata: nil) { (metadata, error) in
+//                    if error == nil {
+//                        print("Successfuly putting the data to the storage.")
+//
+//                        profilePicReference.downloadURL { (url, error) in
+//                            if let downloadUrl = url {
+//
+//                                print("Download URL:",downloadUrl)
+//                                self.databaseRef.child("profile").child(self.LoginUser.uid).updateChildValues(["photo":downloadUrl.absoluteString])
+//
+//                            }else {
+//                                print("error downloading from the url!")
+//                            }
+//                        }
+//
+//                    }else {
+//                        print("error putting the data into the storage.")
+//                    }
+//                }
+//            }
+//        }
+//    }
     
 
 }

@@ -13,6 +13,7 @@ import Alamofire
 import SwiftyJSON
 import FirebaseDatabase
 import ChameleonFramework
+import FirebaseStorage
 
 class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
@@ -39,6 +40,8 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
     
     var databaseRef : DatabaseReference!
     
+    var storageRef: StorageReference!
+    
     // @IBOutlet weak var workoutCardView: CardView!
     
     //@IBOutlet weak var conditionLabel: UILabel!
@@ -64,7 +67,9 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         databaseRef = Database.database().reference()
+        storageRef =  Storage.storage().reference()
         
         //MARK - Add CardView Gesture
         
@@ -107,7 +112,6 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
         
         let DiabetesGesture = UITapGestureRecognizer(target: self, action: #selector(DiabeteshandleTap(sender:)))
         self.diabeteView.addGestureRecognizer(DiabetesGesture)
-        
         
         
         let CounterGesture = UITapGestureRecognizer(target: self, action: #selector(CounterhandleTap(sender:)))
@@ -168,6 +172,10 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             backgroundImageView.image = image
+            
+            DatabaseHelper.savePictureToStorage(storageRef: storageRef, databaseRef: databaseRef, user: user, imageView: backgroundImageView, imageName: "background_image")
+            
+            
         }else{
             print("Can't get the background image.")
         }
