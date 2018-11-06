@@ -38,7 +38,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
         UIView.animate(withDuration: 0.5) {
-            self.heightConstraint.constant = 308
+            self.heightConstraint.constant = 258
             self.view.layoutIfNeeded()
         }
     }
