@@ -164,23 +164,19 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef,user: LoginUser, imageView: profileImageView)
         DatabaseHelper.setDatabaseUsername(databaseRef: databaseRef, user: LoginUser, label: usernameLabel)
         
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        profileImageView.isUserInteractionEnabled = true
+        profileImageView.addGestureRecognizer(tapGestureRecognizer)
+        
        //loadBioVlaues()
         
     }
     
-    func getReferences(){
-        databaseRef = Database.database().reference()
-        storageRef = Storage.storage().reference()
-    }
     
-    internal func setProfilePicture(imageView: UIImageView){
-        imageView.layer.cornerRadius = 50
-        imageView.layer.borderColor = UIColor.white.cgColor
-        imageView.layer.masksToBounds = true
-    }
-    
-    
-    @IBAction func editProfileImage(_ sender: UIButton) {
+    @objc func imageTapped()
+    {
+        //let tappedImage = tapGestureRecognizer.view as! UIImageView
         
         let myActionSheet = UIAlertController(title: "Profile Picture", message: "Select the photo you want to change.", preferredStyle: .actionSheet)
         
@@ -195,11 +191,13 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
             newImageView.isUserInteractionEnabled = true
             
             let tap = UIGestureRecognizer(target: self, action: #selector(self.dismissFullScreenImage(sender:)))
+            newImageView.isUserInteractionEnabled = true
             newImageView.addGestureRecognizer(tap)
             
             self.view.addSubview(newImageView)
             
         }
+        
         
         let photoGallery = UIAlertAction(title: "Photos", style: .default) { (action) in
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.savedPhotosAlbum) {
@@ -232,8 +230,29 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         self.present(myActionSheet, animated: true, completion: nil)
         
+        
     }
     
+    //Check in the mobile is this one works?
+    
+    @objc func dismissFullScreenImage(sender : UITapGestureRecognizer){
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        sender.view?.removeFromSuperview()
+    }
+    
+    func getReferences(){
+        databaseRef = Database.database().reference()
+        storageRef = Storage.storage().reference()
+    }
+    
+    internal func setProfilePicture(imageView: UIImageView){
+        imageView.layer.cornerRadius = 50
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.masksToBounds = true
+    }
+    
+
     
     @IBAction func saveProfileBtn(_ sender: UIButton) {
         
@@ -242,10 +261,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         //setBioValues(values: numberOfvalues)
         self.dismiss(animated: true, completion: nil)
         
-    }
-    
-    @objc func dismissFullScreenImage(sender : UITapGestureRecognizer){
-        sender.view?.removeFromSuperview()
     }
     
     
