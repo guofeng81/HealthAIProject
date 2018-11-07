@@ -49,7 +49,9 @@ class RegisterViewController: UIViewController {
                     }
                     
                     self.performSegue(withIdentifier: "goToHealthMain", sender: self)
-                    
+                    self.emailTextField.text = ""
+                    self.passwordTextField.text = ""
+                    self.confirmPasswordTextField.text = ""
                     SVProgressHUD.dismiss()
                 }
             }
