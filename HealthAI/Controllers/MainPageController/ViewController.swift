@@ -11,8 +11,60 @@ import GoogleSignIn
 import FBSDKLoginKit
 import Firebase
 import SVProgressHUD
+import UserNotifications
 
 class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,FBSDKLoginButtonDelegate {
+    
+    @IBAction func forgetPasswordBtn(_ sender: UIButton) {
+        
+        let alertController = UIAlertController(title: "Forgot My Password", message: "To reset your password, please enter your email address.", preferredStyle: .alert);
+        let sendAction = UIAlertAction(title: "Send", style: .default) { (action) in
+            let emailField = alertController.textFields![0]
+            if let email = emailField.text {
+                Auth.auth().sendPasswordReset(withEmail: email, completion: { (error) in
+                    if let error = error {
+                        let alertController = UIAlertController(title: "Error", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                        alertController.addAction(okAction)
+                        self.present(alertController, animated: true, completion: nil)
+                    } else {
+                        
+                        self.createUserNotification()
+                        
+                    }
+                })
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alertController.addAction(sendAction)
+        alertController.addAction(cancelAction)
+        alertController.addTextField { (textfield) in
+            textfield.placeholder = "Enter E-mail address"
+        }
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    
+    func createUserNotification(){
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Password reset"
+        content.body = "Password email has been sent to your email."
+        content.badge = 1
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: "passwordReset", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+    }
+    
+    
+    
+    
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if let error = error {
@@ -84,6 +136,12 @@ class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,F
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector (loginViewTapped))
         loginView.addGestureRecognizer(tapGesture)
         setupFacebookAndGoogleBtn()
+        
+//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { (didAllow, error) in
+//            if !accept{
+//                print("Notification access denied")
+//            }
+//        }
         
     }
     
