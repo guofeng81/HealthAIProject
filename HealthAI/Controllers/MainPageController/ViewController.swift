@@ -1,4 +1,6 @@
-//
+
+//  Created by Feng Guo on 10/05/18.
+//  Copyright © 2018 Team9. All rights reserved.
 //  ViewController.swift
 //  HealthAI
 
@@ -8,12 +10,11 @@ import TKSubmitTransition
 import GoogleSignIn
 import FBSDKLoginKit
 import Firebase
+import SVProgressHUD
 
 class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,FBSDKLoginButtonDelegate {
     
-    
     @IBOutlet var facebookLoginBtn: UIButton!
-    
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if let error = error {
@@ -22,14 +23,16 @@ class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,F
         }
     }
     
-    
     @IBAction func facebookLoginBtn(_ sender: UIButton) {
-        
+    
         FBSDKLoginManager().logIn(withReadPermissions: ["email","public_profile"], from: self) { (result, error) in
             if error != nil {
                 print("Facebook Login fails:",error!)
             }
             
+            if (result?.isCancelled)! {
+                return
+            }
             //exchanged with firebase credential
             let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
             
@@ -38,7 +41,7 @@ class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,F
                     print(error)
                     return
                 }
-        
+                
                 // User signed in with facebook successfully
                 
                 self.fetchFacebookLoginResult()
@@ -57,24 +60,16 @@ class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,F
             if error != nil {
                 print("failed to start the graph result.")
             }else{
-                
                 guard let result = result as? [String: Any] else {return}
-                
                 let name = result["name"] as? String
-                
                 AuthServices.createUserProfile(uName: name!)
-                
             }
         })
     }
     
     @IBOutlet var googleLoginBtn: GIDSignInButton!
-    
-    
     @IBOutlet weak var loginView: UIView!
-    
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var registerBtn: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -86,13 +81,9 @@ class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,F
         emailTextField.delegate = self
         passwordTextField.delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
-       
-        //facebookLoginBtn.delegate = self
         
-         let tapGesture = UITapGestureRecognizer(target: self, action: #selector (loginViewTapped))
-         loginView.addGestureRecognizer(tapGesture)
-        
-        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector (loginViewTapped))
+        loginView.addGestureRecognizer(tapGesture)
         
     }
     

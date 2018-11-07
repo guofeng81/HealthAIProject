@@ -15,6 +15,7 @@ import FirebaseDatabase
 import ChameleonFramework
 import FirebaseStorage
 import FBSDKLoginKit
+import GoogleSignIn
 
 class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
@@ -331,7 +332,7 @@ extension HealthMainViewController: SidebarViewDelegate {
                 if Auth.auth().currentUser != nil {
                     try Auth.auth().signOut()
                     FBSDKLoginManager().logOut()
-                    
+                    GIDSignIn.sharedInstance().signOut()
                     //must use dismiss the viewcontroller, should not use present
                     self.dismiss(animated: true, completion: nil)
                     
