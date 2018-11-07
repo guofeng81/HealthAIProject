@@ -26,9 +26,21 @@
 				<string>com.googleusercontent.apps.5728526923-g7kjde8cbhj9gdtd3ns551b5ag38pii5</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb305287573410636</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>305287573410636</string>
+	<key>FacebookDisplayName</key>
+	<string>HealthAI</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

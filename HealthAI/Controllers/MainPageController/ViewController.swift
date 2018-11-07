@@ -6,14 +6,79 @@
 import UIKit
 import TKSubmitTransition
 import GoogleSignIn
+import FBSDKLoginKit
+import Firebase
 
-class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate {
+class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,FBSDKLoginButtonDelegate {
     
-
+    
+    @IBOutlet var facebookLoginBtn: UIButton!
+    
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+    }
+    
+    
+    @IBAction func facebookLoginBtn(_ sender: UIButton) {
+        
+        FBSDKLoginManager().logIn(withReadPermissions: ["email","public_profile"], from: self) { (result, error) in
+            if error != nil {
+                print("Facebook Login fails:",error!)
+            }
+            
+            //exchanged with firebase credential
+            let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+            
+            Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+                if let error = error {
+                    print(error)
+                    return
+                }
+        
+                // User signed in with facebook successfully
+                
+                self.fetchFacebookLoginResult()
+                self.performSegue(withIdentifier: "goToHealthMain", sender: self)
+            }
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("facebook log out")
+    }
+    
+    func fetchFacebookLoginResult(){
+        
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields":"id,name,email"])?.start(completionHandler: { (connection, result, error) in
+            if error != nil {
+                print("failed to start the graph result.")
+            }else{
+                
+                guard let result = result as? [String: Any] else {return}
+                
+                let name = result["name"] as? String
+                let email = result["email"] as? String
+                
+                let newUser = ["email":email,"username": name,"photo":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/empty_profile.png?alt=media&token=d25ab88e-e758-407d-bed9-cb6def5385a6","height": "","weight":"","glucose": "","bloodpressure":""]
+                
+                Database.database().reference().child("profile").child(Auth.auth().currentUser!.uid).setValue(newUser) { (error, ref) in
+                    if error != nil {
+                        print(error!)
+                        return
+                    }else{
+                        print("Profile successfully created!")
+                    }
+                }
+                
+            }
+        })
+    }
+    
     @IBOutlet var googleLoginBtn: GIDSignInButton!
-    
-    
-    
     
     
     @IBOutlet weak var loginView: UIView!
@@ -32,8 +97,12 @@ class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate {
         passwordTextField.delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
        
+        //facebookLoginBtn.delegate = self
+        
          let tapGesture = UITapGestureRecognizer(target: self, action: #selector (loginViewTapped))
          loginView.addGestureRecognizer(tapGesture)
+        
+        
         
     }
     

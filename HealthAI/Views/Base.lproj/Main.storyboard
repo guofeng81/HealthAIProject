@@ -127,9 +127,21 @@
                                                     <action selector="googleLoginPressed:" destination="ru6-BC-kGW" eventType="touchUpInside" id="Jpi-bK-HlO"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7y-mg-Y95">
+                                                <rect key="frame" x="227" y="188" width="46" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="46" id="3oI-O3-1Mh"/>
+                                                    <constraint firstAttribute="height" constant="35" id="YmH-Cu-2ec"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="facebookLoginBtn:" destination="ru6-BC-kGW" eventType="touchUpInside" id="8mm-rE-xZr"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="SaW-M8-7lL" secondAttribute="trailing" constant="20" id="JIz-nd-M8k"/>
+                                            <constraint firstAttribute="trailing" secondItem="V7y-mg-Y95" secondAttribute="trailing" constant="102" id="MC6-b4-9oJ"/>
                                             <constraint firstItem="SaW-M8-7lL" firstAttribute="top" secondItem="4Wa-F7-hv5" secondAttribute="top" id="NW8-FQ-5A8"/>
                                             <constraint firstItem="SaW-M8-7lL" firstAttribute="leading" secondItem="4Wa-F7-hv5" secondAttribute="leading" constant="20" id="O2d-FK-RkA"/>
                                             <constraint firstItem="5Sv-h7-O8q" firstAttribute="top" secondItem="zU1-3j-7In" secondAttribute="bottom" constant="8" id="Oe8-p0-MIT"/>
@@ -139,9 +151,11 @@
                                             <constraint firstAttribute="trailing" secondItem="zU1-3j-7In" secondAttribute="trailing" constant="43" id="YEp-FC-9g2"/>
                                             <constraint firstAttribute="height" constant="279" id="aeJ-9t-pCq"/>
                                             <constraint firstItem="5Sv-h7-O8q" firstAttribute="leading" secondItem="4Wa-F7-hv5" secondAttribute="leading" constant="115" id="b3i-z0-ZJp"/>
+                                            <constraint firstItem="V7y-mg-Y95" firstAttribute="top" secondItem="zU1-3j-7In" secondAttribute="bottom" constant="8" id="exn-mI-zKf"/>
                                             <constraint firstItem="zU1-3j-7In" firstAttribute="top" secondItem="SaW-M8-7lL" secondAttribute="bottom" constant="8" id="hbL-6h-rJ7"/>
                                             <constraint firstAttribute="bottom" secondItem="S3h-Zt-PtA" secondAttribute="bottom" constant="18" id="ntA-97-YH7"/>
                                             <constraint firstItem="5Sv-h7-O8q" firstAttribute="top" secondItem="zU1-3j-7In" secondAttribute="bottom" constant="8" id="pE3-cF-mZ6"/>
+                                            <constraint firstItem="S3h-Zt-PtA" firstAttribute="top" secondItem="V7y-mg-Y95" secondAttribute="bottom" constant="4" id="y89-lZ-1XT"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -169,6 +183,7 @@
                     <navigationItem key="navigationItem" id="z5q-BL-Vbs"/>
                     <connections>
                         <outlet property="emailTextField" destination="H6E-bm-S0Y" id="Y34-SG-Jjr"/>
+                        <outlet property="facebookLoginBtn" destination="V7y-mg-Y95" id="GnF-qb-d59"/>
                         <outlet property="googleLoginBtn" destination="5Sv-h7-O8q" id="Hml-hB-auu"/>
                         <outlet property="heightConstraint" destination="09t-ef-nuQ" id="Nmt-aj-m2P"/>
                         <outlet property="loginBtn" destination="zU1-3j-7In" id="CKa-cX-qNk"/>

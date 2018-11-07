@@ -14,6 +14,7 @@ import SwiftyJSON
 import FirebaseDatabase
 import ChameleonFramework
 import FirebaseStorage
+import FBSDKLoginKit
 
 class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
@@ -329,6 +330,7 @@ extension HealthMainViewController: SidebarViewDelegate {
             do {
                 if Auth.auth().currentUser != nil {
                     try Auth.auth().signOut()
+                    FBSDKLoginManager().logOut()
                     
                     //must use dismiss the viewcontroller, should not use present
                     self.dismiss(animated: true, completion: nil)

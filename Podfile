@@ -20,6 +20,8 @@ pod 'SwipeCellKit'
 pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', :branch => 'wip/swift4'
 pod 'Charts'
 pod 'GoogleSignIn'
+pod 'FacebookCore'
+pod 'FacebookLogin'
 
 
 end
