@@ -279,11 +279,11 @@
 			children = (
 				B30E61BE21754163004135B9 /* HealthMainViewController.swift */,
 				6455C8E521642E36009F4D33 /* ViewController.swift */,
+				B3428D1321753957000BEFAE /* RegisterViewController.swift */,
+				B31051742187B6D100D9932F /* ProfileViewController.swift */,
 				64303E78218A65B200A59AF3 /* TodoLIstViewController.swift */,
 				6418CCF4218A77CA0072951B /* WorkoutTableViewCell.swift */,
 				6418CCF5218A77CA0072951B /* WorkoutTableViewCell.xib */,
-				B3428D1321753957000BEFAE /* RegisterViewController.swift */,
-				B31051742187B6D100D9932F /* ProfileViewController.swift */,
 				AE42F893218A26BB008AF49C /* BMIViewController.swift */,
 				64303E7A218A667B00A59AF3 /* WorkoutHistoryTableViewController.swift */,
 				64303E7E218A6B1500A59AF3 /* WorkoutClockViewController.swift */,

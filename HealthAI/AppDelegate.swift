@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
                 print(error!)
             }else{
                 //user signed in with google
-                AuthServices.createUserProfile(auth!.user)
+                AuthServices.createUserProfile()
                 //TODO - pop to the Health Main Screen
                 let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let myNewVC = mainStoryboard.instantiateViewController(withIdentifier: "HealthMain") as! HealthMainViewController

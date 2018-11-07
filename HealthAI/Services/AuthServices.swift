@@ -42,22 +42,24 @@ class AuthServices{
             if error != nil {
                 self.handleFirebaseError(error: error! as NSError, onComplete: onComplete)
             }else{
-                AuthServices.createUserProfile(result!.user)
+                AuthServices.createUserProfile()
                 onComplete?(nil,result?.user)
                 print("Successfully Sign up!!")
             }
         }
     }
     
-    static func createUserProfile(_ user: User!){
+    static func createUserProfile(uName: String = (Auth.auth().currentUser?.email)!.components(separatedBy: "@")[0]){
         
-        let delimiter = "@"
-        let email = user.email
-        let uName = email?.components(separatedBy: delimiter)
+        let user = Auth.auth().currentUser
         
-        let newUser = ["email":email,"username": uName?[0],"photo":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/empty_profile.png?alt=media&token=d25ab88e-e758-407d-bed9-cb6def5385a6","height": "","weight":"","glucose": "","bloodpressure":""]
+        //let delimiter = "@"
+        let email = user?.email
+        //let uName = email.components(separatedBy: delimiter)
         
-        Database.database().reference().child("profile").child(user.uid).setValue(newUser) { (error, ref) in
+        let newUser = ["email":email,"username": uName,"photo":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/empty_profile.png?alt=media&token=d25ab88e-e758-407d-bed9-cb6def5385a6","height": "","weight":"","glucose": "","bloodpressure":""]
+        
+        Database.database().reference().child("profile").child(user!.uid).setValue(newUser) { (error, ref) in
             if error != nil {
                 print(error!)
                 return
@@ -66,6 +68,7 @@ class AuthServices{
             }
         }
     }
+
     
     
     

@@ -61,18 +61,8 @@ class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,F
                 guard let result = result as? [String: Any] else {return}
                 
                 let name = result["name"] as? String
-                let email = result["email"] as? String
                 
-                let newUser = ["email":email,"username": name,"photo":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/empty_profile.png?alt=media&token=d25ab88e-e758-407d-bed9-cb6def5385a6","height": "","weight":"","glucose": "","bloodpressure":""]
-                
-                Database.database().reference().child("profile").child(Auth.auth().currentUser!.uid).setValue(newUser) { (error, ref) in
-                    if error != nil {
-                        print(error!)
-                        return
-                    }else{
-                        print("Profile successfully created!")
-                    }
-                }
+                AuthServices.createUserProfile(uName: name!)
                 
             }
         })
