@@ -75,6 +75,20 @@
                                                     <constraint firstAttribute="width" constant="335" id="6aC-5t-W1M"/>
                                                 </constraints>
                                             </stackView>
+                                            <button alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zU1-3j-7In" customClass="TKTransitionSubmitButton" customModule="TKSubmitTransition">
+                                                <rect key="frame" x="61" y="128" width="271" height="52"/>
+                                                <color key="backgroundColor" red="0.097387246787548065" green="0.52260202169418335" blue="0.56187105178833008" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="52" id="LGI-Fb-672"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <state key="normal" title="Log In">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="loginBtnPressed:" destination="ru6-BC-kGW" eventType="touchUpInside" id="OEl-kQ-dFA"/>
+                                                </connections>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3h-Zt-PtA">
                                                 <rect key="frame" x="51.5" y="227" width="272.5" height="34"/>
                                                 <subviews>
@@ -102,26 +116,15 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-h7-O8q">
-                                                <rect key="frame" x="79" y="189" width="100" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Google Sign In"/>
+                                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-h7-O8q">
+                                                <rect key="frame" x="115" y="188" width="35" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="8xu-Yd-8VY"/>
+                                                    <constraint firstAttribute="width" constant="35" id="tzZ-mE-wKd"/>
+                                                </constraints>
+                                                <state key="normal" backgroundImage="googleImage-1"/>
                                                 <connections>
                                                     <action selector="googleLoginPressed:" destination="ru6-BC-kGW" eventType="touchUpInside" id="Jpi-bK-HlO"/>
-                                                </connections>
-                                            </button>
-                                            <button alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zU1-3j-7In" customClass="TKTransitionSubmitButton" customModule="TKSubmitTransition">
-                                                <rect key="frame" x="61" y="128" width="271" height="52"/>
-                                                <color key="backgroundColor" red="0.097387246787548065" green="0.52260202169418335" blue="0.56187105178833008" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="52" id="LGI-Fb-672"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                <state key="normal" title="Log In">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="loginBtnPressed:" destination="ru6-BC-kGW" eventType="touchUpInside" id="OEl-kQ-dFA"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -129,12 +132,16 @@
                                             <constraint firstAttribute="trailing" secondItem="SaW-M8-7lL" secondAttribute="trailing" constant="20" id="JIz-nd-M8k"/>
                                             <constraint firstItem="SaW-M8-7lL" firstAttribute="top" secondItem="4Wa-F7-hv5" secondAttribute="top" id="NW8-FQ-5A8"/>
                                             <constraint firstItem="SaW-M8-7lL" firstAttribute="leading" secondItem="4Wa-F7-hv5" secondAttribute="leading" constant="20" id="O2d-FK-RkA"/>
+                                            <constraint firstItem="5Sv-h7-O8q" firstAttribute="top" secondItem="zU1-3j-7In" secondAttribute="bottom" constant="8" id="Oe8-p0-MIT"/>
                                             <constraint firstItem="S3h-Zt-PtA" firstAttribute="centerX" secondItem="4Wa-F7-hv5" secondAttribute="centerX" id="Pyd-Dt-Rk1"/>
                                             <constraint firstItem="zU1-3j-7In" firstAttribute="leading" secondItem="4Wa-F7-hv5" secondAttribute="leading" constant="61" id="TOE-qI-Cm8"/>
+                                            <constraint firstItem="S3h-Zt-PtA" firstAttribute="top" secondItem="5Sv-h7-O8q" secondAttribute="bottom" constant="4" id="XoH-8b-hba"/>
                                             <constraint firstAttribute="trailing" secondItem="zU1-3j-7In" secondAttribute="trailing" constant="43" id="YEp-FC-9g2"/>
                                             <constraint firstAttribute="height" constant="279" id="aeJ-9t-pCq"/>
+                                            <constraint firstItem="5Sv-h7-O8q" firstAttribute="leading" secondItem="4Wa-F7-hv5" secondAttribute="leading" constant="115" id="b3i-z0-ZJp"/>
                                             <constraint firstItem="zU1-3j-7In" firstAttribute="top" secondItem="SaW-M8-7lL" secondAttribute="bottom" constant="8" id="hbL-6h-rJ7"/>
                                             <constraint firstAttribute="bottom" secondItem="S3h-Zt-PtA" secondAttribute="bottom" constant="18" id="ntA-97-YH7"/>
+                                            <constraint firstItem="5Sv-h7-O8q" firstAttribute="top" secondItem="zU1-3j-7In" secondAttribute="bottom" constant="8" id="pE3-cF-mZ6"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -174,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2k-aQ-snd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="35"/>
+            <point key="canvasLocation" x="1100" y="34.632683658170919"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="d9e-Ia-YKF">
@@ -2166,6 +2173,7 @@
         <image name="cam-1" width="796" height="534"/>
         <image name="cloudy2" width="128" height="128"/>
         <image name="dbPredictor" width="800" height="500"/>
+        <image name="googleImage-1" width="329" height="311"/>
         <image name="healthAI" width="564" height="1002"/>
         <image name="highlya" width="463" height="360"/>
         <image name="lightlya" width="172" height="292"/>

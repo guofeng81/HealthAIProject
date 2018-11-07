@@ -15,38 +15,11 @@ import GoogleSignIn
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     
     
-//    func crateUserProfile(user: User){
-//
-//        let googleLoginUserId = user.uid
-//
-//        print("Successfully log in Firebase with google", user.uid)
-//        print("Email", user.email!)
-//
-//        let delimiter = "@"
-//        let email = user.email!
-//        let uName = email.components(separatedBy: delimiter)
-//
-//
-//        let newUser = ["email":email,"username": uName[0],"photo":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/empty_profile.png?alt=media&token=d25ab88e-e758-407d-bed9-cb6def5385a6","height": "","weight":"","glucose": "","bloodpressure":""]
-//
-//        Database.database().reference().child("profile").child(googleLoginUserId).setValue(newUser) { (error, ref) in
-//            if error != nil {
-//                print(error!)
-//                return
-//            }else{
-//                print("Profile successfully created!")
-//            }
-//        }
-//    }
-    
-    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        
         
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                        accessToken: authentication.accessToken)
-
 
         Auth.auth().signInAndRetrieveData(with: credential) { (auth, error) in
             if error != nil {
@@ -54,12 +27,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             }else{
                 //user signed in with google
                 AuthServices.createUserProfile(auth!.user)
+                let mainStoryboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let myNewVC = mainStoryboard.instantiateViewController(withIdentifier: "HealthMain") as! HealthMainViewController
+                let navController = UINavigationController(rootViewController: myNewVC)
+                navController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                
+                let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                appDelegate?.window?.rootViewController?.present(navController, animated: true, completion: nil)
+                print("Google Sign In method gets called!!")
             }
         }
         
         //TODO - pop to the Health Main Screen
         
-    
+        
+        
+        
+        
+        
+        
         
     }
     

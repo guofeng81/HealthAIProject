@@ -78,6 +78,9 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
         loadLocationManager()
         //need to extract out
         setupBackgroundView()
+        
+        self.definesPresentationContext = true
+        print("View did load!!!!!")
     }
     
     //extract this function out
@@ -327,12 +330,8 @@ extension HealthMainViewController: SidebarViewDelegate {
                 if Auth.auth().currentUser != nil {
                     try Auth.auth().signOut()
                     
-                    //use push
-                    if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as? ViewController
-                    {
-                        present(vc, animated: true, completion: nil)
-                    }
-                    
+                    //must use dismiss the viewcontroller, should not use present
+                    self.dismiss(animated: true, completion: nil)
                     
                 }else{
                     print("There is no user log in. ")
@@ -347,6 +346,7 @@ extension HealthMainViewController: SidebarViewDelegate {
         }
     }
 }
+
 
 
 

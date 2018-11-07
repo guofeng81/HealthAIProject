@@ -10,7 +10,7 @@ import GoogleSignIn
 class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate {
     
 
-    @IBOutlet var googleLoginBtn: UIButton!
+    @IBOutlet var googleLoginBtn: GIDSignInButton!
     
     
     
@@ -37,8 +37,9 @@ class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate {
         
     }
     
-    @IBAction func googleLoginPressed(_ sender: UIButton) {
+    @IBAction func googleLoginPressed(_ sender: GIDSignInButton) {
         GIDSignIn.sharedInstance()?.signIn()
+       // performSegue(withIdentifier: "goToHealthMain", sender: self)
     }
     
     @objc func loginViewTapped() {
