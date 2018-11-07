@@ -15,6 +15,8 @@ import UserNotifications
 
 class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,FBSDKLoginButtonDelegate {
     
+    @IBAction func unwindToVC1(segue:UIStoryboardSegue) { }
+    
     @IBAction func forgetPasswordBtn(_ sender: UIButton) {
         
         let alertController = UIAlertController(title: "Forgot My Password", message: "To reset your password, please enter your email address.", preferredStyle: .alert);

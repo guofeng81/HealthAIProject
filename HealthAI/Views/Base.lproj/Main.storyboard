@@ -1065,9 +1065,11 @@
                         <segue destination="cfQ-WP-CDJ" kind="show" identifier="goToSteps" id="Sbv-oI-gOQ"/>
                         <segue destination="DQB-Zw-dRE" kind="show" identifier="dashboardToDiabetesForm" id="c1d-II-yB4"/>
                         <segue destination="N07-B8-JBK" kind="show" identifier="maintosub" id="MFl-aq-XM2"/>
+                        <segue destination="V0T-Z4-ttn" kind="unwind" identifier="unwindSegueToLogin" unwindAction="unwindToVC1WithSegue:" id="I29-Iq-DBP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="V0T-Z4-ttn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2789.8550724637685" y="-383.70535714285711"/>
         </scene>

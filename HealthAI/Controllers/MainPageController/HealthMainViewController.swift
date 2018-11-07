@@ -334,7 +334,9 @@ extension HealthMainViewController: SidebarViewDelegate {
                     FBSDKLoginManager().logOut()
                     GIDSignIn.sharedInstance().signOut()
                     //must use dismiss the viewcontroller, should not use present
-                    self.dismiss(animated: true, completion: nil)
+                    
+                    //self.dismiss(animated: true, completion: nil)
+                   performSegue(withIdentifier: "unwindSegueToLogin", sender: self)
                     
                 }else{
                     print("There is no user log in. ")
