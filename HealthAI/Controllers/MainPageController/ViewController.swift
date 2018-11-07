@@ -14,8 +14,6 @@ import SVProgressHUD
 
 class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,FBSDKLoginButtonDelegate {
     
-    @IBOutlet var facebookLoginBtn: UIButton!
-    
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if let error = error {
             print(error.localizedDescription)
@@ -67,6 +65,7 @@ class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,F
         })
     }
     
+    @IBOutlet var facebookLoginBtn: UIButton!
     @IBOutlet var googleLoginBtn: GIDSignInButton!
     @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
