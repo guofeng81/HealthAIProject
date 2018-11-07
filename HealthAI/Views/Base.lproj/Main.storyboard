@@ -90,7 +90,7 @@
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3h-Zt-PtA">
-                                                <rect key="frame" x="51.5" y="227" width="272.5" height="34"/>
+                                                <rect key="frame" x="51.5" y="232" width="272.5" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IoM-EC-ueM">
                                                         <rect key="frame" x="0.0" y="0.0" width="203.5" height="34"/>
@@ -116,46 +116,46 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-h7-O8q">
-                                                <rect key="frame" x="115" y="188" width="35" height="35"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="35" id="8xu-Yd-8VY"/>
-                                                    <constraint firstAttribute="width" constant="35" id="tzZ-mE-wKd"/>
-                                                </constraints>
-                                                <state key="normal" backgroundImage="googleImage-1"/>
-                                                <connections>
-                                                    <action selector="googleLoginPressed:" destination="ru6-BC-kGW" eventType="touchUpInside" id="Jpi-bK-HlO"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7y-mg-Y95">
-                                                <rect key="frame" x="227" y="188" width="46" height="35"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="46" id="3oI-O3-1Mh"/>
-                                                    <constraint firstAttribute="height" constant="35" id="YmH-Cu-2ec"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <connections>
-                                                    <action selector="facebookLoginBtn:" destination="ru6-BC-kGW" eventType="touchUpInside" id="8mm-rE-xZr"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="f83-Dd-KYa">
+                                                <rect key="frame" x="112.5" y="188" width="150" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-h7-O8q">
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="PGd-0F-auE"/>
+                                                            <constraint firstAttribute="height" constant="40" id="W3f-it-enr"/>
+                                                        </constraints>
+                                                        <state key="normal" backgroundImage="googleImage-1"/>
+                                                        <connections>
+                                                            <action selector="googleLoginPressed:" destination="ru6-BC-kGW" eventType="touchUpInside" id="Jpi-bK-HlO"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7y-mg-Y95">
+                                                        <rect key="frame" x="110" y="0.0" width="40" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="G22-oq-tSa"/>
+                                                            <constraint firstAttribute="height" constant="40" id="KwY-zx-ArZ"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button" image="fb"/>
+                                                        <connections>
+                                                            <action selector="facebookLoginBtn:" destination="ru6-BC-kGW" eventType="touchUpInside" id="8mm-rE-xZr"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="f83-Dd-KYa" firstAttribute="top" secondItem="zU1-3j-7In" secondAttribute="bottom" constant="8" id="C6Y-sh-d9K"/>
                                             <constraint firstAttribute="trailing" secondItem="SaW-M8-7lL" secondAttribute="trailing" constant="20" id="JIz-nd-M8k"/>
-                                            <constraint firstAttribute="trailing" secondItem="V7y-mg-Y95" secondAttribute="trailing" constant="102" id="MC6-b4-9oJ"/>
                                             <constraint firstItem="SaW-M8-7lL" firstAttribute="top" secondItem="4Wa-F7-hv5" secondAttribute="top" id="NW8-FQ-5A8"/>
                                             <constraint firstItem="SaW-M8-7lL" firstAttribute="leading" secondItem="4Wa-F7-hv5" secondAttribute="leading" constant="20" id="O2d-FK-RkA"/>
-                                            <constraint firstItem="5Sv-h7-O8q" firstAttribute="top" secondItem="zU1-3j-7In" secondAttribute="bottom" constant="8" id="Oe8-p0-MIT"/>
+                                            <constraint firstItem="f83-Dd-KYa" firstAttribute="centerX" secondItem="4Wa-F7-hv5" secondAttribute="centerX" id="Pa4-aY-k51"/>
                                             <constraint firstItem="S3h-Zt-PtA" firstAttribute="centerX" secondItem="4Wa-F7-hv5" secondAttribute="centerX" id="Pyd-Dt-Rk1"/>
                                             <constraint firstItem="zU1-3j-7In" firstAttribute="leading" secondItem="4Wa-F7-hv5" secondAttribute="leading" constant="61" id="TOE-qI-Cm8"/>
-                                            <constraint firstItem="S3h-Zt-PtA" firstAttribute="top" secondItem="5Sv-h7-O8q" secondAttribute="bottom" constant="4" id="XoH-8b-hba"/>
                                             <constraint firstAttribute="trailing" secondItem="zU1-3j-7In" secondAttribute="trailing" constant="43" id="YEp-FC-9g2"/>
                                             <constraint firstAttribute="height" constant="279" id="aeJ-9t-pCq"/>
-                                            <constraint firstItem="5Sv-h7-O8q" firstAttribute="leading" secondItem="4Wa-F7-hv5" secondAttribute="leading" constant="115" id="b3i-z0-ZJp"/>
-                                            <constraint firstItem="V7y-mg-Y95" firstAttribute="top" secondItem="zU1-3j-7In" secondAttribute="bottom" constant="8" id="exn-mI-zKf"/>
                                             <constraint firstItem="zU1-3j-7In" firstAttribute="top" secondItem="SaW-M8-7lL" secondAttribute="bottom" constant="8" id="hbL-6h-rJ7"/>
-                                            <constraint firstAttribute="bottom" secondItem="S3h-Zt-PtA" secondAttribute="bottom" constant="18" id="ntA-97-YH7"/>
-                                            <constraint firstItem="5Sv-h7-O8q" firstAttribute="top" secondItem="zU1-3j-7In" secondAttribute="bottom" constant="8" id="pE3-cF-mZ6"/>
-                                            <constraint firstItem="S3h-Zt-PtA" firstAttribute="top" secondItem="V7y-mg-Y95" secondAttribute="bottom" constant="4" id="y89-lZ-1XT"/>
+                                            <constraint firstItem="S3h-Zt-PtA" firstAttribute="top" secondItem="f83-Dd-KYa" secondAttribute="bottom" constant="4" id="tGF-C4-YMu"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2188,6 +2188,7 @@
         <image name="cam-1" width="796" height="534"/>
         <image name="cloudy2" width="128" height="128"/>
         <image name="dbPredictor" width="800" height="500"/>
+        <image name="fb" width="391" height="399"/>
         <image name="googleImage-1" width="329" height="311"/>
         <image name="healthAI" width="564" height="1002"/>
         <image name="highlya" width="463" height="360"/>

@@ -84,8 +84,17 @@ class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,F
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector (loginViewTapped))
         loginView.addGestureRecognizer(tapGesture)
+        setupFacebookAndGoogleBtn()
         
     }
+    
+    func setupFacebookAndGoogleBtn(){
+         facebookLoginBtn.layer.cornerRadius = facebookLoginBtn.frame.width/2
+         facebookLoginBtn.clipsToBounds = true
+        googleLoginBtn.layer.cornerRadius = googleLoginBtn.frame.width/2
+        googleLoginBtn.clipsToBounds = true
+    }
+    
     
     @IBAction func googleLoginPressed(_ sender: GIDSignInButton) {
         GIDSignIn.sharedInstance()?.signIn()
