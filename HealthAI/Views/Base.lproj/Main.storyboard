@@ -1696,7 +1696,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qWI-O1-bgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2705" y="930"/>
+            <point key="canvasLocation" x="2686" y="501"/>
         </scene>
         <!--Workout History Table View Controller-->
         <scene sceneID="fmr-o2-Bod">
@@ -1707,11 +1707,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="workoutCell" id="d56-YJ-Acl">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="55" id="d56-YJ-Acl">
+                                <rect key="frame" x="0.0" y="28" width="375" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d56-YJ-Acl" id="W7o-VS-qqD">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1721,10 +1721,41 @@
                             <outlet property="delegate" destination="wNw-Oq-fKw" id="NX9-Gw-zQn"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="MHZ-dO-Vjr" kind="show" identifier="goToHistoryDetail" id="fTf-mz-Amu"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pWw-3f-fHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2268" y="1638"/>
+            <point key="canvasLocation" x="2132" y="1579"/>
+        </scene>
+        <!--History Detail Table View Controller-->
+        <scene sceneID="amg-eU-JCt">
+            <objects>
+                <tableViewController id="MHZ-dO-Vjr" customClass="HistoryDetailTableViewController" customModule="HealthAI" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4jb-FX-Nzt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XzN-xg-Yt1">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XzN-xg-Yt1" id="bUr-eK-kzW">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MHZ-dO-Vjr" id="i4Z-Zt-mkT"/>
+                            <outlet property="delegate" destination="MHZ-dO-Vjr" id="lup-Lr-kPR"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V5f-B7-qVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2972" y="1598"/>
         </scene>
         <!--TodoL Ist View Controller-->
         <scene sceneID="9cp-Pi-PEf">
@@ -1812,12 +1843,63 @@
                     <connections>
                         <outlet property="contentText" destination="tLN-II-Uz9" id="Bx0-DM-Twj"/>
                         <outlet property="titleText" destination="zwF-ut-oNj" id="1go-ev-Rgc"/>
-                        <segue destination="eiu-2E-KDF" kind="show" identifier="beginWorkout" id="Iih-km-sfr"/>
+                        <segue destination="Vad-gH-eDp" kind="show" identifier="beginWorkout" id="54p-oD-NTW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5HU-zS-Hv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4241" y="940"/>
+        </scene>
+        <!--Sub Workouts View Controller-->
+        <scene sceneID="F6Y-yH-nkV">
+            <objects>
+                <viewController id="Vad-gH-eDp" customClass="SubWorkoutsViewController" customModule="HealthAI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iAt-bC-RdS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kkf-tI-mdF">
+                                <rect key="frame" x="0.0" y="224" width="375" height="443"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subworkoutCell" id="7bw-LM-932">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7bw-LM-932" id="N53-Y7-nOk">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Vad-gH-eDp" id="r9o-dO-tYu"/>
+                                    <outlet property="delegate" destination="Vad-gH-eDp" id="Fri-r0-5uh"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ3-Lz-ucy">
+                                <rect key="frame" x="274" y="116" width="33" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="end"/>
+                                <connections>
+                                    <action selector="endWorkoutBtn:" destination="Vad-gH-eDp" eventType="touchUpInside" id="iLr-gj-ocC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Kkf-tI-mdF" firstAttribute="bottom" secondItem="Of4-hN-RXv" secondAttribute="bottom" id="3Zf-Mh-Gg9"/>
+                            <constraint firstItem="Kkf-tI-mdF" firstAttribute="leading" secondItem="Of4-hN-RXv" secondAttribute="leading" id="Lhm-AE-6Bq"/>
+                            <constraint firstItem="Kkf-tI-mdF" firstAttribute="top" secondItem="ZJ3-Lz-ucy" secondAttribute="bottom" constant="72" id="QCu-jc-adF"/>
+                            <constraint firstItem="Of4-hN-RXv" firstAttribute="trailing" secondItem="ZJ3-Lz-ucy" secondAttribute="trailing" constant="68" id="aN6-lr-GNK"/>
+                            <constraint firstItem="ZJ3-Lz-ucy" firstAttribute="top" secondItem="Of4-hN-RXv" secondAttribute="top" constant="52" id="xOT-zf-aGy"/>
+                            <constraint firstItem="Kkf-tI-mdF" firstAttribute="trailing" secondItem="Of4-hN-RXv" secondAttribute="trailing" id="zlk-a4-TD4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Of4-hN-RXv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NO6-kz-a6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5146" y="940"/>
         </scene>
         <!--Workout Clock View Controller-->
         <scene sceneID="Vh8-AR-uIZ">
@@ -1828,13 +1910,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hy-Tb-W0v">
-                                <rect key="frame" x="15" y="79" width="345" height="27.5"/>
+                                <rect key="frame" x="15" y="35" width="345" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsm-PZ-yLN">
-                                <rect key="frame" x="15" y="136.5" width="345" height="50"/>
+                                <rect key="frame" x="15" y="92.5" width="345" height="50"/>
                                 <color key="backgroundColor" red="0.62042007529999998" green="0.083791903890000005" blue="0.98132258650000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="d33-Wy-uH6"/>
@@ -1847,7 +1929,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGL-qk-AfD">
-                                <rect key="frame" x="15" y="216.5" width="345" height="50"/>
+                                <rect key="frame" x="15" y="172.5" width="345" height="50"/>
                                 <color key="backgroundColor" red="0.62042007529999998" green="0.083791903890000005" blue="0.98132258650000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="e0n-8W-bnR"/>
@@ -1860,7 +1942,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjb-gu-oha">
-                                <rect key="frame" x="15" y="296.5" width="345" height="50"/>
+                                <rect key="frame" x="15" y="252.5" width="345" height="50"/>
                                 <color key="backgroundColor" red="0.62042007529999998" green="0.083791903890000005" blue="0.98132258650000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3vd-Ya-4fB"/>
@@ -1873,7 +1955,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOb-NX-c3L">
-                                <rect key="frame" x="15" y="376.5" width="345" height="50"/>
+                                <rect key="frame" x="15" y="332.5" width="345" height="50"/>
                                 <color key="backgroundColor" red="0.62042007529999998" green="0.083791903890000005" blue="0.98132258650000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="U60-Cj-pVx"/>
@@ -1913,7 +1995,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4J-Rl-eqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4976.8000000000002" y="939.58020989505258"/>
+            <point key="canvasLocation" x="4241" y="1740"/>
         </scene>
         <!--Steps View Controller-->
         <scene sceneID="Crr-jn-NYx">

@@ -11,8 +11,8 @@ import os.log
 
 class TodoLIstViewController: UITableViewController{
     
-    var workoutList = [WorkoutDataModel]()
-    var selectedData = WorkoutDataModel()
+    var workoutItems = [WorkoutItem]()
+    var selectedworkoutItem = WorkoutItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,18 +29,18 @@ class TodoLIstViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return workoutList.count
+        return workoutItems.count
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedData = workoutList[indexPath.row]
+        self.selectedworkoutItem = workoutItems[indexPath.row]
         performSegue(withIdentifier: "goToWorkoutDetails", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToWorkoutDetails" {
             let seg = segue.destination as! WorkoutDetailViewController
-            seg.selectedData = self.selectedData
+            seg.selectedWorkoutItem = self.selectedworkoutItem
         }
     }
     
@@ -52,14 +52,12 @@ class TodoLIstViewController: UITableViewController{
             fatalError()
         }
         
-        selectedData = workoutList[indexPath.row]
+        selectedworkoutItem = workoutItems[indexPath.row]
         
-        cell.titleLabel.text = selectedData.title
-        cell.middleLabel.text = "\(selectedData.duration) - \(selectedData.level)"
-        cell.bodyLabel.text = selectedData.body
-        cell.strengthLabel.text = selectedData.strength
-        
-        
+        cell.titleLabel.text = selectedworkoutItem.title
+        cell.middleLabel.text = "\(selectedworkoutItem.duration) - \(selectedworkoutItem.hardness)"
+        cell.bodyLabel.text = selectedworkoutItem.body
+        cell.strengthLabel.text = selectedworkoutItem.strength
         
         return cell
     }
@@ -69,49 +67,5 @@ class TodoLIstViewController: UITableViewController{
         return 110
     }
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class WorkoutViewController: UIViewController {
     
-    var arrayOfWorkout = [WorkoutDataModel]()
+    var workoutItems = [WorkoutItem]()
     
     @IBOutlet weak var historyView: UIView!
     @IBOutlet weak var workoutView: UIView!
@@ -19,33 +19,47 @@ class WorkoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let workout = WorkoutDataModel()
+        let workout = WorkoutItem()
         workout.title = "Arms"
         workout.content = "Tone and develop your arm muscles.You will go through eight exercises, alternating between three sets of 10 reps and two sets of 20 reps"
         //workout.workoutDuration = "40min"
         workout.body = "upper body"
         workout.strength = "strength"
         workout.duration = "40 mins"
-        workout.level = "Intemediate"
+        workout.hardness = "Intemediate"
         
         
-        let workout2 = WorkoutDataModel()
+        let subworkout1 = SubworkoutItem()
+        subworkout1.title = "Barbell Biceps Curl"
+        
+        let subworkout2 = SubworkoutItem()
+        subworkout2.title = "Barbell Reverse Curl"
+        
+        workout.subworkouts.append(subworkout1)
+        workout.subworkouts.append(subworkout2)
+        
+        let workout2 = WorkoutItem()
         workout2.title = "Back"
-        workout2.content = "Tone and develop your arm muscles.You will go through eight exercises, alternating between three sets of 10 reps and two sets of 10 reps"
-        //workout2.workoutDuration = "30min"
+        workout2.content = "Tone and develop your back muscles.You will go through five exercises, alternating between three sets of 10 reps and two sets of 10 reps"
         workout2.body = "lower body"
         workout2.strength = "strength"
         workout2.duration = "30 mins"
-        workout2.level = "Intemediate"
+        workout2.hardness = "Intemediate"
+        
+        let subworkout3 = SubworkoutItem()
+        subworkout3.title = "Barbell Biceps Curl"
+        
+        let subworkout4 = SubworkoutItem()
+        subworkout4.title = "Barbell Reverse Curl"
+        
+        workout2.subworkouts.append(subworkout3)
+        workout2.subworkouts.append(subworkout4)
         
         
-        arrayOfWorkout.append(workout)
-        arrayOfWorkout.append(workout2)
-        
+        workoutItems.append(workout)
+        workoutItems.append(workout2)
         
         setupGesture()
-        
-        
         
     }
     
@@ -66,26 +80,18 @@ class WorkoutViewController: UIViewController {
         performSegue(withIdentifier: "goToWorkoutHistory", sender: self)
     }
     
-    
-    
-    
-    //    @IBAction func workoutHistoryBtn(_ sender: UIButton) {
-    //
-    //        performSegue(withIdentifier: "goToWorkoutHistory", sender: self)
-    //    }
-    //
-    //    @IBAction func workoutBtn(_ sender: Any) {
-    //        performSegue(withIdentifier: "goToWorkout", sender: self)
-    //    }
-    //
-    //
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToWorkout" {
             let seg = segue.destination as! TodoLIstViewController
-            seg.workoutList = self.arrayOfWorkout
+            seg.workoutItems = self.workoutItems
         }
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "goToWorkout" {
+//            let seg = segue.destination as! TodoListViewController
+//            seg.workoutItems = self.workoutItems
+//        }
+//    }
 
 }

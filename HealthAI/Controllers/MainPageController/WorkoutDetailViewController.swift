@@ -9,9 +9,9 @@
 import UIKit
 
 class WorkoutDetailViewController: UIViewController {
-    var selectedData = WorkoutDataModel()
     
-
+    var selectedWorkoutItem = WorkoutItem()
+    
     @IBOutlet weak var contentText: UILabel!
     @IBOutlet weak var titleText: UILabel!
     //    @IBOutlet weak var titleText: UILabel!
@@ -24,8 +24,8 @@ class WorkoutDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleText.text = selectedData.title
-        contentText.text = selectedData.content
+        titleText.text = selectedWorkoutItem.title
+        contentText.text = selectedWorkoutItem.content
         
         // Do any additional setup after loading the view.
     }
@@ -38,9 +38,9 @@ class WorkoutDetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "beginWorkout" {
-            let seg = segue.destination as! WorkoutClockViewController
+            let seg = segue.destination as! SubWorkoutsViewController
             
-            seg.selectedData = self.selectedData
+            seg.selectedWorkoutItem = self.selectedWorkoutItem
         }
     }
     
