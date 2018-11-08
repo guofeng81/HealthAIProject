@@ -62,7 +62,7 @@ class WorkoutHistoryTableViewController: UITableViewController {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        //performSegue(withIdentifier: "goToHistoryDetail", sender: self)
+        performSegue(withIdentifier: "goToHistoryDetail", sender: self)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -76,6 +76,25 @@ class WorkoutHistoryTableViewController: UITableViewController {
             seg.selectedWorkoutHistoryItem = self.selectedWorkoutHistoryItem
         }
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            if let workoutHistroyForDeletion = self.workoutHistories?[indexPath.row]{
+                do{
+                    try self.realm.write{
+                        self.realm.delete(workoutHistroyForDeletion)
+                    }
+                }catch{
+                    print("Error delelting the the item using realm")
+                }
+            }
+            
+            self.tableView.reloadData()
+        }
+    }
+    
+    
     
 }
 
