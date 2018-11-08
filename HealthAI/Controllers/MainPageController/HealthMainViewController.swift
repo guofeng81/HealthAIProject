@@ -51,7 +51,6 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
     
     @IBOutlet var workoutView: UIView!
     
-    
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "47aa6d0303fe5a8186915aa57b079446"
     
@@ -94,6 +93,13 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
             withFrame: backgroundView.frame,
             andColors: [ UIColor.flatBlue, UIColor.orange, UIColor.green]
         )
+        
+        self.workoutView.layer.cornerRadius = 10.0
+        self.BMIView.layer.cornerRadius = 10.0
+        self.diabeteView.layer.cornerRadius = 10.0
+        self.counterView.layer.cornerRadius = 10.0
+        
+        
     }
     
     
