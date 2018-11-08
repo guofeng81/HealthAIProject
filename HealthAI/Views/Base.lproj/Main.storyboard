@@ -182,7 +182,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o29-NA-cK0"/>
                     </view>
-                    <navigationItem key="navigationItem" id="z5q-BL-Vbs"/>
+                    <navigationItem key="navigationItem" id="z5q-BL-Vbs">
+                        <barButtonItem key="backBarButtonItem" title="Log In" id="97W-GW-Y5d"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="H6E-bm-S0Y" id="Y34-SG-Jjr"/>
                         <outlet property="facebookLoginBtn" destination="V7y-mg-Y95" id="GnF-qb-d59"/>
