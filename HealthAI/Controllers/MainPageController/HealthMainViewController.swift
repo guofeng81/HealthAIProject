@@ -88,17 +88,19 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
     
     func setupBackgroundView(){
         
-        backgroundView.backgroundColor = UIColor.init(
-            gradientStyle: UIGradientStyle.leftToRight,
-            withFrame: backgroundView.frame,
-            andColors: [ UIColor.flatBlue, UIColor.orange, UIColor.green]
-        )
+        DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef, user: user, imageView: backgroundImageView, referenceImageName: "backgroundPhoto")
         
+//        backgroundView.backgroundColor = UIColor.init(
+//            gradientStyle: UIGradientStyle.leftToRight,
+//            withFrame: backgroundView.frame,
+//            andColors: [ UIColor.flatBlue, UIColor.orange, UIColor.green]
+//        )
+//
         self.workoutView.layer.cornerRadius = 10.0
         self.BMIView.layer.cornerRadius = 10.0
         self.diabeteView.layer.cornerRadius = 10.0
         self.counterView.layer.cornerRadius = 10.0
-        
+
     }
     
     

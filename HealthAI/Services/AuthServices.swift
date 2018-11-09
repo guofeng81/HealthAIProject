@@ -16,12 +16,16 @@ typealias Completion = (_ errMsg: String?,_ data: AnyObject?) -> Void
 class AuthServices{
     
      var databaseRef : DatabaseReference! = Database.database().reference()
+//    let profilePhotoUrl: String = "https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/empty_profile.png?alt=media&token=d25ab88e-e758-407d-bed9-cb6def5385a6"
+//    let backgroundPictureUrl:String = ""
     
     private static let _instance = AuthServices()
     
     static var instance: AuthServices {
         return _instance
     }
+    
+    
     
     func login(email:String, password:String, onComplete: Completion?){
         
@@ -57,7 +61,7 @@ class AuthServices{
         let email = user?.email
         //let uName = email.components(separatedBy: delimiter)
         
-        let newUser = ["email":email,"username": uName,"photo":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/empty_profile.png?alt=media&token=d25ab88e-e758-407d-bed9-cb6def5385a6","height": "","weight":"","glucose": "","bloodpressure":""]
+        let newUser = ["email":email,"username": uName,"photo":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/empty_profile.png?alt=media&token=d25ab88e-e758-407d-bed9-cb6def5385a6","backgroundPhoto":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/defaultBackgroundImage.jpg?alt=media&token=c02ab78a-a448-4449-ab56-b622846d472b", "height": "","weight":"","glucose": "","bloodpressure":""]
         
         Database.database().reference().child("profile").child(user!.uid).setValue(newUser) { (error, ref) in
             if error != nil {
@@ -69,9 +73,6 @@ class AuthServices{
         }
     }
 
-    
-    
-    
     func handleFirebaseError(error: NSError, onComplete: Completion?){
         print(error.debugDescription)
         if let errorCode = AuthErrorCode(rawValue: error._code) {

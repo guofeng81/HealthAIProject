@@ -15,14 +15,14 @@ class DatabaseHelper {
     
     
     
-    static func loadDatabaseImage(databaseRef: DatabaseReference!, user: User, imageView: UIImageView){
+    static func loadDatabaseImage(databaseRef: DatabaseReference!, user: User, imageView: UIImageView, referenceImageName: String){
         
         databaseRef.child("profile").child(user.uid).observeSingleEvent(of: .value, with:{ (snapshop) in
             let dictionary = snapshop.value as? NSDictionary
             
             //let username = dictionary?["username"] as? String ?? ""
             
-            if let profileImageURL = dictionary?["photo"] as? String {
+            if let profileImageURL = dictionary?[referenceImageName] as? String {
                 
                 let url = URL(string: profileImageURL)
                 

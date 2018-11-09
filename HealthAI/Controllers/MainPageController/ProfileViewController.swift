@@ -161,7 +161,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         getReferences()
         setProfilePicture(imageView: profileImageView)
         
-        DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef,user: LoginUser, imageView: profileImageView)
+        DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef,user: LoginUser, imageView: profileImageView,referenceImageName: "photo")
         DatabaseHelper.setDatabaseUsername(databaseRef: databaseRef, user: LoginUser, label: usernameLabel)
         
         setImageViewTap()

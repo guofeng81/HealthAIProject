@@ -99,7 +99,7 @@ class SidebarView: UIView, UITableViewDelegate, UITableViewDataSource {
             cellLbl.font=UIFont.systemFont(ofSize: 17)
             cellLbl.textColor=UIColor.white
         
-            DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef, user: user, imageView: cellImg)
+            DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef, user: user, imageView: cellImg,referenceImageName: "photo")
             DatabaseHelper.setDatabaseUsername(databaseRef: databaseRef, user: user, label: cellLbl)
             
             
