@@ -65,9 +65,6 @@ class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,F
     }
     
     
-    
-    
-    
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if let error = error {
             print(error.localizedDescription)
@@ -114,7 +111,11 @@ class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,F
             }else{
                 guard let result = result as? [String: Any] else {return}
                 let name = result["name"] as? String
+                
+                
                 AuthServices.createUserProfile(uName: name!)
+                
+                
             }
         })
     }
@@ -150,8 +151,8 @@ class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,F
     func setupFacebookAndGoogleBtn(){
          facebookLoginBtn.layer.cornerRadius = facebookLoginBtn.frame.width/2
          facebookLoginBtn.clipsToBounds = true
-        googleLoginBtn.layer.cornerRadius = googleLoginBtn.frame.width/2
-        googleLoginBtn.clipsToBounds = true
+         googleLoginBtn.layer.cornerRadius = googleLoginBtn.frame.width/2
+         googleLoginBtn.clipsToBounds = true
     }
     
     

@@ -88,6 +88,8 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
     
     func setupBackgroundView(){
         
+        print("Set up background view called")
+        
         DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef, user: user, imageView: backgroundImageView,referenceName: "backgroundPhoto")
         
 //        backgroundView.backgroundColor = UIColor.init(

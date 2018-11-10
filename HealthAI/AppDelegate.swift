@@ -16,6 +16,9 @@ import SVProgressHUD
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     
+    
+   
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
         if error != nil {
@@ -33,7 +36,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
                 print(error!)
             }else{
                 //user signed in with google
+                
+                print("In the sign in the retrieveData called with google")
+                 
+
                 AuthServices.createUserProfile()
+            
+//
                 //TODO - pop to the Health Main Screen
                 
                 SVProgressHUD.dismiss()
@@ -46,6 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
                 appDelegate?.window?.rootViewController?.present(navController, animated: true, completion: nil)
             }
         }
+        
+        print("Google sign in outside the function.")
+        
+        
     }
     
     var window: UIWindow?

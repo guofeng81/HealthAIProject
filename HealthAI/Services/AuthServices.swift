@@ -46,32 +46,67 @@ class AuthServices{
             if error != nil {
                 self.handleFirebaseError(error: error! as NSError, onComplete: onComplete)
             }else{
+                
                 AuthServices.createUserProfile()
                 onComplete?(nil,result?.user)
                 print("Successfully Sign up!!")
+                
             }
         }
     }
     
     static func createUserProfile(uName: String = (Auth.auth().currentUser?.email)!.components(separatedBy: "@")[0]){
         
-        let user = Auth.auth().currentUser
-        
-        //let delimiter = "@"
-        let email = user?.email
-        //let uName = email.components(separatedBy: delimiter)
-        
-        let newUser = ["email":email,"username": uName,"photo":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/empty_profile.png?alt=media&token=d25ab88e-e758-407d-bed9-cb6def5385a6","backgroundPhoto":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/defaultBackgroundImage.jpg?alt=media&token=c02ab78a-a448-4449-ab56-b622846d472b", "height": "","weight":"","glucose": "","bloodpressure":""]
-        
-        Database.database().reference().child("profile").child(user!.uid).setValue(newUser) { (error, ref) in
-            if error != nil {
-                print(error!)
-                return
-            }else{
-                print("Profile successfully created!")
+        isUserExist { (exist) in
+            if (!exist){
+                print("User has existed",exist)
+                
+                let user = Auth.auth().currentUser
+                
+                //let delimiter = "@"
+                let email = user?.email
+                //let uName = email.components(separatedBy: delimiter)
+                
+                let newUser = ["email":email,"username": uName,"photo":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/empty_profile.png?alt=media&token=d25ab88e-e758-407d-bed9-cb6def5385a6","backgroundPhoto":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/defaultBackgroundImage.jpg?alt=media&token=c02ab78a-a448-4449-ab56-b622846d472b", "height": "","weight":"","glucose": "","bloodpressure":""]
+                
+                Database.database().reference().child("profile").child(user!.uid).setValue(newUser) { (error, ref) in
+                    if error != nil {
+                        print(error!)
+                        return
+                    }else{
+                        print("Profile successfully created!")
+                    }
+                }
+                
             }
         }
+        
+       
     }
+    
+    
+    
+    //Check the user is the existing user or not
+    
+    static func isUserExist(completion:(Bool)->Void){
+        
+        var isUserExist = false
+        
+        Database.database().reference().child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            if snapshot.exists() {
+                print("Username already exists")
+                isUserExist = true
+            } else {
+                print("Username doesn't already exist")
+            }
+            
+        }, withCancel: nil)
+        
+        completion(isUserExist)
+        
+    }
+    
 
     func handleFirebaseError(error: NSError, onComplete: Completion?){
         print(error.debugDescription)
@@ -102,6 +137,8 @@ class AuthServices{
         
     }
     
+    
+   
     
 }
 
