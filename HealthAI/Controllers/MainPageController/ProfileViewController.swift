@@ -161,7 +161,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         getReferences()
         setProfilePicture(imageView: profileImageView)
         
-        DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef,user: LoginUser, imageView: profileImageView,referenceImageName: "photo")
+        DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef,user: LoginUser, imageView: profileImageView,referenceName: "photo")
         DatabaseHelper.setDatabaseUsername(databaseRef: databaseRef, user: LoginUser, label: usernameLabel)
         
         setImageViewTap()
@@ -290,7 +290,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         }
         
         
-        DatabaseHelper.savePictureToStorage(storageRef: storageRef, databaseRef: databaseRef, user: LoginUser, imageView: profileImageView, imageName: "profile_image")
+        DatabaseHelper.savePictureToStorage(storageRef: storageRef, databaseRef: databaseRef, user: LoginUser, imageView: profileImageView, imageName: "profile_image",referenceImageName: "photo")
+        
+        
         
         
         //savePictureToStorage(imageView: profileImageView)

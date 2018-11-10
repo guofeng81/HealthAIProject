@@ -88,7 +88,7 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
     
     func setupBackgroundView(){
         
-        DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef, user: user, imageView: backgroundImageView, referenceImageName: "backgroundPhoto")
+        DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef, user: user, imageView: backgroundImageView,referenceName: "backgroundPhoto")
         
 //        backgroundView.backgroundColor = UIColor.init(
 //            gradientStyle: UIGradientStyle.leftToRight,
@@ -185,7 +185,7 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             backgroundImageView.image = image
             
-            DatabaseHelper.savePictureToStorage(storageRef: storageRef, databaseRef: databaseRef, user: user, imageView: backgroundImageView, imageName: "background_image")
+            DatabaseHelper.savePictureToStorage(storageRef: storageRef, databaseRef: databaseRef, user: user, imageView: backgroundImageView, imageName: "background_image",referenceImageName: "backgroundPhoto")
             
             
         }else{

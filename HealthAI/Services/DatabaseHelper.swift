@@ -15,14 +15,14 @@ class DatabaseHelper {
     
     
     
-    static func loadDatabaseImage(databaseRef: DatabaseReference!, user: User, imageView: UIImageView, referenceImageName: String){
+    static func loadDatabaseImage(databaseRef: DatabaseReference!, user: User, imageView: UIImageView,referenceName:String){
         
         databaseRef.child("profile").child(user.uid).observeSingleEvent(of: .value, with:{ (snapshop) in
             let dictionary = snapshop.value as? NSDictionary
             
             //let username = dictionary?["username"] as? String ?? ""
             
-            if let profileImageURL = dictionary?[referenceImageName] as? String {
+            if let profileImageURL = dictionary?[referenceName] as? String {
                 
                 let url = URL(string: profileImageURL)
                 
@@ -60,11 +60,14 @@ class DatabaseHelper {
     }
     
     
-    static func savePictureToStorage(storageRef: StorageReference!, databaseRef: DatabaseReference!, user: User,imageView: UIImageView, imageName: String){
+    static func savePictureToStorage(storageRef: StorageReference!, databaseRef: DatabaseReference!, user: User,imageView: UIImageView, imageName: String,referenceImageName: String){
         
         if let imageData: Data = imageView.image!.pngData() {
             
+            //Storage Reference:
             let profilePicReference = storageRef.child("user_profile/\(user.uid)/\(imageName)")
+            
+            print("Profile Picture Reference:",profilePicReference)
             
             DispatchQueue.main.async {
                 profilePicReference.putData(imageData, metadata: nil) { (metadata, error) in
@@ -74,8 +77,9 @@ class DatabaseHelper {
                         profilePicReference.downloadURL { (url, error) in
                             if let downloadUrl = url {
                                 
-                                print("Download URL:",downloadUrl)
-                                databaseRef.child("profile").child(user.uid).updateChildValues(["photo":downloadUrl.absoluteString])
+                                print("Profile Picture Download URL: ",downloadUrl)
+                                databaseRef.child("profile").child(user.uid).updateChildValues([referenceImageName:downloadUrl.absoluteString])
+                                
                                 
                             }else {
                                 print("error downloading from the url!")
