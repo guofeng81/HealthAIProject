@@ -20,6 +20,11 @@ class WorkoutHistoryItem:Object{
     @objc dynamic var body: String = ""
     @objc dynamic var time: String = ""
     
+    //Use for the cardio workout Item
+    @objc dynamic var totalDistance: Double = 0.0
+    @objc dynamic var averageSpeed: Double = 0.0
+    @objc dynamic var currentDate: Date?
+    
     let subworkoutItems = List<SubworkoutHistoryItem>()
     
 }

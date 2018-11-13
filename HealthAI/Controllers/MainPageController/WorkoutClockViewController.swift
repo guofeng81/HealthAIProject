@@ -2,19 +2,26 @@
 //  WorkoutClockViewController.swift
 //  HealthAI
 //
-//  Created by Naresh Kumar on 31/10/18.
+//  Created by Feng Guo on 07/11/18.
 //  Copyright © 2018 Team9. All rights reserved.
 //
 
 import UIKit
 import RealmSwift
+import AVKit
+
+protocol DataTransferDelegate:class {
+    func userDidFinishedSubworkout(subworkoutItem:SubworkoutItem)
+}
 
 class WorkoutClockViewController: UIViewController {
     
     var time:Double = 0.00
     var timer:Timer? = nil
     
-    var selectedData = WorkoutDataModel()
+    var delegate : DataTransferDelegate?
+    
+    var selectedSubworkoutItem = SubworkoutItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +56,15 @@ class WorkoutClockViewController: UIViewController {
         
     }
 
+    
+    
     //MARK - Perform Data Save!
     
     func saveWorkout(){
         
-        let currentDateTime = Date()
+        // only save the time duration and current data time
+        
+        //let currentDateTime = Date()
         
         // initialize the date formatter and set the style
         let formatter = DateFormatter()
@@ -62,19 +73,18 @@ class WorkoutClockViewController: UIViewController {
         
         // get the date time String from the date object
         
-        workout.title = self.selectedData.title
-        workout.time = formatter.string(from: currentDateTime)
+        selectedSubworkoutItem.time = time
+        //selectedSubworkoutItem.currentDate = currentDateTime
+        selectedSubworkoutItem.done = true
         
-        do{
-            let realm = try Realm()
-            try realm.write {
-                realm.add(workout)
-            }
-        }catch{
-            print("Error using Realm!!")
-        }
+        delegate!.userDidFinishedSubworkout(subworkoutItem: selectedSubworkoutItem)
         
-        print("workout Data save")
+        
+        print(selectedSubworkoutItem.done)
+        print(selectedSubworkoutItem.time)
+        // print(selectedSubworkoutItem.currentDate!)
+        
+        //workout.time = formatter.string(from: currentDateTime)
     }
     
     @IBAction func startBtn(_ sender: Any) {
@@ -103,5 +113,30 @@ class WorkoutClockViewController: UIViewController {
             timeLabel.text = String(time)
         }
     }
+    
+    
+    
+    @IBAction func videoPlayBtn(_ sender: UIButton) {
+        
+        if let path = Bundle.main.path(forResource: "video", ofType: "MOV"){
+            
+            let video = AVPlayer(url: URL(fileURLWithPath: path))
+            
+            let videoPlayer = AVPlayerViewController()
+            videoPlayer.player = video
+            
+            present(videoPlayer,animated: true,completion: {
+                video.play()
+                
+            })
+            
+        }
+    }
+    
+    
+    
+    
+    
+    
 
 }

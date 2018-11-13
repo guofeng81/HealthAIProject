@@ -9,16 +9,27 @@
 import UIKit
 import RealmSwift
 
-class SubWorkoutsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class SubWorkoutsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,DataTransferDelegate{
+    
+    
+    @IBOutlet var myTableView: UITableView!
+    
+    func userDidFinishedSubworkout(subworkoutItem: SubworkoutItem) {
+        //        selectedSubworkoutItem.done = subworkoutItem.done
+        //        selectedSubworkoutItem.currentDate = subworkoutItem.currentDate
+        //        selectedSubworkoutItem.time = subworkoutItem.time
+        selectedSubworkoutItem = subworkoutItem
+        print("Selected Subworkout Item: ",selectedSubworkoutItem.done)
+        myTableView.reloadData()
+    }
     
     
     var selectedWorkoutItem = WorkoutItem()
     
+    var selectedSubworkoutItem = SubworkoutItem()
+    
     var workoutHistoryItem = WorkoutHistoryItem()
     
-    
-    @IBOutlet var endWorkoutBtn: UIButton!
-  
     
     @IBAction func endWorkoutBtn(_ sender: UIButton) {
         
@@ -43,7 +54,7 @@ class SubWorkoutsViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func saveWorkout(){
         
-        let currentDateTime = Date()
+       // let currentDateTime = Date()
         
         // initialize the date formatter and set the style
         let formatter = DateFormatter()
@@ -60,11 +71,12 @@ class SubWorkoutsViewController: UIViewController,UITableViewDelegate,UITableVie
             if selectedWorkoutItem.subworkouts[index].done == true {
                 let subworkoutHistoryItem = SubworkoutHistoryItem()
                 subworkoutHistoryItem.title = self.selectedWorkoutItem.subworkouts[index].title
+                // self.selectedWorkoutItem.subworkouts[index].currentDate!)
+                subworkoutHistoryItem.time = self.selectedWorkoutItem.subworkouts[index].time
+                print("In the Subworkout View Controller",self.selectedWorkoutItem.subworkouts[index].time)
                 workoutHistoryItem.subworkoutItems.append(subworkoutHistoryItem)
             }
         }
-        
-        
         
         //workout.time = formatter.string(from: currentDateTime)
         
@@ -79,6 +91,10 @@ class SubWorkoutsViewController: UIViewController,UITableViewDelegate,UITableVie
         
         print("workout Data save")
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        myTableView.reloadData()
     }
     
     
@@ -103,14 +119,30 @@ class SubWorkoutsViewController: UIViewController,UITableViewDelegate,UITableVie
         return cell
     }
     
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        selectedWorkoutItem.subworkouts[indexPath.row].done = !selectedWorkoutItem.subworkouts[indexPath.row].done
+        //change to the performSeg()
+        
+        performSegue(withIdentifier: "goToSubworkoutStopwatch", sender: self)
+        
+        //        selectedWorkoutItem.subworkouts[indexPath.row].done = !selectedWorkoutItem.subworkouts[indexPath.row].done
+        
+        selectedSubworkoutItem = selectedWorkoutItem.subworkouts[indexPath.row]
         
         tableView.deselectRow(at: indexPath, animated: true)
         
         tableView.reloadData()
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToSubworkoutStopwatch"{
+            let seg = segue.destination as! WorkoutClockViewController
+            seg.selectedSubworkoutItem = selectedSubworkoutItem
+            seg.delegate = self
+        }
     }
     
     

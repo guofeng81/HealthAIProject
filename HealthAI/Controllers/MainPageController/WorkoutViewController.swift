@@ -11,9 +11,13 @@ import UIKit
 class WorkoutViewController: UIViewController {
     
     var workoutItems = [WorkoutItem]()
+    var cardioWorkoutItems = [CardioWorkoutItem]()
     
-    @IBOutlet weak var historyView: UIView!
-    @IBOutlet weak var workoutView: UIView!
+    @IBOutlet var historyView: UIView!
+    
+    @IBOutlet var strengthWorkoutView: UIView!
+    
+    @IBOutlet var cardioWorkoutView: UIView!
     
     
     override func viewDidLoad() {
@@ -65,11 +69,20 @@ class WorkoutViewController: UIViewController {
     
     func setupGesture(){
         let workoutGesture = UITapGestureRecognizer(target: self, action: #selector(workouthandleTap(sender:)))
-        self.workoutView.addGestureRecognizer(workoutGesture)
+        self.strengthWorkoutView.addGestureRecognizer(workoutGesture)
         
         let historyGesture = UITapGestureRecognizer(target: self, action: #selector(historyhandleTap(sender:)))
         self.historyView.addGestureRecognizer(historyGesture)
         
+        let cardioGesture = UITapGestureRecognizer(target: self, action: #selector(cardiohandleTap(sender:)))
+        self.cardioWorkoutView.addGestureRecognizer(cardioGesture)
+        
+    }
+    
+    
+    
+    @objc func cardiohandleTap(sender:UITapGestureRecognizer){
+        performSegue(withIdentifier: "goToCardio", sender: self)
     }
     
     @objc func workouthandleTap(sender:UITapGestureRecognizer){
@@ -80,18 +93,15 @@ class WorkoutViewController: UIViewController {
         performSegue(withIdentifier: "goToWorkoutHistory", sender: self)
     }
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToWorkout" {
             let seg = segue.destination as! TodoLIstViewController
             seg.workoutItems = self.workoutItems
+        } else if segue.identifier == "goToCardio" {
+            let seg = segue.destination as! CardioWorkoutTableViewController
+            seg.arrayOfCardioWorkout = self.cardioWorkoutItems
         }
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "goToWorkout" {
-//            let seg = segue.destination as! TodoListViewController
-//            seg.workoutItems = self.workoutItems
-//        }
-//    }
 
 }

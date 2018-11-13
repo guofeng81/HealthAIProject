@@ -14,20 +14,14 @@ class WorkoutDetailViewController: UIViewController {
     
     @IBOutlet weak var contentText: UILabel!
     @IBOutlet weak var titleText: UILabel!
-    //    @IBOutlet weak var titleText: UILabel!
+ 
     
-//    @IBOutlet weak var contentText: UILabel!
-    //    @IBOutlet weak var titleText: UILabel!
-//    @IBOutlet weak var contentText: UILabel!
-//
-//
     override func viewDidLoad() {
         super.viewDidLoad()
         
         titleText.text = selectedWorkoutItem.title
         contentText.text = selectedWorkoutItem.content
         
-        // Do any additional setup after loading the view.
     }
     
     

@@ -10,6 +10,7 @@ import Foundation
 
 class WorkoutItem {
     
+    var type : String = ""
     var title: String = ""
     var content: String = ""
     var body:String = ""
@@ -17,6 +18,10 @@ class WorkoutItem {
     var duration: String = ""
     var strength:String = ""
     
-    var subworkouts = [SubworkoutItem]()
+    //    var totalDistance: Double = 0.0
+    //    var averageSpeed : Double = 0.0
+    //    var totalTime: Double = 0.0
+    var currentDate: Date?
     
+    var subworkouts = [SubworkoutItem]()
 }
