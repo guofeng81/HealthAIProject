@@ -57,10 +57,12 @@ class AuthServices{
     
     static func createUserProfile(uName: String = (Auth.auth().currentUser?.email)!.components(separatedBy: "@")[0]){
         
-        isUserExist { (exist) in
-            if (!exist){
-                print("User has existed",exist)
-                
+        Database.database().reference().child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            if snapshot.exists() {
+                print("Username already exists")
+            
+            } else {
                 let user = Auth.auth().currentUser
                 
                 //let delimiter = "@"
@@ -77,35 +79,36 @@ class AuthServices{
                         print("Profile successfully created!")
                     }
                 }
-                
+                //print("Username doesn't already exist")
             }
-        }
+            
+        }, withCancel: nil)
         
-       
     }
     
     
     
     //Check the user is the existing user or not
-    
-    static func isUserExist(completion:(Bool)->Void){
-        
-        var isUserExist = false
-        
-        Database.database().reference().child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            if snapshot.exists() {
-                print("Username already exists")
-                isUserExist = true
-            } else {
-                print("Username doesn't already exist")
-            }
-            
-        }, withCancel: nil)
-        
-        completion(isUserExist)
-        
-    }
+//
+//    static func isUserExist(){
+//
+//        Database.database().reference().child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
+//
+//            if snapshot.exists() {
+//                print("Username already exists")
+//                print(snapshot)
+//
+//                print("Is User exists:",  isUserExist)
+//            } else {
+//
+//                createUserProfile()
+//                //print("Username doesn't already exist")
+//            }
+//
+//        }, withCancel: nil)
+//
+//
+//    }
     
 
     func handleFirebaseError(error: NSError, onComplete: Completion?){

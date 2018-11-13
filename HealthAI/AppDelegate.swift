@@ -37,11 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
                 //user signed in with google
                 
                 print("In the sign in the retrieveData called with google")
-                 
-
+                
                 AuthServices.createUserProfile()
-            
-//
+                
                 //TODO - pop to the Health Main Screen
                 
                 SVProgressHUD.dismiss()

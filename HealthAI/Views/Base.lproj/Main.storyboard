@@ -1621,26 +1621,60 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XgU-37-nPx">
                                         <rect key="frame" x="0.0" y="65" width="322" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56x-20-H3r">
+                                                <rect key="frame" x="74" y="10" width="174" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" red="0.88438212871551514" green="0.22792410850524902" blue="0.92284160852432251" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="322" id="BBH-IE-H2s"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="322" id="Ech-as-bzs"/>
+                                            <constraint firstAttribute="bottom" secondItem="56x-20-H3r" secondAttribute="bottom" constant="10" id="K2z-W0-1bd"/>
+                                            <constraint firstItem="56x-20-H3r" firstAttribute="leading" secondItem="XgU-37-nPx" secondAttribute="leading" constant="74" id="MhH-RM-k6J"/>
+                                            <constraint firstItem="56x-20-H3r" firstAttribute="top" secondItem="XgU-37-nPx" secondAttribute="top" constant="10" id="r8d-mq-L5E"/>
                                             <constraint firstAttribute="height" constant="50" id="tNl-eD-goP"/>
+                                            <constraint firstAttribute="trailing" secondItem="56x-20-H3r" secondAttribute="trailing" constant="74" id="zlo-r7-4cC"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMq-i3-C8G">
                                         <rect key="frame" x="0.0" y="130" width="322" height="135"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strength Workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARW-3p-7UG">
+                                                <rect key="frame" x="45" y="8" width="233" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" red="0.1819814891" green="0.69426733259999995" blue="0.53024792669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="ARW-3p-7UG" firstAttribute="top" secondItem="hMq-i3-C8G" secondAttribute="top" constant="8" id="8XR-8T-6R1"/>
                                             <constraint firstAttribute="height" constant="135" id="CQe-HB-Rz8"/>
                                             <constraint firstAttribute="width" constant="322" id="Z6A-n0-5wF"/>
+                                            <constraint firstItem="ARW-3p-7UG" firstAttribute="leading" secondItem="hMq-i3-C8G" secondAttribute="leading" constant="45" id="ezV-3W-p2o"/>
+                                            <constraint firstAttribute="trailing" secondItem="ARW-3p-7UG" secondAttribute="trailing" constant="44" id="xaw-l9-xne"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsM-xz-D3n">
                                         <rect key="frame" x="0.0" y="280" width="322" height="135"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cardio Workout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMz-ZD-xyg">
+                                                <rect key="frame" x="77" y="8" width="168" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" red="0.9312864542" green="0.49158865210000002" blue="0.60390877720000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
+                                            <constraint firstItem="tMz-ZD-xyg" firstAttribute="top" secondItem="wsM-xz-D3n" secondAttribute="top" constant="8" id="6sE-nr-oNc"/>
+                                            <constraint firstItem="tMz-ZD-xyg" firstAttribute="leading" secondItem="wsM-xz-D3n" secondAttribute="leading" constant="77" id="7AX-im-i9h"/>
                                             <constraint firstAttribute="height" constant="135" id="JWb-Zd-4Oh"/>
+                                            <constraint firstAttribute="trailing" secondItem="tMz-ZD-xyg" secondAttribute="trailing" constant="77" id="Khk-9Y-Lfc"/>
                                             <constraint firstAttribute="width" constant="322" id="OB6-F6-hdJ"/>
                                         </constraints>
                                     </view>
@@ -1761,7 +1795,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="rVs-xH-3j2" kind="show" identifier="goToCardioWorkout" id="eLP-MO-dG4"/>
+                        <segue destination="rVs-xH-3j2" kind="show" identifier="goToCardioWorkout" id="S0r-vc-3Nf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r7p-JE-PJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1924,12 +1958,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="22" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLN-II-Uz9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="22" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLN-II-Uz9">
                                 <rect key="frame" x="15" y="153.5" width="345" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="sqK-EQ-mO8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
