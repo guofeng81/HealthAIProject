@@ -1671,7 +1671,7 @@
                         <outlet property="videoTutorialView" destination="8MD-6i-ODB" id="wDh-3Z-BAN"/>
                         <segue destination="aB4-Ri-cVr" kind="show" identifier="goToWorkout" id="3Pk-bE-Cdo"/>
                         <segue destination="wNw-Oq-fKw" kind="show" identifier="goToWorkoutHistory" id="MRf-Sg-eZC"/>
-                        <segue destination="eYi-sa-Ic3" kind="show" id="T6u-hR-9CQ"/>
+                        <segue destination="eYi-sa-Ic3" kind="show" identifier="goToCardio" id="T6u-hR-9CQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qWI-O1-bgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1821,15 +1821,15 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="mLy-Rx-tGk">
                                 <rect key="frame" x="0.0" y="377" width="200" height="143"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.35 MPH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VG-NY-7gQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="3.35 MPH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VG-NY-7gQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="49.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300 M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfe-4n-CCu">
-                                        <rect key="frame" x="0.0" y="102" width="200" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="300 M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfe-4n-CCu">
+                                        <rect key="frame" x="0.0" y="110.5" width="200" height="32.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1867,8 +1867,10 @@
                         <viewLayoutGuide key="safeArea" id="pf1-VY-fYF"/>
                     </view>
                     <connections>
+                        <outlet property="endBtn" destination="wvj-4l-LzB" id="aJc-L9-NPg"/>
                         <outlet property="map" destination="KGs-Sz-5NF" id="Ztk-XQ-a7f"/>
                         <outlet property="speedLabel" destination="4VG-NY-7gQ" id="W7t-qD-vun"/>
+                        <outlet property="startBtn" destination="z1z-Ab-FGB" id="LJe-Ca-yBB"/>
                         <outlet property="timeLabel" destination="xbW-sj-hzx" id="Bfn-oi-oHs"/>
                         <outlet property="totalDistance" destination="dfe-4n-CCu" id="tLU-7k-vuQ"/>
                     </connections>

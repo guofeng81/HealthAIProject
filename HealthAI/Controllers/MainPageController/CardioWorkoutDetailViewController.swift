@@ -40,14 +40,27 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         
         manager.startMonitoringSignificantLocationChanges()
         manager.distanceFilter = 5
+        
+        setupButtons()
+        
     }
     
+    
+    @IBOutlet var endBtn: UIButton!
+    @IBOutlet var startBtn: UIButton!
+    
+    
+    func setupButtons(){
+        startBtn.layer.cornerRadius = startBtn.frame.width / 2
+        startBtn.clipsToBounds = true
+        endBtn.layer.cornerRadius = endBtn.frame.width / 2
+        endBtn.clipsToBounds = true
+    }
 
     
     var time:Double = 0.00
     var timer:Timer? = nil
 
-    
     var traveledDistance:Double = 0
     var startLocation: CLLocation!
     var lastLocation: CLLocation!
@@ -97,7 +110,7 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         speed = (manager.location?.speed)!
         print("Speed:\(speed) mph ")
         
-        speedLabel.text = String(speed)
+        speedLabel.text = String(format: "%.2f", speed) + " MPH"
         
         if startDate == nil {
             startDate = Date()
@@ -106,7 +119,6 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
             totalTime = Date().timeIntervalSince(startDate)
             print("elapsedTime:", String(format: "%.0fs", Date().timeIntervalSince(startDate)))
         }
-        
         
         print(startDate)
         
@@ -119,13 +131,11 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
             
             print("Traveled Distance:",  traveledDistance)
             print("Straight Distance:", straightDistance)
-            totalDistance.text = String(traveledDistance)
+            totalDistance.text = String(format: "%.2f", traveledDistance) + " M"
             let polyline = MKPolyline(coordinates: [lastLocation.coordinate,location.coordinate], count: 2)
             self.map.addOverlay((polyline),level: .aboveRoads)
         }
         lastLocation = locations.last
-        
-        
         
         let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         
@@ -139,7 +149,6 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         
         
     }
-    
     
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -184,12 +193,14 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "End & Save Workout", style: .default, handler: { (action) in
             self.saveWorkout()
+             self.manager.stopUpdatingLocation()
             //need to pop up to the choose workout screen
-            self.navigationController?.popToRootViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }))
         
         alert.addAction(UIAlertAction(title: "End Without Saving", style: .default, handler: { (action) in
-            self.navigationController?.popToRootViewController(animated: true)
+            self.manager.stopUpdatingLocation()
+            self.navigationController?.popViewController(animated: true)
         }))
         
         alert.addAction(UIAlertAction(title: "Back to Workout", style: .cancel, handler: nil))
