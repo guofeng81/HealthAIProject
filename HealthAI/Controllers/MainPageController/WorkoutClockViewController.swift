@@ -86,25 +86,37 @@ class WorkoutClockViewController: UIViewController {
         
         //workout.time = formatter.string(from: currentDateTime)
     }
+
     
-    @IBAction func startBtn(_ sender: Any) {
-        if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(WorkoutClockViewController.action),userInfo: nil, repeats: true)
-        }else {
-            print("Timer has been created.")
+    @IBAction func startBtn(_ sender: UIButton) {
+        
+        sender.isSelected = !sender.isSelected
+        
+        if !sender.isSelected {
+            //implement the pause
+            sender.setTitle("Start", for: .normal)
+            //let timer pause
+            if timer != nil {
+                timer!.invalidate()
+                timer = nil
+            }else{
+                //implement the start 
+                if timer == nil {
+                    timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(WorkoutClockViewController.action),userInfo: nil, repeats: true)
+                }else {
+                    print("Timer has been created.")
+                }
+                
+                sender.setTitle("Pause", for: .normal)
+                
+            }
         }
     }
+    
     
     @objc func action(){
         time += 0.01
         timeLabel.text = String(format: "%.2f",time)
-    }
-    
-    @IBAction func pauseBtn(_ sender: Any) {
-                                if timer != nil {
-                                    timer!.invalidate()
-                                    timer = nil
-                                }
     }
     
     @IBAction func resetBtn(_ sender: Any) {
@@ -113,7 +125,6 @@ class WorkoutClockViewController: UIViewController {
             timeLabel.text = String(time)
         }
     }
-    
     
     
     @IBAction func videoPlayBtn(_ sender: UIButton) {
