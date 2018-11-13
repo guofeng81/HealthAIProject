@@ -11,24 +11,22 @@ import RealmSwift
 
 class SubWorkoutsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,DataTransferDelegate{
     
+    var selectedWorkoutItem = WorkoutItem()
+    var selectedSubworkoutItem = SubworkoutItem()
+    var workoutHistoryItem = WorkoutHistoryItem()
     
     @IBOutlet var myTableView: UITableView!
     
     func userDidFinishedSubworkout(subworkoutItem: SubworkoutItem) {
-        //        selectedSubworkoutItem.done = subworkoutItem.done
-        //        selectedSubworkoutItem.currentDate = subworkoutItem.currentDate
-        //        selectedSubworkoutItem.time = subworkoutItem.time
-        selectedSubworkoutItem = subworkoutItem
-        print("Selected Subworkout Item: ",selectedSubworkoutItem.done)
+                selectedSubworkoutItem.done = subworkoutItem.done
+                //selectedSubworkoutItem.currentDate = subworkoutItem.currentDate
+                selectedSubworkoutItem.time = subworkoutItem.time
+       //selectedSubworkoutItem = subworkoutItem
+        print("Subworkout Item: ", subworkoutItem.done)
+        
+        //print("Selected Subworkout Item: ",selectedSubworkoutItem.done)
         myTableView.reloadData()
     }
-    
-    
-    var selectedWorkoutItem = WorkoutItem()
-    
-    var selectedSubworkoutItem = SubworkoutItem()
-    
-    var workoutHistoryItem = WorkoutHistoryItem()
     
     
     @IBAction func endWorkoutBtn(_ sender: UIButton) {
@@ -54,16 +52,6 @@ class SubWorkoutsViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func saveWorkout(){
         
-       // let currentDateTime = Date()
-        
-        // initialize the date formatter and set the style
-        let formatter = DateFormatter()
-        formatter.timeStyle = .medium
-        formatter.dateStyle = .long
-        
-        // get the date time String from the date object
-        
-        
         workoutHistoryItem.title = self.selectedWorkoutItem.title
         
         for index in 0..<self.selectedWorkoutItem.subworkouts.count {
@@ -71,14 +59,10 @@ class SubWorkoutsViewController: UIViewController,UITableViewDelegate,UITableVie
             if selectedWorkoutItem.subworkouts[index].done == true {
                 let subworkoutHistoryItem = SubworkoutHistoryItem()
                 subworkoutHistoryItem.title = self.selectedWorkoutItem.subworkouts[index].title
-                // self.selectedWorkoutItem.subworkouts[index].currentDate!)
                 subworkoutHistoryItem.time = self.selectedWorkoutItem.subworkouts[index].time
-                print("In the Subworkout View Controller",self.selectedWorkoutItem.subworkouts[index].time)
                 workoutHistoryItem.subworkoutItems.append(subworkoutHistoryItem)
             }
         }
-        
-        //workout.time = formatter.string(from: currentDateTime)
         
         do{
             let realm = try Realm()
@@ -97,11 +81,9 @@ class SubWorkoutsViewController: UIViewController,UITableViewDelegate,UITableVie
         myTableView.reloadData()
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return selectedWorkoutItem.subworkouts.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -115,7 +97,6 @@ class SubWorkoutsViewController: UIViewController,UITableViewDelegate,UITableVie
             cell.accessoryType = .none
         }
         
-        
         return cell
     }
     
@@ -123,11 +104,7 @@ class SubWorkoutsViewController: UIViewController,UITableViewDelegate,UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //change to the performSeg()
-        
         performSegue(withIdentifier: "goToSubworkoutStopwatch", sender: self)
-        
-        //        selectedWorkoutItem.subworkouts[indexPath.row].done = !selectedWorkoutItem.subworkouts[indexPath.row].done
         
         selectedSubworkoutItem = selectedWorkoutItem.subworkouts[indexPath.row]
         
@@ -145,14 +122,9 @@ class SubWorkoutsViewController: UIViewController,UITableViewDelegate,UITableVie
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-    
-    
-    
     
 }
 

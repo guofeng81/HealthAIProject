@@ -16,14 +16,10 @@ class TodoLIstViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.delegate = self
         tableView.dataSource = self
-        
         let nib = UINib(nibName: "WorkoutTableViewCell", bundle: nil)
-        
         tableView.register(nib, forCellReuseIdentifier: "workoutCell")
-        
     }
     
     

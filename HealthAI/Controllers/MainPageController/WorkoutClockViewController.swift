@@ -16,6 +16,12 @@ protocol DataTransferDelegate:class {
 
 class WorkoutClockViewController: UIViewController {
     
+    @IBOutlet var startBtn: UIButton!
+    
+    @IBOutlet var resetBtn: UIButton!
+    
+    @IBOutlet var endBtn: UIButton!
+    
     var time:Double = 0.00
     var timer:Timer? = nil
     
@@ -25,28 +31,35 @@ class WorkoutClockViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupButtons()
+        
+        
     }
     
-    var workout = Workout()
+    func setupButtons(){
+        startBtn.layer.cornerRadius = startBtn.frame.width / 2
+        startBtn.clipsToBounds = true
+        resetBtn.layer.cornerRadius = resetBtn.frame.width / 2
+        resetBtn.clipsToBounds = true
+        endBtn.layer.cornerRadius = 20
+        endBtn.clipsToBounds = true
+    }
+    
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBAction func endWorkoutBtn(_ sender: Any) {
-        
-                        //UIAlert has three options
-                        //1. End with saving the workout data
-                        //2. End without saving the workout data
-                        //3. Cancel
         
         let alert = UIAlertController(title: "End Workout", message: "Are you sure you want to end your workout?", preferredStyle: .alert)
         
         // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "End & Save Workout", style: .default, handler: { (action) in
             self.saveWorkout()
-            self.navigationController?.popToRootViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }))
         
         alert.addAction(UIAlertAction(title: "End Without Saving", style: .default, handler: { (action) in
-            self.navigationController?.popToRootViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }))
         
         alert.addAction(UIAlertAction(title: "Back to Workout", style: .cancel, handler: nil))
@@ -56,41 +69,22 @@ class WorkoutClockViewController: UIViewController {
         
     }
 
-    
-    
     //MARK - Perform Data Save!
     
     func saveWorkout(){
         
-        // only save the time duration and current data time
-        
-        //let currentDateTime = Date()
-        
-        // initialize the date formatter and set the style
-        let formatter = DateFormatter()
-        formatter.timeStyle = .medium
-        formatter.dateStyle = .long
-        
         // get the date time String from the date object
         
         selectedSubworkoutItem.time = time
-        //selectedSubworkoutItem.currentDate = currentDateTime
         selectedSubworkoutItem.done = true
         
+        //pass the selectedSubworkoutItem data back to the previous view controller
+        
         delegate!.userDidFinishedSubworkout(subworkoutItem: selectedSubworkoutItem)
-        
-        
-        print(selectedSubworkoutItem.done)
-        print(selectedSubworkoutItem.time)
-        // print(selectedSubworkoutItem.currentDate!)
-        
-        //workout.time = formatter.string(from: currentDateTime)
+
     }
 
-    
     @IBAction func startBtn(_ sender: UIButton) {
-        
-        sender.isSelected = !sender.isSelected
         
         if !sender.isSelected {
             //implement the pause
@@ -111,8 +105,8 @@ class WorkoutClockViewController: UIViewController {
                 
             }
         }
+        sender.isSelected = !sender.isSelected
     }
-    
     
     @objc func action(){
         time += 0.01
@@ -126,6 +120,7 @@ class WorkoutClockViewController: UIViewController {
         }
     }
     
+    //Play the workout tutorial video
     
     @IBAction func videoPlayBtn(_ sender: UIButton) {
         
@@ -140,14 +135,7 @@ class WorkoutClockViewController: UIViewController {
                 video.play()
                 
             })
-            
         }
     }
     
-    
-    
-    
-    
-    
-
 }

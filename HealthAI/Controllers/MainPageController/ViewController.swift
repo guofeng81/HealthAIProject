@@ -112,9 +112,7 @@ class ViewController: UIViewController,UITextFieldDelegate,GIDSignInUIDelegate,F
                 guard let result = result as? [String: Any] else {return}
                 let name = result["name"] as? String
                 
-                
                 AuthServices.createUserProfile(uName: name!)
-                
                 
             }
         })

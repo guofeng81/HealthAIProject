@@ -15,25 +15,19 @@ class WorkoutDetailViewController: UIViewController {
     @IBOutlet weak var contentText: UILabel!
     @IBOutlet weak var titleText: UILabel!
  
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         titleText.text = selectedWorkoutItem.title
         contentText.text = selectedWorkoutItem.content
-        
     }
-    
     
     @IBAction func startWorkoutBtn(_ sender: Any) {
         performSegue(withIdentifier: "beginWorkout", sender: self)
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "beginWorkout" {
             let seg = segue.destination as! SubWorkoutsViewController
-            
             seg.selectedWorkoutItem = self.selectedWorkoutItem
         }
     }

@@ -19,6 +19,11 @@ class WorkoutViewController: UIViewController {
     
     @IBOutlet var cardioWorkoutView: UIView!
     
+    @IBOutlet var favoriteWorkoutView: UIView!
+    
+    @IBOutlet var videoTutorialView: UIView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

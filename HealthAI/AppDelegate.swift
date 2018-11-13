@@ -11,13 +11,12 @@ import Firebase
 import GoogleSignIn
 import FBSDKCoreKit
 import SVProgressHUD
+import RealmSwift
 
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     
-    
-   
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
@@ -73,6 +72,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         
          SVProgressHUD.dismiss()
+        
+         print(Realm.Configuration.defaultConfiguration.fileURL)
         
         return true
     }
