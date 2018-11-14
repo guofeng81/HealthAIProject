@@ -16,6 +16,8 @@ protocol DataTransferDelegate:class {
 
 class WorkoutClockViewController: UIViewController {
     
+    @IBOutlet var subworkoutTitle: UILabel!
+    
     @IBOutlet var startBtn: UIButton!
     
     @IBOutlet var resetBtn: UIButton!
@@ -31,6 +33,10 @@ class WorkoutClockViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        subworkoutTitle.text = selectedSubworkoutItem.title
+        
+        print("Selected Subworkout",selectedSubworkoutItem.title)
         
         setupButtons()
         

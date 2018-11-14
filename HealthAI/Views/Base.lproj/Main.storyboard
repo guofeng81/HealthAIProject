@@ -1953,24 +1953,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwF-ut-oNj">
-                                <rect key="frame" x="10" y="84" width="355" height="39.5"/>
+                                <rect key="frame" x="10" y="84" width="355" height="36"/>
                                 <color key="backgroundColor" red="0.88438212871551514" green="0.22792410850524902" blue="0.92284160852432251" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="22" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tLN-II-Uz9">
-                                <rect key="frame" x="10" y="133.5" width="355" height="100"/>
+                                <rect key="frame" x="10" y="130" width="355" height="100"/>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="sqK-EQ-mO8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PtW-WG-gQ9">
-                                <rect key="frame" x="0.0" y="241.5" width="375" height="425.5"/>
+                                <rect key="frame" x="0.0" y="238" width="375" height="429"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subworkoutCell" rowHeight="55" id="MV9-Bu-fcK">
@@ -2161,6 +2161,7 @@
                         <outlet property="endBtn" destination="tOb-NX-c3L" id="ek7-QK-Yhf"/>
                         <outlet property="resetBtn" destination="mjb-gu-oha" id="jeB-TZ-7IR"/>
                         <outlet property="startBtn" destination="bsm-PZ-yLN" id="Ky5-7c-VxX"/>
+                        <outlet property="subworkoutTitle" destination="EP1-vt-lQK" id="lwM-EU-flu"/>
                         <outlet property="timeLabel" destination="9Hy-Tb-W0v" id="IVf-YT-fX9"/>
                     </connections>
                 </viewController>
