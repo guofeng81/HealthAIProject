@@ -14,5 +14,5 @@ class SubworkoutItem {
     var videoName : String = ""
     var done : Bool = false
     
-    var time: Double = 0.00
+    var time: Int = 0
 }

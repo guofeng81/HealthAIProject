@@ -24,8 +24,10 @@ class WorkoutClockViewController: UIViewController {
     
     @IBOutlet var endBtn: UIButton!
     
-    var time:Double = 0.00
+    //time is only for the seconds
+    var time:Int = 0
     var timer:Timer? = nil
+   
     
     var delegate : DataTransferDelegate?
     
@@ -34,22 +36,28 @@ class WorkoutClockViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        subworkoutTitle.text = selectedSubworkoutItem.title
+       // print("Selected Subworkout",selectedSubworkoutItem.title)
         
-        print("Selected Subworkout",selectedSubworkoutItem.title)
+        
         
         setupButtons()
-        
+        subworkoutTitle.text = selectedSubworkoutItem.title
         
     }
     
     func setupButtons(){
+        
+        let normalGesture = UITapGestureRecognizer(target: self, action: #selector(normalTap(_:)))
+        startBtn.addGestureRecognizer(normalGesture)
+        let longGesture = UILongPressGestureRecognizer(target: self, action: #selector((longTap(_:))))
+        startBtn.addGestureRecognizer(longGesture)
+        
         startBtn.layer.cornerRadius = startBtn.frame.width / 2
         startBtn.clipsToBounds = true
-        resetBtn.layer.cornerRadius = resetBtn.frame.width / 2
-        resetBtn.clipsToBounds = true
-        endBtn.layer.cornerRadius = 20
-        endBtn.clipsToBounds = true
+//        resetBtn.layer.cornerRadius = resetBtn.frame.width / 2
+//        resetBtn.clipsToBounds = true
+//        endBtn.layer.cornerRadius = 20
+//        endBtn.clipsToBounds = true
     }
     
     @IBOutlet weak var timeLabel: UILabel!
@@ -92,37 +100,50 @@ class WorkoutClockViewController: UIViewController {
 
     @IBAction func startBtn(_ sender: UIButton) {
         
-        if !sender.isSelected {
-            //implement the pause
-            sender.setTitle("Start", for: .normal)
-            //let timer pause
-            if timer != nil {
-                timer!.invalidate()
-                timer = nil
-            }else{
-                //implement the start 
-                if timer == nil {
-                    timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(WorkoutClockViewController.action),userInfo: nil, repeats: true)
-                }else {
-                    print("Timer has been created.")
-                }
-                
-                sender.setTitle("Pause", for: .normal)
-                
-            }
+        if timer != nil {
+            startBtn.setTitle("Start", for: .normal)
+            timer!.invalidate()
+            timer = nil
+        }else{
+            startBtn.setTitle("Pause", for: .normal)
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(WorkoutClockViewController.action),userInfo: nil, repeats: true)
+            
         }
-        sender.isSelected = !sender.isSelected
     }
     
+    
     @objc func action(){
-        time += 0.01
-        timeLabel.text = String(format: "%.2f",time)
+        time += 1
+        let minutesPortion = String(format: "%02d", self.time / 60)
+        let secondsPortion = String(format: "%02d", self.time % 60)
+        timeLabel.text = "\(minutesPortion):\(secondsPortion)"
+    }
+    
+    @objc func longTap(_ sender:UIGestureRecognizer){
+        if time != 0 {
+            time = 0
+            let minutesPortion = String(format: "%02d", self.time / 60)
+            let secondsPortion = String(format: "%02d", self.time % 60)
+            timeLabel.text = "\(minutesPortion):\(secondsPortion)"
+        }
+    }
+    
+    @objc func normalTap(_ sender:UIGestureRecognizer) {
+        if timer != nil {
+            startBtn.setTitle("Start", for: .normal)
+            timer!.invalidate()
+            timer = nil
+        }else{
+            startBtn.setTitle("Pause", for: .normal)
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(WorkoutClockViewController.action),userInfo: nil, repeats: true)
+            
+        }
     }
     
     @IBAction func resetBtn(_ sender: Any) {
         if time != 0 {
             time = 0
-            timeLabel.text = String(time)
+            timeLabel.text = String(format: "02d%02d", time)
         }
     }
     

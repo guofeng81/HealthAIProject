@@ -15,6 +15,6 @@ class CardioWorkoutItem{
     
     var totalDistance: Double = 0.0
     var averageSpeed : Double = 0.0
-    var totalTime: Double = 0.0
+    var totalTime: Int = 0
     var currentDate: Date?
 }

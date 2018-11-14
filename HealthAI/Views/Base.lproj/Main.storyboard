@@ -2069,7 +2069,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Up-MS-HUT">
                                         <rect key="frame" x="0.0" y="315" width="375" height="288"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hy-Tb-W0v">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hy-Tb-W0v">
                                                 <rect key="frame" x="15" y="0.0" width="345" height="85"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="85" id="RGq-zz-0wd"/>
@@ -2079,7 +2079,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="UqX-SY-V3g">
-                                                <rect key="frame" x="52.5" y="105" width="270" height="85"/>
+                                                <rect key="frame" x="145" y="105" width="85" height="85"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsm-PZ-yLN">
                                                         <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
@@ -2096,26 +2096,7 @@
                                                             <action selector="startBtn:" destination="eiu-2E-KDF" eventType="touchUpInside" id="ZZm-tn-px1"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjb-gu-oha">
-                                                        <rect key="frame" x="185" y="0.0" width="85" height="85"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="85" id="ddO-nv-YDy"/>
-                                                            <constraint firstAttribute="width" constant="85" id="l5b-fp-3ak"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                        <state key="normal" title="Reset">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="resetBtn:" destination="eiu-2E-KDF" eventType="touchUpInside" id="hyR-3v-Xte"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="85" id="Dda-J3-jhs"/>
-                                                    <constraint firstAttribute="width" constant="270" id="VHR-fN-gJF"/>
-                                                </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOb-NX-c3L">
                                                 <rect key="frame" x="87.5" y="210" width="200" height="48"/>
@@ -2159,7 +2140,6 @@
                     </view>
                     <connections>
                         <outlet property="endBtn" destination="tOb-NX-c3L" id="ek7-QK-Yhf"/>
-                        <outlet property="resetBtn" destination="mjb-gu-oha" id="jeB-TZ-7IR"/>
                         <outlet property="startBtn" destination="bsm-PZ-yLN" id="Ky5-7c-VxX"/>
                         <outlet property="subworkoutTitle" destination="EP1-vt-lQK" id="lwM-EU-flu"/>
                         <outlet property="timeLabel" destination="9Hy-Tb-W0v" id="IVf-YT-fX9"/>
