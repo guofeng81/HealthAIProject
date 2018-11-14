@@ -1817,42 +1817,7 @@
                                     <constraint firstAttribute="height" constant="297" id="Q4h-eX-gpS"/>
                                 </constraints>
                             </mapView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="EHi-lk-wly">
-                                <rect key="frame" x="259" y="399" width="85" height="216"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1z-Ab-FGB">
-                                        <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="85" id="jcX-rv-P3e"/>
-                                            <constraint firstAttribute="height" constant="85" id="rC6-CA-ojp"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                        <state key="normal" title="Start">
-                                            <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="startWorkoutBtn:" destination="rVs-xH-3j2" eventType="touchUpInside" id="Yse-a7-vgO"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvj-4l-LzB">
-                                        <rect key="frame" x="0.0" y="131" width="85" height="85"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="85" id="0XZ-Hs-Kff"/>
-                                            <constraint firstAttribute="width" constant="85" id="tKK-0c-phs"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                        <state key="normal" title="end">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="endWorkoutBtn:" destination="rVs-xH-3j2" eventType="touchUpInside" id="EWV-xz-Oi7"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="mLy-Rx-tGk">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="61" translatesAutoresizingMaskIntoConstraints="NO" id="mLy-Rx-tGk">
                                 <rect key="frame" x="0.0" y="377" width="200" height="143"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="3.35 MPH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VG-NY-7gQ">
@@ -1882,26 +1847,35 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1z-Ab-FGB">
+                                <rect key="frame" x="238" y="463" width="85" height="89"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="jcX-rv-P3e"/>
+                                    <constraint firstAttribute="height" constant="85" id="rC6-CA-ojp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startWorkoutBtn:" destination="rVs-xH-3j2" eventType="touchUpInside" id="Yse-a7-vgO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xbW-sj-hzx" firstAttribute="leading" secondItem="pf1-VY-fYF" secondAttribute="leading" id="JqV-mu-BoZ"/>
-                            <constraint firstItem="pf1-VY-fYF" firstAttribute="trailing" secondItem="EHi-lk-wly" secondAttribute="trailing" constant="31" id="LZ9-GU-Jim"/>
-                            <constraint firstItem="pf1-VY-fYF" firstAttribute="bottom" secondItem="EHi-lk-wly" secondAttribute="bottom" constant="52" id="N5g-ch-3yB"/>
                             <constraint firstItem="pf1-VY-fYF" firstAttribute="bottom" secondItem="xbW-sj-hzx" secondAttribute="bottom" constant="20" id="QXs-JJ-9PR"/>
                             <constraint firstItem="mLy-Rx-tGk" firstAttribute="top" secondItem="KGs-Sz-5NF" secondAttribute="bottom" constant="16" id="TRr-B1-792"/>
                             <constraint firstItem="xbW-sj-hzx" firstAttribute="top" secondItem="mLy-Rx-tGk" secondAttribute="bottom" constant="40" id="WZN-yf-3w7"/>
                             <constraint firstItem="KGs-Sz-5NF" firstAttribute="leading" secondItem="pf1-VY-fYF" secondAttribute="leading" id="ZfP-Vw-XJi"/>
-                            <constraint firstItem="EHi-lk-wly" firstAttribute="leading" secondItem="mLy-Rx-tGk" secondAttribute="trailing" constant="59" id="Zis-US-knz"/>
                             <constraint firstItem="KGs-Sz-5NF" firstAttribute="trailing" secondItem="pf1-VY-fYF" secondAttribute="trailing" id="mPw-Wa-ubu"/>
                             <constraint firstItem="KGs-Sz-5NF" firstAttribute="top" secondItem="pf1-VY-fYF" secondAttribute="top" id="ved-rI-80b"/>
-                            <constraint firstItem="EHi-lk-wly" firstAttribute="top" secondItem="KGs-Sz-5NF" secondAttribute="bottom" constant="38" id="ysb-NJ-kJ7"/>
-                            <constraint firstItem="EHi-lk-wly" firstAttribute="leading" secondItem="xbW-sj-hzx" secondAttribute="trailing" constant="9" id="zfP-HM-aE6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pf1-VY-fYF"/>
                     </view>
                     <connections>
-                        <outlet property="endBtn" destination="wvj-4l-LzB" id="aJc-L9-NPg"/>
                         <outlet property="map" destination="KGs-Sz-5NF" id="Ztk-XQ-a7f"/>
                         <outlet property="speedLabel" destination="4VG-NY-7gQ" id="W7t-qD-vun"/>
                         <outlet property="startBtn" destination="z1z-Ab-FGB" id="LJe-Ca-yBB"/>
@@ -2024,7 +1998,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="M95-T3-6w3">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUt-hh-meh">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
@@ -2067,7 +2041,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Up-MS-HUT">
-                                        <rect key="frame" x="0.0" y="315" width="375" height="288"/>
+                                        <rect key="frame" x="0.0" y="315" width="375" height="244"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hy-Tb-W0v">
                                                 <rect key="frame" x="15" y="0.0" width="345" height="85"/>
@@ -2083,13 +2057,13 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsm-PZ-yLN">
                                                         <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="85" id="Hmh-Rx-Smy"/>
                                                             <constraint firstAttribute="height" constant="85" id="yFb-5h-6Zn"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                                        <state key="normal" title="Start ">
+                                                        <state key="normal">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
@@ -2098,32 +2072,14 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOb-NX-c3L">
-                                                <rect key="frame" x="87.5" y="210" width="200" height="48"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="0yn-z4-ddk"/>
-                                                    <constraint firstAttribute="height" constant="48" id="xoX-eG-lC6"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <state key="normal" title="End Workout">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="endWorkoutBtn:" destination="eiu-2E-KDF" eventType="touchUpInside" id="7vr-Vz-fxw"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="tOb-NX-c3L" secondAttribute="bottom" constant="30" id="41v-iH-FfI"/>
                                             <constraint firstAttribute="trailing" secondItem="9Hy-Tb-W0v" secondAttribute="trailing" constant="15" id="T2S-MF-tl7"/>
-                                            <constraint firstItem="tOb-NX-c3L" firstAttribute="top" secondItem="UqX-SY-V3g" secondAttribute="bottom" constant="20" id="WtH-A7-EmX"/>
                                             <constraint firstItem="UqX-SY-V3g" firstAttribute="centerX" secondItem="9Up-MS-HUT" secondAttribute="centerX" id="cgR-PB-ZJN"/>
                                             <constraint firstItem="9Hy-Tb-W0v" firstAttribute="top" secondItem="9Up-MS-HUT" secondAttribute="top" id="fYy-qA-qeq"/>
                                             <constraint firstItem="9Hy-Tb-W0v" firstAttribute="leading" secondItem="9Up-MS-HUT" secondAttribute="leading" constant="15" id="jB5-ZM-vAI"/>
                                             <constraint firstItem="UqX-SY-V3g" firstAttribute="top" secondItem="9Hy-Tb-W0v" secondAttribute="bottom" constant="20" id="p0S-ke-HkI"/>
-                                            <constraint firstItem="tOb-NX-c3L" firstAttribute="centerX" secondItem="9Up-MS-HUT" secondAttribute="centerX" id="rN6-zr-CyY"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2138,8 +2094,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a4O-x8-XFO"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="endBtn" destination="tOb-NX-c3L" id="ek7-QK-Yhf"/>
                         <outlet property="startBtn" destination="bsm-PZ-yLN" id="Ky5-7c-VxX"/>
                         <outlet property="subworkoutTitle" destination="EP1-vt-lQK" id="lwM-EU-flu"/>
                         <outlet property="timeLabel" destination="9Hy-Tb-W0v" id="IVf-YT-fX9"/>
@@ -2147,7 +2104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4J-Rl-eqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5194" y="940"/>
+            <point key="canvasLocation" x="5192.8000000000002" y="939.58020989505258"/>
         </scene>
         <!--Steps View Controller-->
         <scene sceneID="Crr-jn-NYx">

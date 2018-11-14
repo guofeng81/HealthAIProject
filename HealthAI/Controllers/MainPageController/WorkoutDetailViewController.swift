@@ -2,11 +2,12 @@
 //  WorkoutDetailViewController.swift
 //  HealthAI
 //
-//  Created by Naresh Kumar on 31/10/18.
+//  Created by Feng Guo on 14/11/18
 //  Copyright © 2018 Team9. All rights reserved.
 //
 
 import UIKit
+import RealmSwift
 
 class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,DataTransferDelegate {
     
@@ -39,6 +40,56 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         super.viewDidLoad()
         titleText.text = selectedWorkoutItem.title
         contentText.text = selectedWorkoutItem.content
+        
+         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "End", style: .done, target: self, action: #selector(endWorkoutPressed(sender:)))
+    }
+    
+    @objc func endWorkoutPressed(sender:AnyObject){
+        //print("End")
+        
+        self.saveWorkout()
+        self.navigationController?.popViewController(animated: true)
+        
+        
+//        let alert = UIAlertController(title: "End Workout", message: "Are you sure you want to end your workout?", preferredStyle: .alert)
+//
+//        // add the actions (buttons)
+//        alert.addAction(UIAlertAction(title: "End Workout", style: .default, handler: { (action) in
+//            self.saveWorkout()
+//            self.navigationController?.popViewController(animated: true)
+//        }))
+//
+//        //alert.addAction(UIAlertAction(title: "Back to Workout", style: .cancel, handler: nil))
+//
+//        // show the alert
+//        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func saveWorkout(){
+        
+        workoutHistoryItem.title = self.selectedWorkoutItem.title
+        
+        for index in 0..<self.selectedWorkoutItem.subworkouts.count {
+            
+            if selectedWorkoutItem.subworkouts[index].done == true {
+                let subworkoutHistoryItem = SubworkoutHistoryItem()
+                subworkoutHistoryItem.title = self.selectedWorkoutItem.subworkouts[index].title
+                subworkoutHistoryItem.time = self.selectedWorkoutItem.subworkouts[index].time
+                workoutHistoryItem.subworkoutItems.append(subworkoutHistoryItem)
+            }
+        }
+        
+        do{
+            let realm = try Realm()
+            try realm.write {
+                realm.add(workoutHistoryItem)
+            }
+        }catch{
+            print("Error using Realm!!")
+        }
+        
+        print("workout Data save")
+        
     }
     
     

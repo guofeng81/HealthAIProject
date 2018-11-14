@@ -20,9 +20,6 @@ class WorkoutClockViewController: UIViewController {
     
     @IBOutlet var startBtn: UIButton!
     
-    @IBOutlet var resetBtn: UIButton!
-    
-    @IBOutlet var endBtn: UIButton!
     
     //time is only for the seconds
     var time:Int = 0
@@ -39,10 +36,30 @@ class WorkoutClockViewController: UIViewController {
        // print("Selected Subworkout",selectedSubworkoutItem.title)
         
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(endWorkoutPressed(sender:)))
+        //self.navigationItem.hidesBackButton = true
         
         setupButtons()
         subworkoutTitle.text = selectedSubworkoutItem.title
         
+    }
+    
+    
+    @objc func endWorkoutPressed(sender:AnyObject){
+        print("End")
+        
+        let alert = UIAlertController(title: "End Workout", message: "Are you sure you want to end your workout?", preferredStyle: .alert)
+        
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "End Workout", style: .default, handler: { (action) in
+            self.saveWorkout()
+            self.navigationController?.popViewController(animated: true)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Back to Workout", style: .cancel, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
     
     func setupButtons(){
@@ -54,34 +71,34 @@ class WorkoutClockViewController: UIViewController {
         
         startBtn.layer.cornerRadius = startBtn.frame.width / 2
         startBtn.clipsToBounds = true
-//        resetBtn.layer.cornerRadius = resetBtn.frame.width / 2
-//        resetBtn.clipsToBounds = true
-//        endBtn.layer.cornerRadius = 20
-//        endBtn.clipsToBounds = true
+        
+      
+        setupButtonImage(imageName: "play")
+
     }
     
     @IBOutlet weak var timeLabel: UILabel!
     
-    @IBAction func endWorkoutBtn(_ sender: Any) {
-        
-        let alert = UIAlertController(title: "End Workout", message: "Are you sure you want to end your workout?", preferredStyle: .alert)
-        
-        // add the actions (buttons)
-        alert.addAction(UIAlertAction(title: "End & Save Workout", style: .default, handler: { (action) in
-            self.saveWorkout()
-            self.navigationController?.popViewController(animated: true)
-        }))
-        
-        alert.addAction(UIAlertAction(title: "End Without Saving", style: .default, handler: { (action) in
-            self.navigationController?.popViewController(animated: true)
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Back to Workout", style: .cancel, handler: nil))
-        
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-        
-    }
+//    @IBAction func endWorkoutBtn(_ sender: Any) {
+//
+//        let alert = UIAlertController(title: "End Workout", message: "Are you sure you want to end your workout?", preferredStyle: .alert)
+//
+//        // add the actions (buttons)
+//        alert.addAction(UIAlertAction(title: "End & Save Workout", style: .default, handler: { (action) in
+//            self.saveWorkout()
+//            self.navigationController?.popViewController(animated: true)
+//        }))
+//
+//        alert.addAction(UIAlertAction(title: "End Without Saving", style: .default, handler: { (action) in
+//            self.navigationController?.popViewController(animated: true)
+//        }))
+//
+//        alert.addAction(UIAlertAction(title: "Back to Workout", style: .cancel, handler: nil))
+//
+//        // show the alert
+//        self.present(alert, animated: true, completion: nil)
+//
+//    }
 
     //MARK - Perform Data Save!
     
@@ -100,15 +117,17 @@ class WorkoutClockViewController: UIViewController {
 
     @IBAction func startBtn(_ sender: UIButton) {
         
-        if timer != nil {
-            startBtn.setTitle("Start", for: .normal)
-            timer!.invalidate()
-            timer = nil
-        }else{
-            startBtn.setTitle("Pause", for: .normal)
-            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(WorkoutClockViewController.action),userInfo: nil, repeats: true)
-            
-        }
+//        if timer != nil {
+//            //startBtn.setTitle("Start", for: .normal)
+//            startBtn.setBackgroundImage(UIImage(named: "startBtn"), for: .normal)
+//            timer!.invalidate()
+//            timer = nil
+//        }else{
+//            //startBtn.setTitle("Pause", for: .normal)
+//            startBtn.setBackgroundImage(UIImage(named: "pause"), for: .normal)
+//            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(WorkoutClockViewController.action),userInfo: nil, repeats: true)
+//
+//        }
     }
     
     
@@ -130,22 +149,28 @@ class WorkoutClockViewController: UIViewController {
     
     @objc func normalTap(_ sender:UIGestureRecognizer) {
         if timer != nil {
-            startBtn.setTitle("Start", for: .normal)
+            setupButtonImage(imageName: "play")
             timer!.invalidate()
             timer = nil
         }else{
-            startBtn.setTitle("Pause", for: .normal)
+            setupButtonImage(imageName: "pause")
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(WorkoutClockViewController.action),userInfo: nil, repeats: true)
             
         }
     }
     
-    @IBAction func resetBtn(_ sender: Any) {
-        if time != 0 {
-            time = 0
-            timeLabel.text = String(format: "02d%02d", time)
-        }
+    
+    func setupButtonImage(imageName:String){
+        
+        let startBtnimage = UIImageView()
+        startBtnimage.frame = startBtn.frame
+        startBtnimage.contentMode = .scaleAspectFit
+        startBtnimage.clipsToBounds = true
+        startBtnimage.image = UIImage(named: imageName)
+        startBtn.addSubview(startBtnimage)
+        
     }
+    
     
     //Play the workout tutorial video
     
