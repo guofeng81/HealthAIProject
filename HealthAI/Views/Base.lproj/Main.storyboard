@@ -441,7 +441,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yAE-Qz-OJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1854" y="750"/>
+            <point key="canvasLocation" x="1802" y="730"/>
         </scene>
         <!--Graph View Controller-->
         <scene sceneID="2Mb-3s-Fjp">
@@ -1840,15 +1840,14 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1z-Ab-FGB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1z-Ab-FGB">
                                 <rect key="frame" x="255" y="467" width="85" height="85"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="jcX-rv-P3e"/>
                                     <constraint firstAttribute="height" constant="85" id="rC6-CA-ojp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal">
+                                <state key="normal" image="play">
                                     <color key="titleColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
@@ -2381,6 +2380,7 @@
         <image name="moderatea" width="800" height="1200"/>
         <image name="nutritionIntake" width="600" height="600"/>
         <image name="password" width="300" height="300"/>
+        <image name="play" width="626" height="626"/>
         <image name="sedentary" width="220" height="233"/>
         <image name="username" width="512" height="512"/>
         <image name="videoplay" width="108.48000335693359" height="107.51999664306641"/>

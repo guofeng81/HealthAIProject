@@ -60,6 +60,9 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "End Workout", style: .default, handler: { (action) in
             self.saveWorkout()
+            self.manager.stopUpdatingLocation()
+            self.startLocation = nil
+            self.lastLocation = nil
             self.navigationController?.popViewController(animated: true)
         }))
         
@@ -107,8 +110,6 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
              timer = nil
             //set button image to start image
             
-            
-            
         }
     }
     
@@ -126,7 +127,7 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
     
     @objc func normalTap(_ sender:UIGestureRecognizer) {
         if timer != nil {
-            setupButtonImage(imageName: "play-1")
+            setupButtonImage(imageName: "pause")
             // for timer
             timer!.invalidate()
             timer = nil
@@ -134,7 +135,7 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
             manager.stopUpdatingLocation()
             
         }else{
-            setupButtonImage(imageName: "pause")
+            setupButtonImage(imageName: "paly")
             
             restartLocationManager()
             speedLabel.text = String(format:"%.0f",0.00)
@@ -188,7 +189,7 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
 //            print("elapsedTime:", String(format: "%.0fs", Date().timeIntervalSince(startDate)))
 //        }
         
-        print(startDate)
+        //print(startDate)
         
         if startLocation == nil {
             startLocation = locations.first
