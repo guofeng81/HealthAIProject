@@ -47,7 +47,6 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         //setupButtonImage(imageName: "play")
         setupButtons()
         
-        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(endWorkoutPressed(sender:)))
         
     }
@@ -102,9 +101,13 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
 //            manager.startUpdatingLocation()
 //            startLocation = nil
 //            lastLocation = nil
-             restartLocationManager()
+             //restartLocationManager()
+             manager.stopUpdatingLocation()
              resetLabels()
-             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(WorkoutClockViewController.action),userInfo: nil, repeats: true)
+             timer = nil
+            //set button image to start image
+            
+            
             
         }
     }
