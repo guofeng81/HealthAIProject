@@ -90,14 +90,20 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
     }
     
     @objc func longTap(_ sender:UIGestureRecognizer){
-        if time != 0 {
+       if timer != nil {
             time = 0
-            let minutesPortion = String(format: "%02d", self.time / 60)
-            let secondsPortion = String(format: "%02d", self.time % 60)
-            let hoursPortion = String(format: "%02d", self.time % 3600)
-            timeLabel.text = "\(hoursPortion):\(minutesPortion):\(secondsPortion)"
-            
+            timer!.invalidate()
+            timer = nil
+//            let minutesPortion = String(format: "%02d", self.time / 60)
+//            let secondsPortion = String(format: "%02d", self.time % 60)
+//            let hoursPortion = String(format: "%02d", self.time % 3600)
+            timeLabel.text = "00:00:00"
+           // timeLabel.text = "\(hoursPortion):\(minutesPortion):\(secondsPortion)"
+            resetLabels()
+            traveledDistance = 0
             manager.stopUpdatingLocation()
+            self.startLocation = nil
+            self.lastLocation = nil
 //            speedLabel.text = String(format:"%.0f",0.00)
 //            totalDistance.text = String(format:"%.0f",0.00)
 //
@@ -105,11 +111,21 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
 //            startLocation = nil
 //            lastLocation = nil
              //restartLocationManager()
-             manager.stopUpdatingLocation()
              resetLabels()
-             timer = nil
+        
             //set button image to start image
             
+       }else{
+        // do the same thing as the above to set everything to 0
+        time = 0
+        resetLabels()
+        timeLabel.text = "00:00:00"
+        traveledDistance = 0
+        manager.stopUpdatingLocation()
+        self.startLocation = nil
+        self.lastLocation = nil
+        //set the image back to the start button image
+        
         }
     }
     
@@ -127,7 +143,13 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
     
     @objc func normalTap(_ sender:UIGestureRecognizer) {
         if timer != nil {
-            setupButtonImage(imageName: "pause")
+            //setupButtonImage(imageName: "pause")
+            let startBtnimage = UIImageView()
+            startBtnimage.frame = startCardioWorkout.frame
+            startBtnimage.contentMode = .scaleAspectFit
+            startBtnimage.clipsToBounds = true
+            startBtnimage.image = UIImage(named: "pause")
+            startCardioWorkout.addSubview(startBtnimage)
             // for timer
             timer!.invalidate()
             timer = nil
@@ -135,7 +157,13 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
             manager.stopUpdatingLocation()
             
         }else{
-            setupButtonImage(imageName: "paly")
+            //setupButtonImage(imageName: "paly")
+            let startBtnimage = UIImageView()
+            startBtnimage.frame = startCardioWorkout.frame
+            startBtnimage.contentMode = .scaleAspectFit
+            startBtnimage.clipsToBounds = true
+            startBtnimage.image = UIImage(named: "play")
+            startCardioWorkout.addSubview(startBtnimage)
             
             restartLocationManager()
             speedLabel.text = String(format:"%.0f",0.00)
