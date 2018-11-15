@@ -29,6 +29,8 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        resetLabels()
+        
         selectedWorkoutHistoryItem.title = selectedCardioWorkoutItem.title
         
         manager.delegate = self
@@ -74,9 +76,6 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
     
     func setupButtons(){
         
-        startCardioWorkout.layer.cornerRadius = startCardioWorkout.frame.width / 2
-        startCardioWorkout.clipsToBounds = true
-        
         let normalGesture = UITapGestureRecognizer(target: self, action: #selector(normalTap(_:)))
         startCardioWorkout.addGestureRecognizer(normalGesture)
         let longGesture = UILongPressGestureRecognizer(target: self, action: #selector((longTap(_:))))
@@ -85,11 +84,15 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         startCardioWorkout.layer.cornerRadius = startCardioWorkout.frame.width / 2
         startCardioWorkout.clipsToBounds = true
         
-        setupButtonImage(imageName: "play")
+         startCardioWorkout.setImage(UIImage(named: "play"), for: .normal)
+        
+        //setupButtonImage(imageName: "play")
+        
         
     }
     
     @objc func longTap(_ sender:UIGestureRecognizer){
+         startCardioWorkout.setImage(UIImage(named: "play"), for: .normal)
        if timer != nil {
             time = 0
             timer!.invalidate()
@@ -97,7 +100,7 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
 //            let minutesPortion = String(format: "%02d", self.time / 60)
 //            let secondsPortion = String(format: "%02d", self.time % 60)
 //            let hoursPortion = String(format: "%02d", self.time % 3600)
-            timeLabel.text = "00:00:00"
+        
            // timeLabel.text = "\(hoursPortion):\(minutesPortion):\(secondsPortion)"
             resetLabels()
             traveledDistance = 0
@@ -119,7 +122,6 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         // do the same thing as the above to set everything to 0
         time = 0
         resetLabels()
-        timeLabel.text = "00:00:00"
         traveledDistance = 0
         manager.stopUpdatingLocation()
         self.startLocation = nil
@@ -130,8 +132,9 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
     }
     
     func resetLabels(){
-        speedLabel.text = String(format:"%.0f",0.00)
-        totalDistance.text = String(format:"%.0f",0.00)
+        speedLabel.text = String(format:"%.2f",0.00)
+        totalDistance.text = String(format:"%.2f",0.00)
+        timeLabel.text = "00:00:00"
     }
     
     func restartLocationManager(){
@@ -143,13 +146,7 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
     
     @objc func normalTap(_ sender:UIGestureRecognizer) {
         if timer != nil {
-            //setupButtonImage(imageName: "pause")
-            let startBtnimage = UIImageView()
-            startBtnimage.frame = startCardioWorkout.frame
-            startBtnimage.contentMode = .scaleAspectFit
-            startBtnimage.clipsToBounds = true
-            startBtnimage.image = UIImage(named: "pause")
-            startCardioWorkout.addSubview(startBtnimage)
+            startCardioWorkout.setImage(UIImage(named: "play"), for: .normal)
             // for timer
             timer!.invalidate()
             timer = nil
@@ -157,16 +154,9 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
             manager.stopUpdatingLocation()
             
         }else{
-            //setupButtonImage(imageName: "paly")
-            let startBtnimage = UIImageView()
-            startBtnimage.frame = startCardioWorkout.frame
-            startBtnimage.contentMode = .scaleAspectFit
-            startBtnimage.clipsToBounds = true
-            startBtnimage.image = UIImage(named: "play")
-            startCardioWorkout.addSubview(startBtnimage)
-            
+            startCardioWorkout.setImage(UIImage(named: "pause"), for: .normal)
             restartLocationManager()
-            speedLabel.text = String(format:"%.0f",0.00)
+            speedLabel.text = String(format:"%.2f",0.00)
            
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(WorkoutClockViewController.action),userInfo: nil, repeats: true)
             
@@ -174,14 +164,12 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
     }
     
     func setupButtonImage(imageName:String){
-        
         let startBtnimage = UIImageView()
         startBtnimage.frame = startCardioWorkout.frame
         startBtnimage.contentMode = .scaleAspectFit
         startBtnimage.clipsToBounds = true
         startBtnimage.image = UIImage(named: imageName)
         startCardioWorkout.addSubview(startBtnimage)
-        
     }
 
     
@@ -191,7 +179,7 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
     var traveledDistance:Double = 0
     var startLocation: CLLocation!
     var lastLocation: CLLocation!
-    var startDate: Date!
+    //var startDate: Date!
     
     var averageSpeed: Double = 0
     
@@ -200,24 +188,13 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
     
     @IBOutlet var totalDistance: UILabel!
     
+    var speed: CLLocationSpeed = CLLocationSpeed()
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        var speed: CLLocationSpeed = CLLocationSpeed()
         speed = (manager.location?.speed)!
         print("Speed:\(speed) mph ")
         
         speedLabel.text = String(format: "%.2f", speed) + " MPH"
-        
-//        if startDate == nil {
-//            startDate = Date()
-//        } else {
-//
-//            //totalTime = Date().timeIntervalSince(startDate)
-//            print("elapsedTime:", String(format: "%.0fs", Date().timeIntervalSince(startDate)))
-//        }
-        
-        //print(startDate)
         
         if startLocation == nil {
             startLocation = locations.first
