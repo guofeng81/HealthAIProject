@@ -63,6 +63,10 @@
 		B3428D1421753957000BEFAE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3428D1321753957000BEFAE /* RegisterViewController.swift */; };
 		B357476921811EEC00A141DC /* SlideAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357476821811EEC00A141DC /* SlideAnimation.swift */; };
 		B35747E92182A90000A141DC /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35747E82182A90000A141DC /* DatabaseHelper.swift */; };
+		B3B6CC29219F62590095FECB /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6CC28219F62590095FECB /* CalendarView.swift */; };
+		B3B6CC2B219F627C0095FECB /* WeekdaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6CC2A219F627C0095FECB /* WeekdaysView.swift */; };
+		B3B6CC2D219F62940095FECB /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6CC2C219F62940095FECB /* MonthView.swift */; };
+		B3B6CC2F219F62D70095FECB /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6CC2E219F62D70095FECB /* CalendarViewController.swift */; };
 		B3DEE16821894C72000B5CAC /* WorkoutDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DEE16721894C72000B5CAC /* WorkoutDataModel.swift */; };
 		B3EA6143219A7AA600D66927 /* CardioWorkoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA6142219A7AA600D66927 /* CardioWorkoutItem.swift */; };
 		B3EA6145219A837100D66927 /* CardioWorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA6144219A837100D66927 /* CardioWorkoutTableViewController.swift */; };
@@ -133,6 +137,10 @@
 		B3428D1321753957000BEFAE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B357476821811EEC00A141DC /* SlideAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideAnimation.swift; sourceTree = "<group>"; };
 		B35747E82182A90000A141DC /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
+		B3B6CC28219F62590095FECB /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		B3B6CC2A219F627C0095FECB /* WeekdaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaysView.swift; sourceTree = "<group>"; };
+		B3B6CC2C219F62940095FECB /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		B3B6CC2E219F62D70095FECB /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B3DEE16721894C72000B5CAC /* WorkoutDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataModel.swift; sourceTree = "<group>"; };
 		B3EA6142219A7AA600D66927 /* CardioWorkoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioWorkoutItem.swift; sourceTree = "<group>"; };
 		B3EA6144219A837100D66927 /* CardioWorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioWorkoutTableViewController.swift; sourceTree = "<group>"; };
@@ -290,6 +298,9 @@
 				B30E75C0217E77E100231ED3 /* CardView.swift */,
 				B310142A2186A5E900324155 /* ProfileTableViewCell.swift */,
 				B310142C2186A5FC00324155 /* BioCell.swift */,
+				B3B6CC28219F62590095FECB /* CalendarView.swift */,
+				B3B6CC2A219F627C0095FECB /* WeekdaysView.swift */,
+				B3B6CC2C219F62940095FECB /* MonthView.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -319,6 +330,7 @@
 				B3147F4B2193EBAF000A429D /* HistoryDetailTableViewController.swift */,
 				B3EA6144219A837100D66927 /* CardioWorkoutTableViewController.swift */,
 				B3EA6146219A83CD00D66927 /* CardioWorkoutDetailViewController.swift */,
+				B3B6CC2E219F62D70095FECB /* CalendarViewController.swift */,
 			);
 			path = MainPageController;
 			sourceTree = "<group>";
@@ -533,7 +545,10 @@
 				642BA2F6218AAB65009568AD /* GraphViewController.swift in Sources */,
 				B35747E92182A90000A141DC /* DatabaseHelper.swift in Sources */,
 				B3DEE16821894C72000B5CAC /* WorkoutDataModel.swift in Sources */,
+				B3B6CC2F219F62D70095FECB /* CalendarViewController.swift in Sources */,
+				B3B6CC2D219F62940095FECB /* MonthView.swift in Sources */,
 				6455C8E621642E36009F4D33 /* ViewController.swift in Sources */,
+				B3B6CC2B219F627C0095FECB /* WeekdaysView.swift in Sources */,
 				64303E7B218A667B00A59AF3 /* WorkoutHistoryTableViewController.swift in Sources */,
 				6455C8E421642E36009F4D33 /* AppDelegate.swift in Sources */,
 				B310142D2186A5FC00324155 /* BioCell.swift in Sources */,
@@ -553,6 +568,7 @@
 				6418CCEB218A71BD0072951B /* Workout.swift in Sources */,
 				B3147F462193E704000A429D /* WorkoutHistoryItem.swift in Sources */,
 				6418CCFD218A8AF70072951B /* DiabetesScoreViewController.swift in Sources */,
+				B3B6CC29219F62590095FECB /* CalendarView.swift in Sources */,
 				B310142B2186A5E900324155 /* ProfileTableViewCell.swift in Sources */,
 				B3EA6147219A83CD00D66927 /* CardioWorkoutDetailViewController.swift in Sources */,
 				B30E61C421756EE5004135B9 /* AuthServices.swift in Sources */,

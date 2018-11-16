@@ -322,12 +322,20 @@ extension HealthMainViewController: SidebarViewDelegate {
         }
         switch row {
         case .editProfile:
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditProfile") as? ProfileViewController
+            if let editprofileVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EditProfile") as? ProfileViewController
             {
-                present(vc, animated: true, completion: nil)
+                present(editprofileVC, animated: true, completion: nil)
             }
             
         case .calendar:
+            
+            if let calendarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Calendar") as? CalendarViewController
+            {
+                present(calendarVC, animated: true, completion: nil)
+            }
+            
+            
+            
             print("Calendar")
         case .contact:
             print("Contact")
