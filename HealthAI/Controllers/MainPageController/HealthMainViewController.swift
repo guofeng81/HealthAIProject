@@ -92,6 +92,9 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
         
         DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef, user: user, imageView: backgroundImageView,referenceName: "backgroundPhoto")
         
+        
+        
+        
 //        backgroundView.backgroundColor = UIColor.init(
 //            gradientStyle: UIGradientStyle.leftToRight,
 //            withFrame: backgroundView.frame,

@@ -55,20 +55,20 @@ class AuthServices{
         }
     }
     
+    
     static func createUserProfile(uName: String = (Auth.auth().currentUser?.email)!.components(separatedBy: "@")[0]){
         
-        Database.database().reference().child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
+        let user = Auth.auth().currentUser
+        let email = user?.email
+        
+        let databaseRef = Database.database().reference().child("profile").queryOrdered(byChild: "email").queryEqual(toValue: email!)
+        
+        databaseRef.observeSingleEvent(of: .value) { (snapshot) in
             
-            if snapshot.exists() {
-                print("Username already exists")
-            
-            } else {
-                let user = Auth.auth().currentUser
-                
-                //let delimiter = "@"
-                let email = user?.email
-                //let uName = email.components(separatedBy: delimiter)
-                
+            if snapshot.exists(){
+                print("User exist")
+            }else{
+                //create user profile
                 let newUser = ["email":email,"username": uName,"photo":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/empty_profile.png?alt=media&token=d25ab88e-e758-407d-bed9-cb6def5385a6","backgroundPhoto":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/defaultBackgroundImage.jpg?alt=media&token=c02ab78a-a448-4449-ab56-b622846d472b", "height": "","weight":"","glucose": "","bloodpressure":""]
                 
                 Database.database().reference().child("profile").child(user!.uid).setValue(newUser) { (error, ref) in
@@ -79,38 +79,17 @@ class AuthServices{
                         print("Profile successfully created!")
                     }
                 }
-                //print("Username doesn't already exist")
+                
             }
             
-        }, withCancel: nil)
+        }
         
     }
     
     
     
-    //Check the user is the existing user or not
-//
-//    static func isUserExist(){
-//
-//        Database.database().reference().child("profile").observeSingleEvent(of: .value, with: { (snapshot) in
-//
-//            if snapshot.exists() {
-//                print("Username already exists")
-//                print(snapshot)
-//
-//                print("Is User exists:",  isUserExist)
-//            } else {
-//
-//                createUserProfile()
-//                //print("Username doesn't already exist")
-//            }
-//
-//        }, withCancel: nil)
-//
-//
-//    }
     
-
+    
     func handleFirebaseError(error: NSError, onComplete: Completion?){
         print(error.debugDescription)
         if let errorCode = AuthErrorCode(rawValue: error._code) {
@@ -140,9 +119,8 @@ class AuthServices{
         
     }
     
-    
-   
-    
 }
+
+
 
 
