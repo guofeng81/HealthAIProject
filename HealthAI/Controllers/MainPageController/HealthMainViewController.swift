@@ -327,8 +327,8 @@ extension HealthMainViewController: SidebarViewDelegate {
                 present(vc, animated: true, completion: nil)
             }
             
-        case .messages:
-            print("Messages")
+        case .calendar:
+            print("Calendar")
         case .contact:
             print("Contact")
         case .settings:

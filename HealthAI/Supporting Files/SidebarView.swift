@@ -17,7 +17,7 @@ protocol SidebarViewDelegate: class {
 
 enum Row: String {
     case editProfile
-    case messages
+    case calendar
     case contact
     case settings
     case history
@@ -28,7 +28,7 @@ enum Row: String {
     init(row: Int) {
         switch row {
         case 0: self = .editProfile
-        case 1: self = .messages
+        case 1: self = .calendar
         case 2: self = .contact
         case 3: self = .settings
         case 4: self = .history
@@ -55,7 +55,7 @@ class SidebarView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.backgroundColor=UIColor(red: 54/255, green: 55/255, blue: 56/255, alpha: 1.0)
         self.clipsToBounds=true
         
-        titleArr = ["team 9", "Messages", "Contact", "Settings", "History", "Help", "Sign Out"]
+        titleArr = ["team 9", "Calendar", "Contact", "Settings", "History", "Help", "Sign Out"]
         
         setupViews()
         
