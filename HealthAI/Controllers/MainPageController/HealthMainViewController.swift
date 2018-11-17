@@ -329,12 +329,16 @@ extension HealthMainViewController: SidebarViewDelegate {
             
         case .calendar:
             
-            if let calendarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Calendar") as? CalendarViewController
-            {
-                present(calendarVC, animated: true, completion: nil)
+            
+            if let calendarViewController = self.storyboard?.instantiateViewController(withIdentifier: "Calendar") as? CalendarViewController {
+                let navigationController = UINavigationController(rootViewController: calendarViewController)
+                self.navigationController?.present(navigationController, animated: true, completion: nil)
             }
             
-            
+//            if let calendarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Calendar") as? CalendarViewController
+//            {
+//                present(calendarVC, animated: true, completion: nil)
+//            }
             
             print("Calendar")
         case .contact:

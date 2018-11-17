@@ -202,7 +202,7 @@
             </objects>
             <point key="canvasLocation" x="1100" y="34.632683658170919"/>
         </scene>
-        <!--Calendar View Controller-->
+        <!--My Calendar-->
         <scene sceneID="n9m-VH-Equ">
             <objects>
                 <viewController storyboardIdentifier="Calendar" id="utV-MB-gsp" customClass="CalendarViewController" customModule="HealthAI" customModuleProvider="target" sceneMemberID="viewController">
@@ -212,7 +212,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="UDd-1o-iyN"/>
                     </view>
-                    <navigationItem key="navigationItem" id="S1n-Ze-zkr"/>
+                    <navigationItem key="navigationItem" title="My Calendar" id="S1n-Ze-zkr"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzK-x8-Kky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
