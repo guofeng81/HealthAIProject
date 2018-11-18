@@ -21,6 +21,9 @@ class WorkoutHistoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadWorkoutHistoryData()
+        
+        
+        
     }
     
     func loadWorkoutHistoryData(){

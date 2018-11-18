@@ -12,7 +12,6 @@ import RealmSwift
 class CalorieTableViewController: UITableViewController {
 
     
-    
     let realm = try! Realm()
     
     var resultModel : Results<CalorieDataModel>?

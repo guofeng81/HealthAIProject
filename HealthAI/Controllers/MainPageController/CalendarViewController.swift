@@ -8,20 +8,22 @@
 
 import UIKit
 
-
 enum MyTheme {
     case light
     case dark
 }
 
 class CalendarViewController: UIViewController {
-
+   
     var theme = MyTheme.dark
     
+    var selectedDate:String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("Selected Date:" ,selectedDate)
         
         self.title = "My Calendar"
         
@@ -29,6 +31,7 @@ class CalendarViewController: UIViewController {
         self.view.backgroundColor=Style.bgColor
         
         view.addSubview(calenderView)
+        
         calenderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive=true
         calenderView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12).isActive=true
         calenderView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive=true
@@ -36,11 +39,19 @@ class CalendarViewController: UIViewController {
         
         let rightBarBtn = UIBarButtonItem(title: "Light", style: .plain, target: self, action: #selector(rightBarBtnAction))
         self.navigationItem.rightBarButtonItem = rightBarBtn
+        let leftBarBtn = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(leftBarBtnAction))
+        self.navigationItem.leftBarButtonItem = leftBarBtn
+        
+    }
+
+    @objc func leftBarBtnAction(){
+        self.dismiss(animated: true, completion: nil)
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         calenderView.myCollectionView.collectionViewLayout.invalidateLayout()
+       
     }
     
     @objc func rightBarBtnAction(sender: UIBarButtonItem) {
@@ -62,6 +73,14 @@ class CalendarViewController: UIViewController {
         v.translatesAutoresizingMaskIntoConstraints=false
         return v
     }()
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //pass the selectedDate to the CalendarDetail TableViewController
+        if segue.identifier == "goToDetail" {
+            let seg = segue.destination as! CalendarDetailTableViewController
+            seg.selectedDate = self.selectedDate
+        }
+    }
     
 
 

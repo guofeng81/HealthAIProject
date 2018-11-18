@@ -46,6 +46,9 @@ struct Style {
 
 class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MonthViewDelegate {
     
+    
+    var selectedDate:String?
+    
     var numOfDaysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
     var currentMonthIndex: Int = 0
     var currentYear: Int = 0
@@ -74,7 +77,6 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     func changeTheme() {
         myCollectionView.reloadData()
-        
         monthView.lblName.textColor = Style.monthViewLblColor
         monthView.btnRight.setTitleColor(Style.monthViewBtnRightColor, for: .normal)
         monthView.btnLeft.setTitleColor(Style.monthViewBtnLeftColor, for: .normal)
@@ -121,31 +123,44 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
             cell.lbl.text="\(calcDate)"
             cell.lbl.font = UIFont(name: cell.lbl.font.fontName, size: 18)
             //print("Calculated Date:", calcDate)
-            if calcDate < todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
-                cell.isUserInteractionEnabled=false
-                cell.lbl.textColor = UIColor.lightGray
-            } else {
+            // no need to make the
+//            if calcDate < todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
+//                cell.isUserInteractionEnabled=false
+//                cell.lbl.textColor = UIColor.lightGray
+//            } else {
+//                cell.isUserInteractionEnabled=true
+//                cell.lbl.textColor = Style.activeCellLblColor
+//            }
+            
+//             if calcDate == todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
+//                cell.backgroundColor=Colors.darkRed
+//             }else{
                 cell.isUserInteractionEnabled=true
                 cell.lbl.textColor = Style.activeCellLblColor
-            }
+           // }
+            
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         let cell=collectionView.cellForItem(at: indexPath)
         cell?.backgroundColor=Colors.darkRed
         let lbl = cell?.subviews[1] as! UILabel
         
-        
-        //        let date = DateModel()
-        //        date.year = String(currentYear)
-        //        date.month = String(currentMonthIndex)
-        //        date.date = lbl.text!
+    
         //This is the date
-        print(lbl.text!)
-        print(currentMonthIndex)
-        print(currentYear)
+        print("Year ",presentYear)
+        print("Month ",presentMonthIndex)
+        print("Date ",todaysDate)
+        
+        // pass the correction view to another tableview controller
+         
+        self.selectedDate = "\(currentYear)-\(currentMonthIndex)-\(indexPath.row-getFirstWeekDay()+2)"
+        
+        print("\(currentYear)-\(currentMonthIndex)-\(indexPath.row-getFirstWeekDay()+2)")
+        print(getFirstWeekDay())
         
         let SelectedItem = indexPath.row + 1
         
