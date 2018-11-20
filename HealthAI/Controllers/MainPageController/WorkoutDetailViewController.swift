@@ -65,9 +65,21 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
 //        self.present(alert, animated: true, completion: nil)
     }
     
+    func formatter(currentDate: Date){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        formatter.string(from: currentDate)
+    }
+    
     func saveWorkout(){
         
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        
         workoutHistoryItem.title = self.selectedWorkoutItem.title
+        workoutHistoryItem.currentDate = formatter.string(from:Date())
         
         for index in 0..<self.selectedWorkoutItem.subworkouts.count {
             

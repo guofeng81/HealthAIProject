@@ -255,10 +255,26 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
     }
     
     
+    func dateFormatter(currentDate: Date){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        dateFormatter.string(from: currentDate)
+    }
+    
     
     func saveWorkout(){
         
-        let currentDateTime = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        
+//        let currentDateTime = Date()
+        
+      //  let currentDateTime = dateFormatter(currentDate: Date())
+        
+       // print(currentDateTime)
         
         // initialize the date formatter and set the style
         //        let formatter = DateFormatter()
@@ -269,7 +285,7 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         selectedWorkoutHistoryItem.title = selectedCardioWorkoutItem.title
         print("Cardio workout title: ",selectedCardioWorkoutItem.title)
         selectedWorkoutHistoryItem.averageSpeed = traveledDistance / Double(time)
-        selectedWorkoutHistoryItem.currentDate = currentDateTime
+        selectedWorkoutHistoryItem.currentDate = dateFormatter.string(from: Date())
         selectedWorkoutHistoryItem.totalDistance = traveledDistance
         
         

@@ -22,6 +22,11 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     var selectedWorkoutHistoryItem = WorkoutHistoryItem()
     
+    //Divide Carido Workouts and Strength Workouts into two sections based on date
+    
+    
+    
+    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,11 +57,19 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     }
     
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 70
     }
     
     func loadWorkoutHistoryData(){
-        workoutHistories = realm.objects(WorkoutHistoryItem.self)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        let date = dateFormatter.string(from: Date())
+        
+        print(date)
+        
+        workoutHistories = realm.objects(WorkoutHistoryItem.self).filter("currentDate == %@",date)
         historyTableView.reloadData()
     }
     
@@ -89,6 +102,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     var selectedDate:String?
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -116,9 +130,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
     }
     
-//    func loadWorkoutHistoryData(){
-//        workoutHistories = realm.objects(WorkoutHistoryItem.self)
-//    }
 
     @objc func leftBarBtnAction(){
         self.dismiss(animated: true, completion: nil)
