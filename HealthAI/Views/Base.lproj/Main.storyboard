@@ -209,10 +209,42 @@
                     <view key="view" contentMode="scaleToFill" id="F7V-zy-8V1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ql9-Dc-rQs">
+                                <rect key="frame" x="0.0" y="317" width="375" height="350"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="RGS-lf-rYA"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="historyCell" id="8IB-ke-OHV">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8IB-ke-OHV" id="peE-wM-3kb">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="utV-MB-gsp" id="6DO-u5-OmL"/>
+                                    <outlet property="delegate" destination="utV-MB-gsp" id="Lob-tm-ET9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ql9-Dc-rQs" firstAttribute="leading" secondItem="UDd-1o-iyN" secondAttribute="leading" id="IOc-DD-aAr"/>
+                            <constraint firstItem="ql9-Dc-rQs" firstAttribute="trailing" secondItem="UDd-1o-iyN" secondAttribute="trailing" id="WhU-tx-8fP"/>
+                            <constraint firstItem="ql9-Dc-rQs" firstAttribute="bottom" secondItem="UDd-1o-iyN" secondAttribute="bottom" id="wvG-sI-1Rf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UDd-1o-iyN"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Calendar" id="S1n-Ze-zkr"/>
+                    <connections>
+                        <outlet property="historyTableView" destination="ql9-Dc-rQs" id="fXa-Xv-Wmt"/>
+                        <segue destination="DS5-1A-MFx" kind="show" identifier="goToHistoryDetail" id="txV-cE-bXh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzK-x8-Kky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
