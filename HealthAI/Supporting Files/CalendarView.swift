@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import RealmSwift
 
 struct Colors {
     static var darkGray = #colorLiteral(red: 0.3764705882, green: 0.3647058824, blue: 0.3647058824, alpha: 1)
@@ -47,7 +47,13 @@ struct Style {
 class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MonthViewDelegate {
     
     
+    let realm = try! Realm()
+    
+    var workoutHistories : Results<WorkoutHistoryItem>?
+    
     var selectedDate:String?
+    
+    var selectedWorkoutItem = WorkoutItem()
     
     var numOfDaysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
     var currentMonthIndex: Int = 0
@@ -73,6 +79,10 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         }
         
         initializeView()
+    }
+    
+    func loadWorkoutHistoryData(){
+        workoutHistories = realm.objects(WorkoutHistoryItem.self)
     }
     
     func changeTheme() {
@@ -113,6 +123,9 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        loadWorkoutHistoryData()
+        
         let cell=collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! dateCVCell
         cell.backgroundColor=UIColor.clear
         if indexPath.item <= firstWeekDayOfMonth - 2 {
@@ -149,6 +162,7 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         cell?.backgroundColor=Colors.darkRed
         let lbl = cell?.subviews[1] as! UILabel
         
+       
     
         //This is the date
         print("Year ",presentYear)

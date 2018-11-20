@@ -11,11 +11,9 @@ import UIKit
 class BioCell: UITableViewCell {
 
     
-    @IBOutlet var bioLabel: UILabel!
+    @IBOutlet var unitLabel: UILabel!
     
     @IBOutlet var valueLabel: UILabel!
-    
-    @IBOutlet var unitLabel: UILabel!
     
     
     override func awakeFromNib() {

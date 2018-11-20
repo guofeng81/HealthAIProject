@@ -15,14 +15,10 @@ class CalendarDetailTableViewController: UITableViewController {
     
     var selectedDate:String?
     
-    let realm = try! Realm()
-    
-    var workoutHistories : Results<WorkoutHistoryItem>?
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadWorkoutHistoryData()
+        
     }
 
     // MARK: - Table view data source
@@ -34,7 +30,8 @@ class CalendarDetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-         return workoutHistories?.count ?? 1
+         //return workoutHistories?.count ?? 1
+        return 1
     }
 
     
@@ -43,11 +40,13 @@ class CalendarDetailTableViewController: UITableViewController {
         
         //cell.delegate = self
         
-        if let workout = workoutHistories?[indexPath.row]{
-            cell.textLabel?.text = workout.title
-        }else{
-            cell.textLabel?.text = "No Workout Item added"
-        }
+//        if let workout = workoutHistories?[indexPath.row]{
+//            cell.textLabel?.text = workout.title
+//        }else{
+//            cell.textLabel?.text = "No Workout Item added"
+//        }
+        
+        //based on the current date
         
         return cell
     }
@@ -66,21 +65,19 @@ class CalendarDetailTableViewController: UITableViewController {
     
    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        selectedWorkoutHistoryItem = workoutHistories![indexPath.row]
-        
-        print("After date formatter",dateFormatter(currentDate: selectedWorkoutHistoryItem.currentDate!))
-        
-        
-        print("SelectworkoutHistroy Item:", selectedWorkoutHistoryItem.currentDate)
-        
+//        selectedWorkoutHistoryItem = workoutHistories![indexPath.row]
+//
+//        print("After date formatter",dateFormatter(currentDate: selectedWorkoutHistoryItem.currentDate!))
+//
+//
+//        print("SelectworkoutHistroy Item:", selectedWorkoutHistoryItem.currentDate)
+    
         tableView.deselectRow(at: indexPath, animated: true)
         
         performSegue(withIdentifier: "goToDetail", sender: self)
     }
     
-    func loadWorkoutHistoryData(){
-        workoutHistories = realm.objects(WorkoutHistoryItem.self)
-    }
+   
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToDetail" {

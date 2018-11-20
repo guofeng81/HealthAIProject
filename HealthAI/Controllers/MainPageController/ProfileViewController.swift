@@ -32,6 +32,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     var numberOfvalues = ["","","",""]
     
+    let cellHeight = 70
+    let Offset = 10
     
     //MARK - Table View Set up
     
@@ -39,12 +41,28 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         return 4
     }
     
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return CGFloat(cellHeight)
+//    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "bioCell", for: indexPath) as! BioCell
+        
+//        let bottomBorder = CAShapeLayer()
+//        let bottomPath = UIBezierPath()
+//        bottomPath.move(to: CGPoint(x: 10, y:  CGFloat(cellHeight * (indexPath.row + 1))))
+//        bottomPath.addLine(to: CGPoint(x: bioTableView.frame.width-10, y: CGFloat(cellHeight * (indexPath.row + 1))))
+//        bottomBorder.path = bottomPath.cgPath
+//        bottomBorder.strokeColor = UIColor.gray.cgColor
+//        bottomBorder.lineWidth = 1.0
+//        //bottomBorder.fillColor = UIColor.gray.cgColor
+//        bioTableView.layer.addSublayer(bottomBorder)
+        
         
         cell.textLabel?.text = bioList[indexPath.row]
         
-        // cell.bioLabel.text = bioList[indexPath.row]
+       // cell.bioLabel.text = bioList[indexPath.row]
         cell.unitLabel.text = unitList[indexPath.row]
         
         print("Values in the table view \(bio[indexPath.row])")
@@ -168,7 +186,19 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
         setGridentBackgroundColor()
         
+        
+        //self.bioTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        
+        bioTableView.layer.masksToBounds = true
+        bioTableView.layer.borderColor = UIColor( red: 153/255, green: 153/255, blue:0/255, alpha: 1.0 ).cgColor
+        bioTableView.layer.borderWidth = 2.0
+        
+        bioTableView.layer.borderColor = UIColor.gray.cgColor
+        bioTableView.layer.borderWidth = 1.0
        
+
+        
+      
         
        //loadBioVlaues()
         

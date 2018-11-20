@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import RealmSwift
 
 enum MyTheme {
     case light
     case dark
 }
 
+
+
 class CalendarViewController: UIViewController {
+    
    
+   // @IBOutlet var calView: CalenderView!
+    
     var theme = MyTheme.dark
     
     var selectedDate:String?
@@ -22,6 +28,8 @@ class CalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //loadWorkoutHistoryData()
         
         print("Selected Date:" ,selectedDate)
         
@@ -31,6 +39,7 @@ class CalendarViewController: UIViewController {
         self.view.backgroundColor=Style.bgColor
         
         view.addSubview(calenderView)
+       // calView.addSubview(calenderView)
         
         calenderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive=true
         calenderView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12).isActive=true
@@ -43,6 +52,10 @@ class CalendarViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = leftBarBtn
         
     }
+    
+//    func loadWorkoutHistoryData(){
+//        workoutHistories = realm.objects(WorkoutHistoryItem.self)
+//    }
 
     @objc func leftBarBtnAction(){
         self.dismiss(animated: true, completion: nil)
