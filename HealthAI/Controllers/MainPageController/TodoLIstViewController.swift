@@ -54,6 +54,8 @@ class TodoLIstViewController: UITableViewController{
         
         selectedworkoutItem = workoutItems[indexPath.row]
         
+        print("Title:",workoutItems[indexPath.row].title)
+        
         cell.titleLabel.text = selectedworkoutItem.title
         cell.middleLabel.text = "\(selectedworkoutItem.duration) - \(selectedworkoutItem.hardness)"
         cell.bodyLabel.text = selectedworkoutItem.body
