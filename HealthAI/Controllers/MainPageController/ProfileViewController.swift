@@ -40,10 +40,15 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
     
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return CGFloat(cellHeight)
 //    }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -58,11 +63,14 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
 //        bottomBorder.lineWidth = 1.0
 //        //bottomBorder.fillColor = UIColor.gray.cgColor
 //        bioTableView.layer.addSublayer(bottomBorder)
+//        
+        
+        //cell.textLabel?.text = bioList[indexPath.row]
+        
+        cell.bioTitle.text = bioList[indexPath.row]
+        cell.bioImage.image = UIImage(named:bio[indexPath.row])
         
         
-        cell.textLabel?.text = bioList[indexPath.row]
-        
-       // cell.bioLabel.text = bioList[indexPath.row]
         cell.unitLabel.text = unitList[indexPath.row]
         
         print("Values in the table view \(bio[indexPath.row])")

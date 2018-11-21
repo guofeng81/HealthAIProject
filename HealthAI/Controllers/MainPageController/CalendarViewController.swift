@@ -58,9 +58,9 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         print("Selected Date Here:" , selectedDate!)
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
         //let date = dateFormatter.date(from: )
         
          workoutHistories = realm.objects(WorkoutHistoryItem.self).filter("currentDate == %@",selectedDate!)

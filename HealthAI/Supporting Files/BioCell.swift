@@ -15,6 +15,10 @@ class BioCell: UITableViewCell {
     
     @IBOutlet var valueLabel: UILabel!
     
+    @IBOutlet var bioTitle: UILabel!
+    
+    @IBOutlet var bioImage: UIImageView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
