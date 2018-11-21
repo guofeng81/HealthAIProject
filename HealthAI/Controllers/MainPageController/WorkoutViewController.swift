@@ -29,6 +29,7 @@ class WorkoutViewController: UIViewController {
         super.viewDidLoad()
         
         let workout = WorkoutItem()
+        workout.type = "Strength"
         workout.title = "Arms"
         workout.content = "Tone and develop your arm muscles.You will go through eight exercises, alternating between three sets of 10 reps and two sets of 20 reps"
         //workout.workoutDuration = "40min"
@@ -48,6 +49,7 @@ class WorkoutViewController: UIViewController {
         workout.subworkouts.append(subworkout2)
         
         let workout2 = WorkoutItem()
+        workout2.type = "Strength"
         workout2.title = "Back"
         workout2.content = "Tone and develop your back muscles.You will go through five exercises, alternating between three sets of 10 reps and two sets of 10 reps"
         workout2.body = "lower body"

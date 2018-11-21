@@ -21,12 +21,15 @@ class CardioWorkoutTableViewController: UITableViewController {
         super.viewDidLoad()
         
         let cardioWorkout = CardioWorkoutItem()
+        cardioWorkout.type = "Cardio"
         cardioWorkout.title = "Running"
         
         let cardioWorkout1 = CardioWorkoutItem()
+        cardioWorkout1.type = "Cardio"
         cardioWorkout.title = "Cycling"
         
         let cardioWorkout2 = CardioWorkoutItem()
+         cardioWorkout2.type = "Cardio"
         cardioWorkout.title = "Walking"
         
         

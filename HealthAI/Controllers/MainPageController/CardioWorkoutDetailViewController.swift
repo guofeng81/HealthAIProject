@@ -283,6 +283,7 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         //
         
         selectedWorkoutHistoryItem.title = selectedCardioWorkoutItem.title
+         selectedWorkoutHistoryItem.type = selectedCardioWorkoutItem.type
         print("Cardio workout title: ",selectedCardioWorkoutItem.title)
         selectedWorkoutHistoryItem.averageSpeed = traveledDistance / Double(time)
         selectedWorkoutHistoryItem.currentDate = dateFormatter.string(from: Date())

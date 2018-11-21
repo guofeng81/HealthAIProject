@@ -12,6 +12,7 @@ import RealmSwift
 
 class WorkoutHistoryItem:Object{
     
+    @objc dynamic var type: String = ""
     @objc dynamic var title: String = ""
     @objc dynamic var duration: String = ""
     @objc dynamic var content: String = ""

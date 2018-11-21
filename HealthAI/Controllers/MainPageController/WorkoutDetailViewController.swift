@@ -79,6 +79,10 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         formatter.dateFormat = "yyyy-MM-dd"
         formatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
         
+        workoutHistoryItem.type = self.selectedWorkoutItem.type
+        
+        print("type is saving!!!!:",self.selectedWorkoutItem.type)
+        
         workoutHistoryItem.title = self.selectedWorkoutItem.title
         workoutHistoryItem.currentDate = formatter.string(from:Date())
         

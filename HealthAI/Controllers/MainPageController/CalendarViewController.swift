@@ -34,15 +34,26 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! CalendarHistoryCell
         
         //cell.delegate = self
-        
+        // make sure the cell is catching the cardio workout
         if let workout = workoutHistories?[indexPath.row]{
-            cell.textLabel?.text = workout.title
+            if workout.type == "Cardio" {
+                cell.historyCellTitle.text = "Cardio Workout Total Distance"
+                cell.distanceLabel.text = String(workout.totalDistance)
+            }else if workout.type == "Stength" {
+                cell.historyCellTitle.text = "Strength"
+            }
+           
         }else{
             cell.textLabel?.text = "No Workout Item added"
         }
+        
+        //make sure the cell is fetching the strength workout
+        
+        
+        
         //TODO - Not sure 
         
          NotificationCenter.default.addObserver(self, selector: #selector(refreshTableView(notification:)), name: NSNotification.Name(rawValue: "refreshDate"), object: nil)
@@ -78,7 +89,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     }
     
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 100
     }
     
     func loadWorkoutHistoryData(){
