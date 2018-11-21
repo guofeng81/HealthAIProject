@@ -42,8 +42,9 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
             if workout.type == "Cardio" {
                 cell.historyCellTitle.text = "Cardio Workout Total Distance"
                 cell.distanceLabel.text = String(workout.totalDistance)
-            }else if workout.type == "Stength" {
+            }else if workout.type == "Strength" {
                 cell.historyCellTitle.text = "Strength"
+                cell.distanceLabel.text = ""
             }
            
         }else{
