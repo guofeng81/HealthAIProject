@@ -12,12 +12,37 @@ import Firebase
 import FirebaseStorage
 import ChameleonFramework
 
-class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPickerViewDataSource,UIPickerViewDelegate{
+    
+    let gender = ["Male","Female"]
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return gender[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        genderPickerView.isHidden = true
+        numberOfvalues[0] = gender[row]
+        setGenderValue(value: gender[row])
+        bioTableView.reloadData()
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return gender.count
+    }
+    
     
     @IBOutlet var backgroundView: UIView!
     @IBOutlet var bioTableView: UITableView!
     @IBOutlet var usernameLabel: UILabel!
     @IBOutlet var profileImageView: UIImageView!
+    
+    @IBOutlet var genderPickerView: UIPickerView!
     
     var databaseRef : DatabaseReference!
     var storageRef : StorageReference!
@@ -119,7 +144,15 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         //let value = numberOfvalues[indexPath.row]
         
         let editAction = UITableViewRowAction(style: .default, title: "Edit") { (action, indexPath) in
-            self.updateAction(indexPath: indexPath)
+            
+            if indexPath.row == 0 {
+                //implement the UIPickerView
+                self.genderPickerView.isHidden = false
+                
+            }else{
+                self.updateAction(indexPath: indexPath)
+            }
+            
         }
         
         editAction.backgroundColor = UIColor.blue
@@ -137,6 +170,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     // Set Bio Value in the screen, no the database.
     func setBioValue(value: String, indexPath: IndexPath){
         databaseRef.child("profile").child(LoginUser.uid).updateChildValues([bio[indexPath.row]:value])
+    }
+    func setGenderValue(value: String){
+        databaseRef.child("profile").child(LoginUser.uid).updateChildValues([bio[0]:value])
     }
     
     private func updateAction(indexPath: IndexPath){
@@ -204,7 +240,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         bioTableView.layer.borderColor = UIColor.gray.cgColor
         bioTableView.layer.borderWidth = 1.0
        
-        
+        genderPickerView.isHidden = true
        //loadBioVlaues()
         
     }
@@ -326,8 +362,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         
         DatabaseHelper.savePictureToStorage(storageRef: storageRef, databaseRef: databaseRef, user: LoginUser, imageView: profileImageView, imageName: "profile_image",referenceImageName: "photo")
-        
-        
         
         
         //savePictureToStorage(imageView: profileImageView)

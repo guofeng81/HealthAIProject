@@ -487,7 +487,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="slj-rL-ovj">
-                                        <rect key="frame" x="0.0" y="160" width="375" height="487"/>
+                                        <rect key="frame" x="0.0" y="160" width="375" height="347"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bioCell" rowHeight="70" id="AzL-Wn-pUI" customClass="BioCell" customModule="HealthAI" customModuleProvider="target">
@@ -559,14 +559,24 @@
                                             <outlet property="delegate" destination="AdT-ye-dLB" id="Kfa-SC-eo7"/>
                                         </connections>
                                     </tableView>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3QH-8Z-fbO">
+                                        <rect key="frame" x="0.0" y="507" width="375" height="140"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="140" id="7q1-pA-y9c"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="AdT-ye-dLB" id="DXt-RE-xBn"/>
+                                            <outlet property="delegate" destination="AdT-ye-dLB" id="mkl-JK-PVq"/>
+                                        </connections>
+                                    </pickerView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="zss-kC-88f" secondAttribute="bottom" id="IyR-GH-mZV"/>
                             <constraint firstItem="zss-kC-88f" firstAttribute="trailing" secondItem="nns-y7-20v" secondAttribute="trailing" id="KGL-4b-ntW"/>
                             <constraint firstItem="zss-kC-88f" firstAttribute="leading" secondItem="nns-y7-20v" secondAttribute="leading" id="ais-7E-cm7"/>
-                            <constraint firstItem="zss-kC-88f" firstAttribute="bottom" secondItem="nns-y7-20v" secondAttribute="bottom" id="pjK-dV-cqO"/>
                             <constraint firstItem="zss-kC-88f" firstAttribute="top" secondItem="nns-y7-20v" secondAttribute="top" id="xQU-jt-br4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nns-y7-20v"/>
@@ -574,13 +584,14 @@
                     <connections>
                         <outlet property="backgroundView" destination="RRh-dA-A5A" id="Of7-wO-QcR"/>
                         <outlet property="bioTableView" destination="slj-rL-ovj" id="Gx3-XK-gsR"/>
+                        <outlet property="genderPickerView" destination="3QH-8Z-fbO" id="Oiu-QX-04e"/>
                         <outlet property="profileImageView" destination="upe-KQ-QY3" id="Giz-MS-tH3"/>
                         <outlet property="usernameLabel" destination="baf-HO-7xL" id="5GN-Il-OiJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yAE-Qz-OJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3625" y="730"/>
+            <point key="canvasLocation" x="3624.8000000000002" y="729.98500749625191"/>
         </scene>
         <!--Graph View Controller-->
         <scene sceneID="2Mb-3s-Fjp">
