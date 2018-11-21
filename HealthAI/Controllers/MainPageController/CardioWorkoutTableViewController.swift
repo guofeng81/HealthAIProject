@@ -11,8 +11,7 @@ import UIKit
 class CardioWorkoutTableViewController: UITableViewController {
 
     let workoutImages = ["runningImage","cyclingImage","walkingImage"]
-    let workoutTitles = ["Running","Cycling", "Walking"]
-    
+    let workoutTitles = ["Running","Cycling","Walking"]
     
     var arrayOfCardioWorkout = [CardioWorkoutItem]()
     
@@ -22,9 +21,18 @@ class CardioWorkoutTableViewController: UITableViewController {
         super.viewDidLoad()
         
         let cardioWorkout = CardioWorkoutItem()
+        cardioWorkout.title = "Running"
+        
+        let cardioWorkout1 = CardioWorkoutItem()
         cardioWorkout.title = "Cycling"
         
+        let cardioWorkout2 = CardioWorkoutItem()
+        cardioWorkout.title = "Walking"
+        
+        
         arrayOfCardioWorkout.append(cardioWorkout)
+        arrayOfCardioWorkout.append(cardioWorkout1)
+        arrayOfCardioWorkout.append(cardioWorkout2)
     }
 
     // MARK: - Table view data source
@@ -35,18 +43,22 @@ class CardioWorkoutTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return workoutTitles.count
+        return workoutImages.count
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cardioCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cardioCell", for: indexPath) as! WorkoutCell
         
         self.selectedCardioWorkoutItem = arrayOfCardioWorkout[indexPath.row]
         
-        cell.textLabel!.text = selectedCardioWorkoutItem.title
-        
+        cell.workoutTitle.text = workoutTitles[indexPath.row]
+        cell.workoutImage.image = UIImage(named: workoutImages[indexPath.row])
         
         return cell
     }

@@ -76,8 +76,8 @@ class WorkoutViewController: UIViewController {
         let workoutGesture = UITapGestureRecognizer(target: self, action: #selector(workouthandleTap(sender:)))
         self.strengthWorkoutView.addGestureRecognizer(workoutGesture)
         
-        let historyGesture = UITapGestureRecognizer(target: self, action: #selector(historyhandleTap(sender:)))
-        self.historyView.addGestureRecognizer(historyGesture)
+//        let historyGesture = UITapGestureRecognizer(target: self, action: #selector(historyhandleTap(sender:)))
+//        self.historyView.addGestureRecognizer(historyGesture)
         
         let cardioGesture = UITapGestureRecognizer(target: self, action: #selector(cardiohandleTap(sender:)))
         self.cardioWorkoutView.addGestureRecognizer(cardioGesture)
@@ -94,9 +94,9 @@ class WorkoutViewController: UIViewController {
         performSegue(withIdentifier: "goToWorkout", sender: self)
     }
     
-    @objc func historyhandleTap(sender:UITapGestureRecognizer){
-        performSegue(withIdentifier: "goToWorkoutHistory", sender: self)
-    }
+//    @objc func historyhandleTap(sender:UITapGestureRecognizer){
+//        performSegue(withIdentifier: "goToWorkoutHistory", sender: self)
+//    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
