@@ -120,8 +120,6 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         
         cell.textLabel!.text = selectedWorkoutItem.subworkouts[indexPath.row].title
         
-        
-        
         if selectedWorkoutItem.subworkouts[indexPath.row].done == true{
             cell.accessoryType = .checkmark
         }else{
@@ -134,9 +132,10 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        performSegue(withIdentifier: "goToSubworkoutStopwatch", sender: self)
         
         selectedSubworkoutItem = selectedWorkoutItem.subworkouts[indexPath.row]
+        
+        performSegue(withIdentifier: "goToSubworkoutStopwatch", sender: self)
         
        // print("see the title: ",selectedWorkoutItem.subworkouts[indexPath.row].title)
         

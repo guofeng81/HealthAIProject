@@ -58,7 +58,7 @@ class CardioWorkoutTableViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardioCell", for: indexPath) as! WorkoutCell
         
-        self.selectedCardioWorkoutItem = arrayOfCardioWorkout[indexPath.row]
+       
         
         cell.workoutTitle.text = workoutTitles[indexPath.row]
         cell.workoutImage.image = UIImage(named: workoutImages[indexPath.row])
@@ -67,6 +67,7 @@ class CardioWorkoutTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedCardioWorkoutItem = arrayOfCardioWorkout[indexPath.row]
         performSegue(withIdentifier: "goToCardioWorkout", sender: self)
     }
     
