@@ -129,6 +129,11 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         return cell
     }
     
+     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Subworkouts"
+    }
+    
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
