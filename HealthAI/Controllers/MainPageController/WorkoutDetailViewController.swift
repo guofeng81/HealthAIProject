@@ -33,9 +33,10 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         myTableView.reloadData()
     }
     
-    @IBOutlet weak var contentText: UILabel!
-    @IBOutlet weak var titleText: UILabel!
- 
+    @IBOutlet var titleText: UILabel!
+    
+    @IBOutlet var contentText: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         titleText.text = selectedWorkoutItem.title
@@ -115,6 +116,8 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         
         cell.textLabel!.text = selectedWorkoutItem.subworkouts[indexPath.row].title
         
+        
+        
         if selectedWorkoutItem.subworkouts[indexPath.row].done == true{
             cell.accessoryType = .checkmark
         }else{
@@ -130,6 +133,8 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         performSegue(withIdentifier: "goToSubworkoutStopwatch", sender: self)
         
         selectedSubworkoutItem = selectedWorkoutItem.subworkouts[indexPath.row]
+        
+       // print("see the title: ",selectedWorkoutItem.subworkouts[indexPath.row].title)
         
         tableView.deselectRow(at: indexPath, animated: true)
         
