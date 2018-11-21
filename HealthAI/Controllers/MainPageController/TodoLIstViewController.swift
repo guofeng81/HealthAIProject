@@ -14,6 +14,9 @@ class TodoLIstViewController: UITableViewController{
     var workoutItems = [WorkoutItem]()
     var selectedworkoutItem = WorkoutItem()
     
+    
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -49,6 +52,8 @@ class TodoLIstViewController: UITableViewController{
         
         selectedworkoutItem = workoutItems[indexPath.row]
         
+        
+        
         cell.titleLabel.text = selectedworkoutItem.title
         cell.middleLabel.text = "\(selectedworkoutItem.duration) - \(selectedworkoutItem.hardness)"
         cell.bodyLabel.text = selectedworkoutItem.body
@@ -61,6 +66,8 @@ class TodoLIstViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 110
     }
+    
+    
     
     
 }

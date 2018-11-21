@@ -10,6 +10,9 @@ import UIKit
 
 class CardioWorkoutTableViewController: UITableViewController {
 
+    let workoutImages = ["runningImage","cyclingImage","walkingImage"]
+    let workoutTitles = ["Running","Cycling", "Walking"]
+    
     
     var arrayOfCardioWorkout = [CardioWorkoutItem]()
     
@@ -32,8 +35,7 @@ class CardioWorkoutTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        return workoutTitles.count
     }
 
     

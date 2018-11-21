@@ -1698,44 +1698,15 @@
         <scene sceneID="ARd-lo-kmE">
             <objects>
                 <viewController id="nqa-Mj-zHF" customClass="WorkoutViewController" customModule="HealthAI" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bT9-FK-jaL">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="bT9-FK-jaL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1b8-Uw-ySQ">
-                                <rect key="frame" x="26" y="79" width="322" height="565"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1b8-Uw-ySQ">
+                                <rect key="frame" x="26" y="79" width="322" height="435"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smx-Yp-Dg1">
-                                        <rect key="frame" x="0.0" y="0.0" width="322" height="50"/>
-                                        <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="B16-In-hXr"/>
-                                            <constraint firstAttribute="width" constant="322" id="ZZg-5z-X9j"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XgU-37-nPx">
-                                        <rect key="frame" x="0.0" y="65" width="322" height="50"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56x-20-H3r">
-                                                <rect key="frame" x="74" y="10" width="174" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.88438212871551514" green="0.22792410850524902" blue="0.92284160852432251" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="322" id="BBH-IE-H2s"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="322" id="Ech-as-bzs"/>
-                                            <constraint firstAttribute="bottom" secondItem="56x-20-H3r" secondAttribute="bottom" constant="10" id="K2z-W0-1bd"/>
-                                            <constraint firstItem="56x-20-H3r" firstAttribute="leading" secondItem="XgU-37-nPx" secondAttribute="leading" constant="74" id="MhH-RM-k6J"/>
-                                            <constraint firstItem="56x-20-H3r" firstAttribute="top" secondItem="XgU-37-nPx" secondAttribute="top" constant="10" id="r8d-mq-L5E"/>
-                                            <constraint firstAttribute="height" constant="50" id="tNl-eD-goP"/>
-                                            <constraint firstAttribute="trailing" secondItem="56x-20-H3r" secondAttribute="trailing" constant="74" id="zlo-r7-4cC"/>
-                                        </constraints>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMq-i3-C8G">
-                                        <rect key="frame" x="0.0" y="130" width="322" height="135"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="322" height="135"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strength Workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARW-3p-7UG">
                                                 <rect key="frame" x="45" y="8" width="233" height="30"/>
@@ -1754,7 +1725,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wsM-xz-D3n">
-                                        <rect key="frame" x="0.0" y="280" width="322" height="135"/>
+                                        <rect key="frame" x="0.0" y="150" width="322" height="135"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cardio Workout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMz-ZD-xyg">
                                                 <rect key="frame" x="77" y="8" width="168" height="30"/>
@@ -1772,8 +1743,8 @@
                                             <constraint firstAttribute="width" constant="322" id="OB6-F6-hdJ"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8MD-6i-ODB">
-                                        <rect key="frame" x="0.0" y="430" width="322" height="135"/>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8MD-6i-ODB">
+                                        <rect key="frame" x="0.0" y="300" width="322" height="135"/>
                                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="135" id="wPR-TX-NI0"/>
@@ -1793,8 +1764,6 @@
                     </view>
                     <connections>
                         <outlet property="cardioWorkoutView" destination="wsM-xz-D3n" id="2I3-1w-FiB"/>
-                        <outlet property="favoriteWorkoutView" destination="smx-Yp-Dg1" id="Mtk-BN-FJI"/>
-                        <outlet property="historyView" destination="XgU-37-nPx" id="4T7-XZ-U0R"/>
                         <outlet property="strengthWorkoutView" destination="hMq-i3-C8G" id="ZUK-CF-0kU"/>
                         <outlet property="videoTutorialView" destination="8MD-6i-ODB" id="wDh-3Z-BAN"/>
                         <segue destination="aB4-Ri-cVr" kind="show" identifier="goToWorkout" id="3Pk-bE-Cdo"/>
@@ -1874,13 +1843,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cardioCell" rowHeight="62" id="Z1f-jZ-j4i">
-                                <rect key="frame" x="0.0" y="28" width="375" height="62"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cardioCell" rowHeight="200" id="Z1f-jZ-j4i" customClass="WorkoutCell" customModule="HealthAI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z1f-jZ-j4i" id="IuM-u1-qLo">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="m2e-h2-sa8">
+                                            <rect key="frame" x="37.5" y="9" width="300" height="181.5"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="runningImage" translatesAutoresizingMaskIntoConstraints="NO" id="lMS-Oh-pii">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="150" id="1FD-e5-1eF"/>
+                                                        <constraint firstAttribute="width" constant="300" id="VNs-gz-1fG"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Running" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5tm-eJ-Rg9">
+                                                    <rect key="frame" x="110.5" y="155" width="79" height="26.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="m2e-h2-sa8" firstAttribute="centerY" secondItem="IuM-u1-qLo" secondAttribute="centerY" id="V2B-ZP-8W6"/>
+                                        <constraint firstItem="m2e-h2-sa8" firstAttribute="centerX" secondItem="IuM-u1-qLo" secondAttribute="centerX" id="yIx-IO-hfD"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="workoutImage" destination="lMS-Oh-pii" id="PY8-j9-zsA"/>
+                                    <outlet property="workoutTitle" destination="5tm-eJ-Rg9" id="O36-D3-Vlt"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1979,12 +1976,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="workoutCell" rowHeight="78" id="dQP-cM-qMd">
-                                <rect key="frame" x="0.0" y="28" width="375" height="78"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="workoutCell" rowHeight="200" id="dQP-cM-qMd" customClass="WorkoutCell" customModule="HealthAI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dQP-cM-qMd" id="dIL-B5-1wd">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="77.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aeh-Yp-zEG">
+                                            <rect key="frame" x="12.5" y="6.5" width="350" height="186.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </stackView>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -2493,6 +2496,7 @@
         <image name="nutritionIntake" width="600" height="600"/>
         <image name="password" width="300" height="300"/>
         <image name="play" width="626" height="626"/>
+        <image name="runningImage" width="968" height="645"/>
         <image name="sedentary" width="220" height="233"/>
         <image name="username" width="512" height="512"/>
         <image name="videoplay" width="108.48000335693359" height="107.51999664306641"/>
