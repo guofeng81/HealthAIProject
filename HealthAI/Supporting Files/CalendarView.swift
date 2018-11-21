@@ -44,7 +44,17 @@ struct Style {
     }
 }
 
+//class MySingleton {
+//    static let shareData = MySingleton()
+//    var dateDate:String = ""
+//    init(){}
+//
+//}
+
 class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MonthViewDelegate {
+    
+    static var dateSelected: String = ""
+    
     
     
     let realm = try! Realm()
@@ -173,7 +183,15 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
          
         self.selectedDate = "\(currentYear)-\(currentMonthIndex)-\(indexPath.row-getFirstWeekDay()+2)"
         
-        print("\(currentYear)-\(currentMonthIndex)-\(indexPath.row-getFirstWeekDay()+2)")
+        
+        CalenderView.dateSelected = "\(currentYear)-\(currentMonthIndex)-\(indexPath.row-getFirstWeekDay()+2)"
+        
+         //TODO - Not sure !!!!!
+        
+        //send the info to the CalendarViewController
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshDate"), object: nil, userInfo: nil)
+        
+        print("Cal date selected: ",CalenderView.dateSelected)
         print(getFirstWeekDay())
         
         let SelectedItem = indexPath.row + 1

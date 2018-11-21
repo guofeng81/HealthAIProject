@@ -75,10 +75,7 @@ class SidebarView: UIView, UITableViewDelegate, UITableViewDataSource {
         return titleArr.count
     }
     
-    @objc func refreshTable(notification: NSNotification) {
-        print("Received Notification")
-        myTableView.reloadData()
-    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell=tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
@@ -114,6 +111,11 @@ class SidebarView: UIView, UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.textColor=UIColor.white
         }
         return cell
+    }
+    
+    @objc func refreshTable(notification: NSNotification) {
+        print("Received Notification")
+        myTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

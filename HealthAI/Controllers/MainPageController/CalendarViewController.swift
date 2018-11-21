@@ -25,7 +25,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     //Divide Carido Workouts and Strength Workouts into two sections based on date
     
     
-    
+    var seletedDate : String = ""
     
     
     
@@ -43,8 +43,29 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         }else{
             cell.textLabel?.text = "No Workout Item added"
         }
+        //TODO - Not sure 
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(refreshTableView(notification:)), name: NSNotification.Name(rawValue: "refreshDate"), object: nil)
+        
         
         return cell
+    }
+    
+    @objc func refreshTableView(notification: NSNotification){
+        
+        //load the selected Date data
+        selectedDate = CalenderView.dateSelected
+        
+        print("Selected Date Here:" , selectedDate!)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        //let date = dateFormatter.date(from: )
+        
+         workoutHistories = realm.objects(WorkoutHistoryItem.self).filter("currentDate == %@",selectedDate!)
+        
+         historyTableView.reloadData()
     }
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -108,15 +129,17 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         loadWorkoutHistoryData()
         
-        print("Selected Date:" ,selectedDate)
         
         self.title = "My Calendar"
         
         self.navigationController?.navigationBar.isTranslucent=false
         self.view.backgroundColor=Style.bgColor
         
+        
+        
         view.addSubview(calenderView)
        // calView.addSubview(calenderView)
+        
         
         calenderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive=true
         calenderView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12).isActive=true
