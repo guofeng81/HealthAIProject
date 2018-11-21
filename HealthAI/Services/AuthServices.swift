@@ -69,7 +69,7 @@ class AuthServices{
                 print("User exist")
             }else{
                 //create user profile
-                let newUser = ["email":email,"username": uName,"photo":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/empty_profile.png?alt=media&token=d25ab88e-e758-407d-bed9-cb6def5385a6","backgroundPhoto":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/defaultBackgroundImage.jpg?alt=media&token=c02ab78a-a448-4449-ab56-b622846d472b", "height": "","weight":"","glucose": "","bloodpressure":""]
+                let newUser = ["email":email,"username": uName,"photo":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/empty_profile.png?alt=media&token=d25ab88e-e758-407d-bed9-cb6def5385a6","backgroundPhoto":"https://firebasestorage.googleapis.com/v0/b/healthai-f2f6f.appspot.com/o/defaultBackgroundImage.jpg?alt=media&token=c02ab78a-a448-4449-ab56-b622846d472b", "gender":"","height": "","weight":"","glucose": "","bloodpressure":""]
                 
                 Database.database().reference().child("profile").child(user!.uid).setValue(newUser) { (error, ref) in
                     if error != nil {

@@ -24,13 +24,13 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     var LoginUser  = Auth.auth().currentUser!
     var imagePicker = UIImagePickerController()
     
-    let bioList = ["Height","Weight","Glucose","Blood Pressure"]
+    let bioList = ["Gender","Height","Weight","Glucose","Blood Pressure"]
     
-    let unitList = ["cm","kg","mm/dl","mmHg"]
+    let unitList = ["","cm","kg","mm/dl","mmHg"]
     
-    let bio = ["height","weight","glucose","bloodpressure"]
+    let bio = ["gender","height","weight","glucose","bloodpressure"]
     
-    var numberOfvalues = ["","","",""]
+    var numberOfvalues = ["","","","",""]
     
     let cellHeight = 70
     let Offset = 10
@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     //MARK - Table View Set up
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
@@ -204,9 +204,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         bioTableView.layer.borderColor = UIColor.gray.cgColor
         bioTableView.layer.borderWidth = 1.0
        
-
-        
-      
         
        //loadBioVlaues()
         

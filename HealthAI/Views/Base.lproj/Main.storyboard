@@ -774,7 +774,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PiC-NV-PE0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="570" y="-460"/>
+            <point key="canvasLocation" x="654" y="-547"/>
         </scene>
         <!--Calorie View Controller-->
         <scene sceneID="WNt-uc-1NZ">
