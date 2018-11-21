@@ -23,6 +23,7 @@ class TodoLIstViewController: UITableViewController{
         tableView.dataSource = self
         let nib = UINib(nibName: "WorkoutTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "workoutCell")
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     
     
@@ -62,7 +63,7 @@ class TodoLIstViewController: UITableViewController{
     
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return 105
     }
     
     
