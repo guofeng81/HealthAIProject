@@ -24,7 +24,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     var cardioWorkoutHistories : Results<WorkoutHistoryItem>?
     
     var selectedWorkoutHistoryItem = WorkoutHistoryItem()
-    
     var arrayOfStrengthWorkouts = [WorkoutHistoryItem]()
     
     var arrayOfCardioWorkouts = [WorkoutHistoryItem]()
@@ -152,15 +151,34 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
          NotificationCenter.default.addObserver(self, selector: #selector(refresh(notification:)), name: NSNotification.Name(rawValue: "refreshSDate"), object: nil)
         
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        
+        let date = dateFormatter.string(from: Date())
+        
+        
         //pass the selectedDate to the CalendarDetail TableViewController
         if segue.identifier == "goToStrengthDetail" {
             let seg = segue.destination as! CalendarDetailStrengthTableViewController
-            seg.strengthSelectedDate = self.selectedDate!
+            
+            if selectedDate == nil {
+                seg.strengthSelectedDate = date
+            }else{
+                 seg.strengthSelectedDate = self.selectedDate!
+            }
             print("Selected Date!!!!",self.selectedDate!)
             
         }else if segue.identifier == "goToCardioDetail" {
+            
             let seg = segue.destination as! CalendarDetailCardioTableViewController
-            seg.cardioSelectedDate = self.selectedDate!
+            if selectedDate == nil {
+                seg.cardioSelectedDate = date
+            }else{
+                seg.cardioSelectedDate = self.selectedDate!
+            }
+            //seg.cardioSelectedDate = self.selectedDate!
             
         }
     }
@@ -174,12 +192,16 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         return 100
     }
     
+    //first time load the realm
+    
     func loadWorkoutHistoryData(){
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
         let date = dateFormatter.string(from: Date())
+        
+        arrayOfCardioAndStrength = [String]()
         
         print(date)
         
