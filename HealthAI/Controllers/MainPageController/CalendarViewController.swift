@@ -20,11 +20,15 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     var workoutHistories : Results<WorkoutHistoryItem>?
     
+    var strengthWorkoutHistories : Results<WorkoutHistoryItem>?
+    var cardioWorkoutHistories : Results<WorkoutHistoryItem>?
+    
+    
     var selectedWorkoutHistoryItem = WorkoutHistoryItem()
     
-    var arrayOfStrengthWorkout = [WorkoutHistoryItem]()
+    var arrayOfStrengthWorkouts = [WorkoutHistoryItem]()
     
-    var arrayOfCardioWorkout = [WorkoutHistoryItem]()
+    var arrayOfCardioWorkouts = [WorkoutHistoryItem]()
     
     var numberOfCardioWorkouts = 0
     var numberOfStrengthWorkouts = 0
@@ -35,7 +39,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     var seletedDate : String = ""
     
-     var arrayOfCardioAndStrength = ["Cardio","Strength"]
+     var arrayOfCardioAndStrength = [String]()
    
     
     func convertMeterToMile(distance:Double)->Double {
@@ -43,15 +47,16 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return workoutHistories?.count ?? 1
+        //return workoutHistories?.count ?? 1
+        
+        return arrayOfCardioAndStrength.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! CalendarHistoryCell
         
-        //cell.delegate = self
-        // make sure the cell is catching the cardio workout
+        // make sure the cell is fetching the cardio workout
         
        
        // cell.historyCellTitle.text =  arrayOfCardioAndStrength[indexPath.row]
@@ -76,24 +81,41 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
 //            cell.textLabel?.text = "No Workout Item added"
 //        }
       
-        if let workout = workoutHistories?[indexPath.row]{
-                        if workout.type == "Cardio" {
-                            cell.historyCellTitle.text = workout.title
-                            //let distance = calculateCardioWorkoutTotalDistance(cardioWorkoutArray: arrayOfCardioWorkout)
-                            cell.distanceLabel.text = String(format:"%.1f",convertMeterToMile(distance: workout.totalDistance)) + " mi"
-                        }else if workout.type == "Strength" {
-                            cell.historyCellTitle.text = workout.title
-                            cell.distanceLabel.text = ""
-                        }
-            
+//        if let workout = workoutHistories?[indexPath.row]{
+//                        if workout.type == "Cardio" {
+//                            cell.historyCellTitle.text = workout.title
+//                            //let distance = calculateCardioWorkoutTotalDistance(cardioWorkoutArray: arrayOfCardioWorkout)
+//                            //cell.distanceLabel.text = String(format:"%.1f",convertMeterToMile(distance: workout.totalDistance)) + " mi"
+//                        }else if workout.type == "Strength" {
+//                            cell.historyCellTitle.text = workout.title
+//                            cell.distanceLabel.text = ""
+//                        }
+//
+//            cell.historyCellTitle.text = workout.title
+//
+//        }
+//
+        
+        if arrayOfCardioAndStrength.count > 0 {
+            cell.historyCellTitle.text = arrayOfCardioAndStrength[indexPath.row]
+            if arrayOfCardioAndStrength.contains("Cardio"){
+                let distance = calculateCardioWorkoutTotalDistance(cardioWorkoutArray: arrayOfCardioWorkouts)
+                cell.distanceLabel.text = String(format:"%.1f",convertMeterToMile(distance: distance)) + " mi"
+                
+            }else{
+                cell.distanceLabel.text = ""
+            }
         }
+        
+        
+       
+        
     
         //make sure the cell is fetching the strength workout
         
         //TODO -
         
          NotificationCenter.default.addObserver(self, selector: #selector(refreshTableView(notification:)), name: NSNotification.Name(rawValue: "refreshDate"), object: nil)
-        
         
         return cell
     }
@@ -110,51 +132,41 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
 //        dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
         //let date = dateFormatter.date(from: )
         
-         workoutHistories = realm.objects(WorkoutHistoryItem.self).filter("currentDate == %@",selectedDate!)
+        let strengthPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", selectedDate!,"Strength")
+        let cardioPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", selectedDate!,"Cardio")
+
+        strengthWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(strengthPredicate)
+        cardioWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(cardioPredicate)
+
+        arrayOfCardioAndStrength = [String]()
         
-        //save the current date Workout Histories
-        
-//        if let workoutHistories = workoutHistories {
-//            for workout in workoutHistories {
-//                if workout.type == "Cardio" {
-//                    arrayOfCardioWorkout.append(workout)
-//
-//                }else if workout.type == "Strength" {
-//                    arrayOfStrengthWorkout.append(workout)
-//                }
-//            }
-//        }
-//
-//        if arrayOfCardioWorkout.count > 0 {
-//            arrayOfCardioAndStrength.append("Cardio")
-//        }
-//
-//        if arrayOfStrengthWorkout.count > 0 {
-//            arrayOfCardioAndStrength.append("Strength")
-//        }
-        
-        //checkWorkoutItems()
-        
-        
-         historyTableView.reloadData()
-    }
-    
-    func checkWorkoutItems(){
-        
-        if let workoutHistories = workoutHistories {
-            for workout in workoutHistories {
-                if workout.type == "Cardio" {
-                    arrayOfCardioWorkout.append(workout)
-                    
-                }else if workout.type == "Strength" {
-                    arrayOfStrengthWorkout.append(workout)
+        arrayOfStrengthWorkouts = [WorkoutHistoryItem]()
+        arrayOfCardioWorkouts = [WorkoutHistoryItem]()
+
+        if let strengthWorkouts = strengthWorkoutHistories {
+            if strengthWorkouts.count > 0{
+                arrayOfCardioAndStrength.append("Strength")
+                for strengthWorkout in strengthWorkouts {
+                    arrayOfStrengthWorkouts.append(strengthWorkout)
                 }
             }
         }
-    
+
+        if let cardioWorkouts = cardioWorkoutHistories {
+            if cardioWorkouts.count > 0 {
+                arrayOfCardioAndStrength.append("Cardio")
+                for cardioWorkout in cardioWorkouts {
+                    arrayOfCardioWorkouts.append(cardioWorkout)
+                }
+            }
+        }
+
+        print("Reload array",arrayOfCardioAndStrength)
+        
+        
+        historyTableView.reloadData()
     }
-    
-    
+
     func calculateCardioWorkoutTotalDistance(cardioWorkoutArray:[WorkoutHistoryItem])->Double{
         
         var distance:Double = 0
@@ -196,7 +208,30 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         print(date)
         
-        workoutHistories = realm.objects(WorkoutHistoryItem.self).filter("currentDate == %@",date)
+        let strengthPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", date,"Strength")
+        let cardioPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", date,"Cardio")
+        
+        workoutHistories = realm.objects(WorkoutHistoryItem.self).filter("currentDate == %@" ,date)
+        
+        strengthWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(strengthPredicate)
+        cardioWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(cardioPredicate)
+
+
+        if let strengthWorkouts = strengthWorkoutHistories {
+            if strengthWorkouts.count > 0{
+               arrayOfCardioAndStrength.append("Strength")
+            }
+        }
+
+        if let cardioWorkouts = cardioWorkoutHistories {
+            if cardioWorkouts.count > 0 {
+                arrayOfCardioAndStrength.append("Cardio")
+            }
+        }
+
+        
+        print(arrayOfCardioAndStrength)
+        
         
         //checkWorkoutItems()
         
