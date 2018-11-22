@@ -26,11 +26,11 @@ class CardioWorkoutTableViewController: UITableViewController {
         
         let cardioWorkout1 = CardioWorkoutItem()
         cardioWorkout1.type = "Cardio"
-        cardioWorkout.title = "Cycling"
+        cardioWorkout1.title = "Cycling"
         
         let cardioWorkout2 = CardioWorkoutItem()
          cardioWorkout2.type = "Cardio"
-        cardioWorkout.title = "Walking"
+        cardioWorkout2.title = "Walking"
         
         
         arrayOfCardioWorkout.append(cardioWorkout)
@@ -57,8 +57,6 @@ class CardioWorkoutTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardioCell", for: indexPath) as! WorkoutCell
-        
-       
         
         cell.workoutTitle.text = workoutTitles[indexPath.row]
         cell.workoutImage.image = UIImage(named: workoutImages[indexPath.row])

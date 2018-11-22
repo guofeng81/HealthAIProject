@@ -72,6 +72,7 @@
 		B3B6CC3721A548530095FECB /* CalendarHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6CC3621A548530095FECB /* CalendarHistoryCell.swift */; };
 		B3B6CC5721A7039F0095FECB /* CalendarDetailCardioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6CC5621A7039E0095FECB /* CalendarDetailCardioTableViewController.swift */; };
 		B3B6CC5921A703B20095FECB /* CalendarDetailStrengthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6CC5821A703B20095FECB /* CalendarDetailStrengthTableViewController.swift */; };
+		B3B6CC5B21A764C50095FECB /* CardioSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6CC5A21A764C50095FECB /* CardioSummaryCell.swift */; };
 		B3DEE16821894C72000B5CAC /* WorkoutDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DEE16721894C72000B5CAC /* WorkoutDataModel.swift */; };
 		B3EA6143219A7AA600D66927 /* CardioWorkoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA6142219A7AA600D66927 /* CardioWorkoutItem.swift */; };
 		B3EA6145219A837100D66927 /* CardioWorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA6144219A837100D66927 /* CardioWorkoutTableViewController.swift */; };
@@ -151,6 +152,7 @@
 		B3B6CC3621A548530095FECB /* CalendarHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHistoryCell.swift; sourceTree = "<group>"; };
 		B3B6CC5621A7039E0095FECB /* CalendarDetailCardioTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailCardioTableViewController.swift; sourceTree = "<group>"; };
 		B3B6CC5821A703B20095FECB /* CalendarDetailStrengthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailStrengthTableViewController.swift; sourceTree = "<group>"; };
+		B3B6CC5A21A764C50095FECB /* CardioSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioSummaryCell.swift; sourceTree = "<group>"; };
 		B3DEE16721894C72000B5CAC /* WorkoutDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataModel.swift; sourceTree = "<group>"; };
 		B3EA6142219A7AA600D66927 /* CardioWorkoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioWorkoutItem.swift; sourceTree = "<group>"; };
 		B3EA6144219A837100D66927 /* CardioWorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioWorkoutTableViewController.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				B3B6CC2C219F62940095FECB /* MonthView.swift */,
 				B3B6CC3421A51A390095FECB /* WorkoutCell.swift */,
 				B3B6CC3621A548530095FECB /* CalendarHistoryCell.swift */,
+				B3B6CC5A21A764C50095FECB /* CardioSummaryCell.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				B3EA6145219A837100D66927 /* CardioWorkoutTableViewController.swift in Sources */,
 				B3147F422193E6AD000A429D /* WorkoutItem.swift in Sources */,
 				64303E7D218A68E800A59AF3 /* WorkoutDetailViewController.swift in Sources */,
+				B3B6CC5B21A764C50095FECB /* CardioSummaryCell.swift in Sources */,
 				6418CCFB218A892C0072951B /* DiabetesFormViewController.swift in Sources */,
 				6418CCEB218A71BD0072951B /* Workout.swift in Sources */,
 				B3147F462193E704000A429D /* WorkoutHistoryItem.swift in Sources */,

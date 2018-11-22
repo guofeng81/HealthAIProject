@@ -29,6 +29,8 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("Selected Cardio Workout: ",selectedCardioWorkoutItem.title)
+        
         resetLabels()
         
         selectedWorkoutHistoryItem.title = selectedCardioWorkoutItem.title

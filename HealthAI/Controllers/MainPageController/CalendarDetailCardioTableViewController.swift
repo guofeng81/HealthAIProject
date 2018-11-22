@@ -13,6 +13,10 @@ class CalendarDetailCardioTableViewController: UITableViewController {
 
      let realm = try! Realm()
     
+    func convertMeterToMile(distance:Double)->Double {
+        return distance / 1000 * 0.62
+    }
+    
     var cardioSelectedDate = ""
     
     //var arrayOfCardioWorkouts = [WorkoutHistoryItem]()
@@ -49,10 +53,16 @@ class CalendarDetailCardioTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cardioCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cardioCell", for: indexPath) as! CardioSummaryCell
 
         if let cardioWorkouts = cardiohWorkoutHistories {
-             cell.textLabel?.text = cardioWorkouts[indexPath.row].title
+             cell.titleLabel.text = cardioWorkouts[indexPath.row].title
+            let distance = convertMeterToMile(distance: cardioWorkouts[indexPath.row].totalDistance)
+            cell.distanceLabel.text = String(format: "%.1f",distance) + " mi"
+            cell.averageSpeedLabel.text = "Average Speed: "+String(format: "%.2f",cardioWorkouts[indexPath.row].averageSpeed) + " MPH"
+            cell.timeLabel.text = "Total Time: " + cardioWorkouts[indexPath.row].time
+            cell.dateLabel.text = cardioWorkouts[indexPath.row].currentDate
+            
         }
         
         return cell
