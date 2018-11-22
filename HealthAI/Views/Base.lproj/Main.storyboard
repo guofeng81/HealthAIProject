@@ -289,23 +289,52 @@
                     <navigationItem key="navigationItem" title="My Calendar" id="S1n-Ze-zkr"/>
                     <connections>
                         <outlet property="historyTableView" destination="ql9-Dc-rQs" id="fXa-Xv-Wmt"/>
-                        <segue destination="DS5-1A-MFx" kind="show" identifier="goToHistoryDetail" id="txV-cE-bXh"/>
+                        <segue destination="DS5-1A-MFx" kind="show" identifier="goToCardioDetail" id="txV-cE-bXh"/>
+                        <segue destination="T96-Nh-3fh" kind="show" identifier="goToStrengthDetail" id="WKh-Kh-51e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzK-x8-Kky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="861.60000000000002" y="802.848575712144"/>
         </scene>
-        <!--Calendar Detail Table View Controller-->
+        <!--Calendar Detail Strength Table View Controller-->
+        <scene sceneID="Lsw-c8-doa">
+            <objects>
+                <tableViewController id="T96-Nh-3fh" customClass="CalendarDetailStrengthTableViewController" customModule="HealthAI" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Yyz-gl-LcH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="strengthCell" id="nmD-Gp-xw0">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nmD-Gp-xw0" id="ada-Es-JTk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="T96-Nh-3fh" id="Mvr-Xe-Ztj"/>
+                            <outlet property="delegate" destination="T96-Nh-3fh" id="Htm-T2-AwN"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="78g-TU-gzb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="862" y="1531"/>
+        </scene>
+        <!--Calendar Detail Cardio Table View Controller-->
         <scene sceneID="V87-Fy-b8i">
             <objects>
-                <tableViewController id="DS5-1A-MFx" customClass="CalendarDetailTableViewController" customModule="HealthAI" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="DS5-1A-MFx" customClass="CalendarDetailCardioTableViewController" customModule="HealthAI" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yhC-np-DL3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="calendarCell" id="HyQ-vi-2SX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cardioCell" id="HyQ-vi-2SX">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HyQ-vi-2SX" id="786-la-tns">
@@ -498,7 +527,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bMO-gl-lMu">
-                                                            <rect key="frame" x="301.5" y="15" width="57.5" height="40"/>
+                                                            <rect key="frame" x="294.5" y="15" width="57.5" height="40"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i53-Qc-1fz">
                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="40"/>
@@ -1913,7 +1942,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pWw-3f-fHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1661.5999999999999" y="1627.7361319340332"/>
+            <point key="canvasLocation" x="2377" y="1549"/>
         </scene>
         <!--History Detail Table View Controller-->
         <scene sceneID="amg-eU-JCt">
@@ -1941,7 +1970,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V5f-B7-qVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2484" y="1627.7361319340332"/>
+            <point key="canvasLocation" x="3071" y="1531"/>
         </scene>
         <!--Cardio Workout Table View Controller-->
         <scene sceneID="mAX-Xy-8hd">

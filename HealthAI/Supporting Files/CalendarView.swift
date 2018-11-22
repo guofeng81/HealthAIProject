@@ -191,6 +191,9 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         //send the info to the CalendarViewController
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshDate"), object: nil, userInfo: nil)
         
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshSegueDate"), object: nil, userInfo: nil)
+        
+        
         print("Cal date selected: ",CalenderView.dateSelected)
         print(getFirstWeekDay())
         

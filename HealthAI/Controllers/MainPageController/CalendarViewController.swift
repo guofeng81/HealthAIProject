@@ -23,7 +23,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     var strengthWorkoutHistories : Results<WorkoutHistoryItem>?
     var cardioWorkoutHistories : Results<WorkoutHistoryItem>?
     
-    
     var selectedWorkoutHistoryItem = WorkoutHistoryItem()
     
     var arrayOfStrengthWorkouts = [WorkoutHistoryItem]()
@@ -35,7 +34,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     
     //Divide Carido Workouts and Strength Workouts into two sections based on date
-    
     
     var seletedDate : String = ""
     
@@ -58,44 +56,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         // make sure the cell is fetching the cardio workout
         
-       
-       // cell.historyCellTitle.text =  arrayOfCardioAndStrength[indexPath.row]
-        
-       
-//        if arrayOfCardioAndStrength[0] == "Cardio Workout Total Distance" {
-//            let distance = calculateCardioWorkoutTotalDistance(cardioWorkoutArray: arrayOfCardioWorkout)
-//            cell.distanceLabel.text = String(format:"%.1f",convertMeterToMile(distance: distance)) + " mi"
-//        }
-        
-//        if let workout = workoutHistories?[indexPath.row]{
-//            if workout.type == "Cardio" {
-//                cell.historyCellTitle.text = "Cardio Workout Total Distance"
-//                let distance = calculateCardioWorkoutTotalDistance(cardioWorkoutArray: arrayOfCardioWorkout)
-//                cell.distanceLabel.text = String(format:"%.1f",convertMeterToMile(distance: distance)) + " mi"
-//            }else if workout.type == "Strength" {
-//                cell.historyCellTitle.text = "Strength"
-//                cell.distanceLabel.text = ""
-//            }
-        
-//        }else{
-//            cell.textLabel?.text = "No Workout Item added"
-//        }
-      
-//        if let workout = workoutHistories?[indexPath.row]{
-//                        if workout.type == "Cardio" {
-//                            cell.historyCellTitle.text = workout.title
-//                            //let distance = calculateCardioWorkoutTotalDistance(cardioWorkoutArray: arrayOfCardioWorkout)
-//                            //cell.distanceLabel.text = String(format:"%.1f",convertMeterToMile(distance: workout.totalDistance)) + " mi"
-//                        }else if workout.type == "Strength" {
-//                            cell.historyCellTitle.text = workout.title
-//                            cell.distanceLabel.text = ""
-//                        }
-//
-//            cell.historyCellTitle.text = workout.title
-//
-//        }
-//
-        
         if arrayOfCardioAndStrength.count > 0 {
             cell.historyCellTitle.text = arrayOfCardioAndStrength[indexPath.row]
             if arrayOfCardioAndStrength.contains("Cardio"){
@@ -107,10 +67,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
             }
         }
         
-        
-       
-        
-    
         //make sure the cell is fetching the strength workout
         
         //TODO -
@@ -163,7 +119,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
 
         print("Reload array",arrayOfCardioAndStrength)
         
-        
         historyTableView.reloadData()
     }
 
@@ -180,20 +135,40 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        if let workoutHistories = workoutHistories {
-//            if workoutHistories[indexPath.row].type == "Cardio" {
-//                performSegue(withIdentifier: "goToCardioDetail", sender: self)
-//            }else if workoutHistories[indexPath.row].type == "Strength" {
-//                performSegue(withIdentifier: "goToStrengthDetail", sender: self)
-//            }
-//        }
+        if arrayOfCardioAndStrength[indexPath.row] == "Strength" {
+            performSegue(withIdentifier: "goToStrengthDetail", sender: self)
+        }else if arrayOfCardioAndStrength[indexPath.row] == "Cardio" {
+            performSegue(withIdentifier: "goToCardioDetail", sender: self)
+        }
         
-        selectedWorkoutHistoryItem = workoutHistories![indexPath.row]
+        //selectedWorkoutHistoryItem = workoutHistories![indexPath.row]
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        performSegue(withIdentifier: "goToHistoryDetail", sender: self)
+        //performSegue(withIdentifier: "goToHistoryDetail", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(refresh(notification:)), name: NSNotification.Name(rawValue: "refreshSDate"), object: nil)
+        
+        //pass the selectedDate to the CalendarDetail TableViewController
+        if segue.identifier == "goToStrengthDetail" {
+            let seg = segue.destination as! CalendarDetailStrengthTableViewController
+            seg.strengthSelectedDate = self.selectedDate!
+            print("Selected Date!!!!",self.selectedDate!)
+            
+        }else if segue.identifier == "goToCardioDetail" {
+            let seg = segue.destination as! CalendarDetailCardioTableViewController
+            seg.cardioSelectedDate = self.selectedDate!
+            
+        }
+    }
+    
+    @objc func refresh(notification: NSNotification){
+        selectedDate = CalenderView.dateSelected
+    }
+
     
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
@@ -229,12 +204,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
             }
         }
 
-        
         print(arrayOfCardioAndStrength)
-        
-        
-        //checkWorkoutItems()
-        
         
         historyTableView.reloadData()
     }
@@ -329,13 +299,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         return v
     }()
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //pass the selectedDate to the CalendarDetail TableViewController
-        if segue.identifier == "goToDetail" {
-            let seg = segue.destination as! CalendarDetailTableViewController
-            seg.selectedDate = self.selectedDate
-        }
-    }
+ 
     
 
 
