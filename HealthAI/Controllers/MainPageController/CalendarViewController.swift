@@ -23,13 +23,10 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     var strengthWorkoutHistories : Results<WorkoutHistoryItem>?
     var cardioWorkoutHistories : Results<WorkoutHistoryItem>?
     
-    var selectedWorkoutHistoryItem = WorkoutHistoryItem()
+    //var selectedWorkoutHistoryItem = WorkoutHistoryItem()
+    
     var arrayOfStrengthWorkouts = [WorkoutHistoryItem]()
-    
     var arrayOfCardioWorkouts = [WorkoutHistoryItem]()
-    
-    var numberOfCardioWorkouts = 0
-    var numberOfStrengthWorkouts = 0
     
     
     //Divide Carido Workouts and Strength Workouts into two sections based on date
@@ -45,7 +42,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return workoutHistories?.count ?? 1
-        
         return arrayOfCardioAndStrength.count
     }
     
@@ -57,13 +53,14 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         if arrayOfCardioAndStrength.count > 0 {
             cell.historyCellTitle.text = arrayOfCardioAndStrength[indexPath.row]
-            if arrayOfCardioAndStrength.contains("Cardio"){
+            
+            if arrayOfCardioAndStrength[indexPath.row] == "Cardio" {
                 let distance = calculateCardioWorkoutTotalDistance(cardioWorkoutArray: arrayOfCardioWorkouts)
                 cell.distanceLabel.text = String(format:"%.1f",convertMeterToMile(distance: distance)) + " mi"
-                
             }else{
                 cell.distanceLabel.text = ""
             }
+        
         }
         
         //make sure the cell is fetching the strength workout
@@ -151,7 +148,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
          NotificationCenter.default.addObserver(self, selector: #selector(refresh(notification:)), name: NSNotification.Name(rawValue: "refreshSDate"), object: nil)
         
-        
+        // can be reformat!!!!!
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
@@ -168,7 +165,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
             }else{
                  seg.strengthSelectedDate = self.selectedDate!
             }
-            print("Selected Date!!!!",self.selectedDate!)
             
         }else if segue.identifier == "goToCardioDetail" {
             
@@ -258,8 +254,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     var theme = MyTheme.dark
     
     var selectedDate:String?
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
