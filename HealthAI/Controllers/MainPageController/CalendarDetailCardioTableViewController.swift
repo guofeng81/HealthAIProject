@@ -35,6 +35,9 @@ class CalendarDetailCardioTableViewController: UITableViewController {
         
         loadCardioWorkoutHistoryData()
         
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        
+        
         print("Cardio Selected Date: ",cardioSelectedDate)
 
     }
@@ -58,11 +61,11 @@ class CalendarDetailCardioTableViewController: UITableViewController {
         if let cardioWorkouts = cardiohWorkoutHistories {
              cell.titleLabel.text = cardioWorkouts[indexPath.row].title
             let distance = convertMeterToMile(distance: cardioWorkouts[indexPath.row].totalDistance)
-            cell.distanceLabel.text = String(format: "%.1f",distance) + " mi"
+            cell.distanceLabel.text = String(format: "%.2f",distance) + " mi"
             cell.averageSpeedLabel.text = "Average Speed: "+String(format: "%.2f",cardioWorkouts[indexPath.row].averageSpeed) + " MPH"
-            cell.timeLabel.text = "Total Time: " + cardioWorkouts[indexPath.row].time
+            cell.timeLabel.text = "Total Time: " + cardioWorkouts[indexPath.row].time + " min"
             cell.dateLabel.text = cardioWorkouts[indexPath.row].currentDate
-            
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none;
         }
         
         return cell

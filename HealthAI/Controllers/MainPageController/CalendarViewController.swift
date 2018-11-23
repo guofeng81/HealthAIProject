@@ -29,6 +29,8 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     var arrayOfCardioWorkouts = [WorkoutHistoryItem]()
     
     
+    var firstDistance = 0
+    
     //Divide Carido Workouts and Strength Workouts into two sections based on date
     
     var seletedDate : String = ""
@@ -56,7 +58,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
             
             if arrayOfCardioAndStrength[indexPath.row] == "Cardio" {
                 let distance = calculateCardioWorkoutTotalDistance(cardioWorkoutArray: arrayOfCardioWorkouts)
-                cell.distanceLabel.text = String(format:"%.1f",convertMeterToMile(distance: distance)) + " mi"
+                cell.distanceLabel.text = String(format:"%.2f",convertMeterToMile(distance: distance)) + " mi"
             }else{
                 cell.distanceLabel.text = ""
             }
@@ -65,6 +67,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         //make sure the cell is fetching the strength workout
         
+    
         //TODO -
         
          NotificationCenter.default.addObserver(self, selector: #selector(refreshTableView(notification:)), name: NSNotification.Name(rawValue: "refreshDate"), object: nil)
@@ -197,6 +200,8 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
         let date = dateFormatter.string(from: Date())
         
+        
+        
         arrayOfCardioAndStrength = [String]()
         
         print(date)
@@ -204,24 +209,50 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         let strengthPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", date,"Strength")
         let cardioPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", date,"Cardio")
         
-        workoutHistories = realm.objects(WorkoutHistoryItem.self).filter("currentDate == %@" ,date)
+        //workoutHistories = realm.objects(WorkoutHistoryItem.self).filter("currentDate == %@" ,date)
         
         strengthWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(strengthPredicate)
         cardioWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(cardioPredicate)
 
 
+//        if let strengthWorkouts = strengthWorkoutHistories {
+//            if strengthWorkouts.count > 0{
+//               arrayOfCardioAndStrength.append("Strength")
+//                for strengthWorkout in strengthWorkouts {
+//                    arrayOfStrengthWorkouts.append(strengthWorkout)
+//                }
+//            }
+//        }
+//
+//        if let cardioWorkouts = cardioWorkoutHistories {
+//            if cardioWorkouts.count > 0 {
+//                arrayOfCardioAndStrength.append("Cardio")
+//                for cardioWorkout in cardioWorkouts {
+//                    arrayOfCardioWorkouts.append(cardioWorkout)
+//                }
+//            }
+//
+//        }
+        
         if let strengthWorkouts = strengthWorkoutHistories {
             if strengthWorkouts.count > 0{
-               arrayOfCardioAndStrength.append("Strength")
+                arrayOfCardioAndStrength.append("Strength")
+                for strengthWorkout in strengthWorkouts {
+                    arrayOfStrengthWorkouts.append(strengthWorkout)
+                }
             }
         }
-
+        
         if let cardioWorkouts = cardioWorkoutHistories {
             if cardioWorkouts.count > 0 {
                 arrayOfCardioAndStrength.append("Cardio")
+                for cardioWorkout in cardioWorkouts {
+                    arrayOfCardioWorkouts.append(cardioWorkout)
+                }
             }
         }
 
+        
         print(arrayOfCardioAndStrength)
         
         historyTableView.reloadData()
