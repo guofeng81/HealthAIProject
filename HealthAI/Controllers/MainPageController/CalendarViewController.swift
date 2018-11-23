@@ -154,7 +154,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         // can be reformat!!!!!
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        dateFormatter.timeZone = NSTimeZone(name: "BST")! as TimeZone
         
         let date = dateFormatter.string(from: Date())
         
@@ -197,7 +197,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        dateFormatter.timeZone = NSTimeZone(name: "BST")! as TimeZone
         let date = dateFormatter.string(from: Date())
         
         
@@ -214,26 +214,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         strengthWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(strengthPredicate)
         cardioWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(cardioPredicate)
 
-
-//        if let strengthWorkouts = strengthWorkoutHistories {
-//            if strengthWorkouts.count > 0{
-//               arrayOfCardioAndStrength.append("Strength")
-//                for strengthWorkout in strengthWorkouts {
-//                    arrayOfStrengthWorkouts.append(strengthWorkout)
-//                }
-//            }
-//        }
-//
-//        if let cardioWorkouts = cardioWorkoutHistories {
-//            if cardioWorkouts.count > 0 {
-//                arrayOfCardioAndStrength.append("Cardio")
-//                for cardioWorkout in cardioWorkouts {
-//                    arrayOfCardioWorkouts.append(cardioWorkout)
-//                }
-//            }
-//
-//        }
-        
         if let strengthWorkouts = strengthWorkoutHistories {
             if strengthWorkouts.count > 0{
                 arrayOfCardioAndStrength.append("Strength")
