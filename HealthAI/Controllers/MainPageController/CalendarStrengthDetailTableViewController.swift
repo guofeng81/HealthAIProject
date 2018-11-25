@@ -19,13 +19,17 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
     
     var strengthWorkoutHistories : Results<WorkoutHistoryItem>?
     
+    
+    
     func loadStrengthWorkoutHistoryData(){
         
         let strengthPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", strengthSelectedDate,"Strength")
         strengthWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(strengthPredicate)
         
+        
     }
     
+     var sections = [Section]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,27 +37,50 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
         loadStrengthWorkoutHistoryData()
         
         print("Strength Selected Date: ", strengthSelectedDate)
+        
+        for i in 0...strengthWorkoutHistories!.count-1 {
+            
+            for j in 0...strengthWorkoutHistories![i].subworkoutItems.count-1 {
+                var subworkouts = [String]()
+                
+                subworkouts.append(strengthWorkoutHistories![i].subworkoutItems[j].title)
+                print(strengthWorkoutHistories![j].title)
+                
+                let section = Section(genre: strengthWorkoutHistories![i].title, movies: subworkouts, expanded: false)
+                sections.append(section)
+            }
+            
+        }
+    
     }
     
 
-    var sections = [
-        Section(genre: "🦁 Animation",
-                movies: ["The Lion King", "The Incredibles"],
-                expanded: false),
-        Section(genre: "💥 Superhero",
-                movies: ["Guardians of the Galaxy", "The Flash", "The Avengers", "The Dark Knight"],
-                expanded: false),
-        Section(genre: "👻 Horror",
-                movies: ["The Walking Dead", "Insidious", "Conjuring"],
-                expanded: false)
-    ]
+    
+//    var sections = [
+//        Section(genre: "🦁 Animation",
+//                movies: ["The Lion King", "The Incredibles"],
+//                expanded: false),
+//        Section(genre: "💥 Superhero",
+//                movies: ["Guardians of the Galaxy", "The Flash", "The Avengers", "The Dark Knight"],
+//                expanded: false),
+//        Section(genre: "👻 Horror",
+//                movies: ["The Walking Dead", "Insidious", "Conjuring"],
+//                expanded: false)
+//    ]
+    
+    var section = [Section]()
+    
+    
+    
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        return strengthWorkoutHistories!.count
+        //return sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return sections[section].movies.count
     }
     
