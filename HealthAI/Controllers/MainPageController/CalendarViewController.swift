@@ -200,8 +200,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         dateFormatter.timeZone = NSTimeZone(name: "BST")! as TimeZone
         let date = dateFormatter.string(from: Date())
         
-        
-        
         arrayOfCardioAndStrength = [String]()
         
         print(date)
@@ -259,8 +257,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     @IBOutlet var historyTableView: UITableView!
     
-    
-   // @IBOutlet var calView: CalenderView!
     
     var theme = MyTheme.dark
     
