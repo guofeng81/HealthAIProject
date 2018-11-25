@@ -56,18 +56,6 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
     
     }
     
-//    var sections = [
-//        Section(genre: "🦁 Animation",
-//                movies: ["The Lion King", "The Incredibles"],
-//                expanded: false),
-//        Section(genre: "💥 Superhero",
-//                movies: ["Guardians of the Galaxy", "The Flash", "The Avengers", "The Dark Knight"],
-//                expanded: false),
-//        Section(genre: "👻 Horror",
-//                movies: ["The Walking Dead", "Insidious", "Conjuring"],
-//                expanded: false)
-//    ]
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         //return strengthWorkoutHistories?.count ?? 1
@@ -80,12 +68,12 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
+        return 50
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (sections[indexPath.section].expanded) {
-            return 44
+            return 60
         } else {
             return 0
         }

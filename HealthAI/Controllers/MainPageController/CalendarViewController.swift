@@ -56,7 +56,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         if arrayOfCardioAndStrength.count > 0 {
             cell.historyCellTitle.text = arrayOfCardioAndStrength[indexPath.row]
             
-            if arrayOfCardioAndStrength[indexPath.row] == "Cardio" {
+            if arrayOfCardioAndStrength[indexPath.row] == "Total Cardio Distance" {
                 let distance = calculateCardioWorkoutTotalDistance(cardioWorkoutArray: arrayOfCardioWorkouts)
                 cell.distanceLabel.text = String(format:"%.2f",convertMeterToMile(distance: distance)) + " mi"
             }else{
@@ -97,7 +97,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
 
         if let strengthWorkouts = strengthWorkoutHistories {
             if strengthWorkouts.count > 0{
-                arrayOfCardioAndStrength.append("Strength")
+                arrayOfCardioAndStrength.append("Strength Workouts")
                 for strengthWorkout in strengthWorkouts {
                     arrayOfStrengthWorkouts.append(strengthWorkout)
                 }
@@ -106,7 +106,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
 
         if let cardioWorkouts = cardioWorkoutHistories {
             if cardioWorkouts.count > 0 {
-                arrayOfCardioAndStrength.append("Cardio")
+                arrayOfCardioAndStrength.append("Total Cardio Distance")
                 for cardioWorkout in cardioWorkouts {
                     arrayOfCardioWorkouts.append(cardioWorkout)
                 }
@@ -131,9 +131,9 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if arrayOfCardioAndStrength[indexPath.row] == "Strength" {
+        if arrayOfCardioAndStrength[indexPath.row] == "Strength Workouts" {
             performSegue(withIdentifier: "goToStrengthDetail", sender: self)
-        }else if arrayOfCardioAndStrength[indexPath.row] == "Cardio" {
+        }else if arrayOfCardioAndStrength[indexPath.row] == "Total Cardio Distance" {
             performSegue(withIdentifier: "goToCardioDetail", sender: self)
         }
         
@@ -215,7 +215,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
 
         if let strengthWorkouts = strengthWorkoutHistories {
             if strengthWorkouts.count > 0{
-                arrayOfCardioAndStrength.append("Strength")
+                arrayOfCardioAndStrength.append("Strength Workouts")
                 for strengthWorkout in strengthWorkouts {
                     arrayOfStrengthWorkouts.append(strengthWorkout)
                 }
@@ -224,7 +224,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         if let cardioWorkouts = cardioWorkoutHistories {
             if cardioWorkouts.count > 0 {
-                arrayOfCardioAndStrength.append("Cardio")
+                arrayOfCardioAndStrength.append("Total Cardio Distance")
                 for cardioWorkout in cardioWorkouts {
                     arrayOfCardioWorkouts.append(cardioWorkout)
                 }
