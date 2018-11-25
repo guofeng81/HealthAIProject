@@ -40,10 +40,10 @@ class ExpandableHeaderView: UITableViewHeaderFooterView {
         
         super.layoutSubviews()
         self.textLabel?.textColor = UIColor.white
-        self.contentView.backgroundColor = UIColor.flatRed
+        self.contentView.backgroundColor = UIColor(red: 255/255, green: 38/255, blue: 0, alpha: 0.65)
         self.contentView.layer.cornerRadius = 5
         
-        contentView.heightAnchor.constraint(equalToConstant:10).isActive = true
+
        
         
         

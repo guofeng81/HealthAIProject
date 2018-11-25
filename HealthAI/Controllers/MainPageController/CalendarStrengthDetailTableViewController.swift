@@ -24,7 +24,6 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
         let strengthPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", strengthSelectedDate,"Strength")
         strengthWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(strengthPredicate)
         
-        
     }
     
      var sections = [Section]()
