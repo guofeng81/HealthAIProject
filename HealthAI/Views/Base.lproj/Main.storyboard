@@ -290,7 +290,7 @@
                     <connections>
                         <outlet property="historyTableView" destination="ql9-Dc-rQs" id="fXa-Xv-Wmt"/>
                         <segue destination="DS5-1A-MFx" kind="show" identifier="goToCardioDetail" id="txV-cE-bXh"/>
-                        <segue destination="toF-aS-0FA" kind="show" identifier="goToStrengthDetail" id="hHV-G4-VDL"/>
+                        <segue destination="toF-aS-0FA" kind="show" identifier="goToStrengthDetail" id="dIG-PC-Xgw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IzK-x8-Kky" userLabel="First Responder" sceneMemberID="firstResponder"/>

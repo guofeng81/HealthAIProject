@@ -69,7 +69,7 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
     func formatter(currentDate: Date){
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        formatter.timeZone = NSTimeZone(name: "CST")! as TimeZone
         formatter.string(from: currentDate)
     }
     
@@ -77,7 +77,10 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+        formatter.timeZone = NSTimeZone(name: "CST")! as TimeZone
+        
+        
+       
         
         workoutHistoryItem.type = self.selectedWorkoutItem.type
         
@@ -85,6 +88,8 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         
         workoutHistoryItem.title = self.selectedWorkoutItem.title
         workoutHistoryItem.currentDate = formatter.string(from:Date())
+        
+        print("Current Date",NSDate())
         
         for index in 0..<self.selectedWorkoutItem.subworkouts.count {
             

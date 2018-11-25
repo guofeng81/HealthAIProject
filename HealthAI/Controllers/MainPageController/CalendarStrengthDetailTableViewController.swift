@@ -19,8 +19,6 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
     
     var strengthWorkoutHistories : Results<WorkoutHistoryItem>?
     
-    
-    
     func loadStrengthWorkoutHistoryData(){
         
         let strengthPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", strengthSelectedDate,"Strength")
@@ -54,7 +52,6 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
             
             sections.append(section)
            
-            
         }
     
     }
@@ -71,13 +68,10 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
 //                expanded: false)
 //    ]
     
-    var section = [Section]()
-    
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return strengthWorkoutHistories!.count
-        //return sections.count
+        //return strengthWorkoutHistories?.count ?? 1
+        return sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -30,7 +30,6 @@ class CalendarDetailStrengthTableViewController: UITableViewController {
         super.viewDidLoad()
         loadStrengthWorkoutHistoryData()
         
-        
         print("Strength Selected Date: ", strengthSelectedDate)
     }
 
@@ -53,7 +52,6 @@ class CalendarDetailStrengthTableViewController: UITableViewController {
         }
         
        
-
         return cell
     }
     

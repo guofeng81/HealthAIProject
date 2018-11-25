@@ -162,7 +162,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         //pass the selectedDate to the CalendarDetail TableViewController
         if segue.identifier == "goToStrengthDetail" {
             let seg = segue.destination as! CalendarStrengthDetailTableViewController
-            
+            //let seg = segue.destination as! CalendarDetailStrengthTableViewController
             if selectedDate == nil {
                 seg.strengthSelectedDate = date
             }else{
