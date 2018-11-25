@@ -52,8 +52,9 @@ class CalendarDetailCardioTableViewController: UITableViewController {
         return cardiohWorkoutHistories?.count ?? 1
     }
     
-   
-
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Cardio Workout Summary"
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardioCell", for: indexPath) as! CardioSummaryCell
@@ -63,12 +64,18 @@ class CalendarDetailCardioTableViewController: UITableViewController {
             let distance = convertMeterToMile(distance: cardioWorkouts[indexPath.row].totalDistance)
             cell.distanceLabel.text = String(format: "%.2f",distance) + " mi"
             cell.averageSpeedLabel.text = "Average Speed: "+String(format: "%.2f",cardioWorkouts[indexPath.row].averageSpeed) + " MPH"
-            cell.timeLabel.text = "Total Time: " + cardioWorkouts[indexPath.row].time + " min"
+            cell.timeLabel.text = "Total Time: " + convertSecondToMin(time: cardioWorkouts[indexPath.row].time) + " min"
             cell.dateLabel.text = cardioWorkouts[indexPath.row].currentDate
             cell.selectionStyle = UITableViewCell.SelectionStyle.none;
         }
         
         return cell
+    }
+    
+    func convertSecondToMin(time:String)->String{
+        print((time as NSString).integerValue)
+        return String(format: "%.1f", (time as NSString).doubleValue / 60)
+        
     }
     
 

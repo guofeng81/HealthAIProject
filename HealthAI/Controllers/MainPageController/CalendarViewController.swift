@@ -67,9 +67,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         //make sure the cell is fetching the strength workout
         
-    
-        //TODO -
-        
          NotificationCenter.default.addObserver(self, selector: #selector(refreshTableView(notification:)), name: NSNotification.Name(rawValue: "refreshDate"), object: nil)
         
         return cell
@@ -145,6 +142,10 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         tableView.deselectRow(at: indexPath, animated: true)
         
         //performSegue(withIdentifier: "goToHistoryDetail", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Activity"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
