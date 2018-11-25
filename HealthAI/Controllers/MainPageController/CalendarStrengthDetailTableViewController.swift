@@ -40,21 +40,24 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
         
         for i in 0...strengthWorkoutHistories!.count-1 {
             
+            var subworkouts = [String]()
+            
             for j in 0...strengthWorkoutHistories![i].subworkoutItems.count-1 {
-                var subworkouts = [String]()
                 
                 subworkouts.append(strengthWorkoutHistories![i].subworkoutItems[j].title)
                 print(strengthWorkoutHistories![j].title)
+                print("Subworkout Title:",strengthWorkoutHistories![i].subworkoutItems[j].title )
                 
-                let section = Section(genre: strengthWorkoutHistories![i].title, movies: subworkouts, expanded: false)
-                sections.append(section)
             }
+            
+            let section = Section(genre: strengthWorkoutHistories![i].title, movies: subworkouts, expanded: false)
+            
+            sections.append(section)
+           
             
         }
     
     }
-    
-
     
 //    var sections = [
 //        Section(genre: "🦁 Animation",
@@ -69,8 +72,6 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
 //    ]
     
     var section = [Section]()
-    
-    
     
     
     
