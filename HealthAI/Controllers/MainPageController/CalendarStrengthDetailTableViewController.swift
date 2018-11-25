@@ -13,6 +13,8 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
 
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var titleLabel: UILabel!
+    
     let realm = try! Realm()
     
     var strengthSelectedDate = ""
@@ -30,6 +32,7 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleLabel.text = "Strength Workout Summary"
         
         loadStrengthWorkoutHistoryData()
         
