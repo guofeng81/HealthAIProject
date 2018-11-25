@@ -93,8 +93,6 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
         DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef, user: user, imageView: backgroundImageView,referenceName: "backgroundPhoto")
         
         
-        
-        
 //        backgroundView.backgroundColor = UIColor.init(
 //            gradientStyle: UIGradientStyle.leftToRight,
 //            withFrame: backgroundView.frame,
@@ -112,6 +110,9 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
     @IBAction func StepsCalculator(_ sender: Any) {
         performSegue(withIdentifier: "goToSteps", sender: self)
     }
+    
+    
+    @IBOutlet var stepButtton: UIButton!
     
     func setupTapView(){
         let workoutGesture = UITapGestureRecognizer(target: self, action: #selector(workouthandleTap(sender:)))
@@ -133,6 +134,10 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
         
         let CounterGesture = UITapGestureRecognizer(target: self, action: #selector(CounterhandleTap(sender:)))
         self.counterView.addGestureRecognizer(CounterGesture)
+        
+        stepButtton.layer.cornerRadius = 10
+        
+        
     }
     
     
@@ -343,12 +348,6 @@ extension HealthMainViewController: SidebarViewDelegate {
             print("Calendar")
         case .contact:
             print("Contact")
-        case .settings:
-            print("Settings")
-        case .history:
-            print("History")
-        case .help:
-            print("Help")
         case .signOut:
             print("Sign out!!")
             
@@ -372,6 +371,7 @@ extension HealthMainViewController: SidebarViewDelegate {
             break;
         case .none:
             break
+
         }
     }
 }

@@ -323,7 +323,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="78g-TU-gzb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="862" y="1531"/>
+            <point key="canvasLocation" x="689" y="1596"/>
         </scene>
         <!--Calendar Strength Detail Table View Controller-->
         <scene sceneID="JE6-GH-2dp">
@@ -1112,7 +1112,7 @@
                             <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AuZ-dV-alS">
                                 <rect key="frame" x="0.0" y="64" width="375" height="200"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HJF-r1-6Y5">
+                                    <imageView userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HJF-r1-6Y5">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bGZ-Te-SYd">
@@ -1328,9 +1328,9 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOd-Ht-hcw">
+                                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOd-Ht-hcw">
                                                 <rect key="frame" x="0.0" y="336" width="320" height="42"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.1819814891" green="0.69426733259999995" blue="0.53024792669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 <state key="normal" title="Stepz Tracker">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1369,6 +1369,7 @@
                         <outlet property="cityLabel" destination="dUj-2c-pXA" id="xdJ-TC-9GB"/>
                         <outlet property="counterView" destination="hWC-YI-f8C" id="FLq-ft-IbT"/>
                         <outlet property="diabeteView" destination="xK6-XQ-CUv" id="b3W-HC-QPG"/>
+                        <outlet property="stepButtton" destination="lOd-Ht-hcw" id="QC4-5N-3wJ"/>
                         <outlet property="temperatureLabel" destination="a96-yh-mHW" id="fsU-ms-5mr"/>
                         <outlet property="weatherConditionLbl" destination="cd0-6R-PC1" id="r8G-Uz-VZb"/>
                         <outlet property="weatherImage" destination="s7U-kM-FW4" id="L7m-ei-9Gy"/>

@@ -48,7 +48,7 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
                 
             }
             
-            let section = Section(genre: strengthWorkoutHistories![i].title, movies: subworkouts, expanded: false)
+            let section = Section(workoutTitle: strengthWorkoutHistories![i].title, subworkouts: subworkouts, expanded: false)
             
             sections.append(section)
            
@@ -64,7 +64,7 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return sections[section].movies.count
+        return sections[section].subworkouts.count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -85,13 +85,13 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = ExpandableHeaderView()
-        header.customInit(title: sections[section].genre, section: section, delegate: self)
+        header.customInit(title: sections[section].workoutTitle, section: section, delegate: self)
         return header
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell")!
-        cell.textLabel?.text = sections[indexPath.section].movies[indexPath.row]
+        cell.textLabel?.text = sections[indexPath.section].subworkouts[indexPath.row]
         return cell
     }
     
@@ -100,7 +100,7 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
         
         
         tableView.beginUpdates()
-        for i in 0 ..< sections[section].movies.count {
+        for i in 0 ..< sections[section].subworkouts.count {
             tableView.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
         }
         tableView.endUpdates()

@@ -19,9 +19,6 @@ enum Row: String {
     case editProfile
     case calendar
     case contact
-    case settings
-    case history
-    case help
     case signOut
     case none
     
@@ -30,10 +27,7 @@ enum Row: String {
         case 0: self = .editProfile
         case 1: self = .calendar
         case 2: self = .contact
-        case 3: self = .settings
-        case 4: self = .history
-        case 5: self = .help
-        case 6: self = .signOut
+        case 3: self = .signOut
         default: self = .none
         }
     }
@@ -55,7 +49,7 @@ class SidebarView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.backgroundColor=UIColor(red: 54/255, green: 55/255, blue: 56/255, alpha: 1.0)
         self.clipsToBounds=true
         
-        titleArr = ["team 9", "Calendar", "Contact", "Settings", "History", "Help", "Sign Out"]
+        titleArr = ["team 9", "Calendar", "Contact", "Sign Out"]
         
         setupViews()
         

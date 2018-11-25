@@ -8,15 +8,14 @@
 
 import Foundation
 
-
 struct Section {
-    var genre: String!
-    var movies: [String]!
+    var workoutTitle: String!
+    var subworkouts: [String]!
     var expanded: Bool!
     
-    init(genre: String, movies: [String], expanded: Bool) {
-        self.genre = genre
-        self.movies = movies
+    init(workoutTitle: String, subworkouts: [String], expanded: Bool) {
+        self.workoutTitle = workoutTitle
+        self.subworkouts = subworkouts
         self.expanded = expanded
     }
 }
