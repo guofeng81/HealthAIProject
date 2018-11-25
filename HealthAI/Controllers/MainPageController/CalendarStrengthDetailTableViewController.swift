@@ -39,16 +39,22 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
         for i in 0...strengthWorkoutHistories!.count-1 {
             
             var subworkouts = [String]()
+            var times = [String]()
             
             for j in 0...strengthWorkoutHistories![i].subworkoutItems.count-1 {
                 
                 subworkouts.append(strengthWorkoutHistories![i].subworkoutItems[j].title)
+                times.append(String(format:"%.1f",Double(strengthWorkoutHistories![i].subworkoutItems[j].time) / 60))
+               
                 print(strengthWorkoutHistories![j].title)
+                
+                print("Subworkout Time:",String(strengthWorkoutHistories![i].subworkoutItems[j].time))
+                
                 print("Subworkout Title:",strengthWorkoutHistories![i].subworkoutItems[j].title )
                 
             }
             
-            let section = Section(workoutTitle: strengthWorkoutHistories![i].title, subworkouts: subworkouts, expanded: false)
+            let section = Section(workoutTitle: strengthWorkoutHistories![i].title, subworkouts: subworkouts,times:times, expanded: false)
             
             sections.append(section)
            
@@ -68,7 +74,7 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 60
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -85,13 +91,16 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = ExpandableHeaderView()
+        
         header.customInit(title: sections[section].workoutTitle, section: section, delegate: self)
         return header
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell")!
-        cell.textLabel?.text = sections[indexPath.section].subworkouts[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell")! as! StrengthSubworkoutCell
+        //cell.textLabel?.text = sections[indexPath.section].subworkouts[indexPath.row]
+        cell.titleLabel.text = sections[indexPath.section].subworkouts[indexPath.row]
+        cell.timeLabel.text = sections[indexPath.section].times[indexPath.row] + " min"
         return cell
     }
     

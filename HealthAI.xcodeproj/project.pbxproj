@@ -60,6 +60,7 @@
 		B3147F4A2193E8F4000A429D /* SubWorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3147F492193E8F4000A429D /* SubWorkoutsViewController.swift */; };
 		B3147F4C2193EBAF000A429D /* HistoryDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3147F4B2193EBAF000A429D /* HistoryDetailTableViewController.swift */; };
 		B337D9B8218BD54F00B12066 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B337D9B7218BD54F00B12066 /* GoogleService-Info.plist */; };
+		B33A027721AB02B500D2E0D4 /* StrengthSubworkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33A027621AB02B500D2E0D4 /* StrengthSubworkoutCell.swift */; };
 		B3428D1421753957000BEFAE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3428D1321753957000BEFAE /* RegisterViewController.swift */; };
 		B357476921811EEC00A141DC /* SlideAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357476821811EEC00A141DC /* SlideAnimation.swift */; };
 		B35747E92182A90000A141DC /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35747E82182A90000A141DC /* DatabaseHelper.swift */; };
@@ -145,6 +146,7 @@
 		B3147F492193E8F4000A429D /* SubWorkoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubWorkoutsViewController.swift; sourceTree = "<group>"; };
 		B3147F4B2193EBAF000A429D /* HistoryDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailTableViewController.swift; sourceTree = "<group>"; };
 		B337D9B7218BD54F00B12066 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B33A027621AB02B500D2E0D4 /* StrengthSubworkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengthSubworkoutCell.swift; sourceTree = "<group>"; };
 		B3428D1321753957000BEFAE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B357476821811EEC00A141DC /* SlideAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideAnimation.swift; sourceTree = "<group>"; };
 		B35747E82182A90000A141DC /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				B3B6CC3621A548530095FECB /* CalendarHistoryCell.swift */,
 				B3B6CC5A21A764C50095FECB /* CardioSummaryCell.swift */,
 				B3B6CCBE21AA1B500095FECB /* Section.swift */,
+				B33A027621AB02B500D2E0D4 /* StrengthSubworkoutCell.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				B3EA6143219A7AA600D66927 /* CardioWorkoutItem.swift in Sources */,
 				B30E77922189236B0074D71E /* WorkoutViewController.swift in Sources */,
 				B311DCEB217F808500F8C8E3 /* SidebarView.swift in Sources */,
+				B33A027721AB02B500D2E0D4 /* StrengthSubworkoutCell.swift in Sources */,
 				B3B6CCC721AA1CA00095FECB /* CalendarStrengthDetailTableViewController.swift in Sources */,
 				642BA2F6218AAB65009568AD /* GraphViewController.swift in Sources */,
 				B35747E92182A90000A141DC /* DatabaseHelper.swift in Sources */,
