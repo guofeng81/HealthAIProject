@@ -2131,7 +2131,7 @@
                                                 <constraint firstItem="1U3-0e-DOk" firstAttribute="leading" secondItem="aMG-YD-EDA" secondAttribute="leading" id="xAn-mJ-sdM"/>
                                             </constraints>
                                         </view>
-                                        <button opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjP-Lf-tty">
+                                        <button opaque="NO" alpha="0.84999999999999998" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjP-Lf-tty">
                                             <rect key="frame" x="152.5" y="79" width="70" height="70"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="70" id="U5D-VU-VQK"/>
