@@ -102,9 +102,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     func filterWorkoutArray(selectedDate:String){
         
-        //        arrayOfStrengthWorkouts = [WorkoutHistoryItem]()
-        //        arrayOfCardioWorkouts = [WorkoutHistoryItem]()
-        
         arrayOfCardioAndStrength = [String]()
         
         let strengthPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", selectedDate,"Strength")

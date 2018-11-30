@@ -32,9 +32,7 @@ class CalendarDetailCardioTableViewController: UITableViewController {
         super.viewDidLoad()
         
         loadCardioWorkoutHistoryData()
-        
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        
         print("Cardio Selected Date: ",cardioSelectedDate)
         
         
@@ -92,7 +90,7 @@ class CalendarDetailCardioTableViewController: UITableViewController {
                     try self.realm.write{
                         self.realm.delete(workoutHistroyForDeletion)
                         //Refresh the Calendar View Controller Table View and reload the tableview again
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshCalendarTableView"), object: nil, userInfo: nil)
+                       // NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshCalendarTableView"), object: nil, userInfo: nil)
                     }
                 }catch{
                     print("Error delelting the the item using realm")

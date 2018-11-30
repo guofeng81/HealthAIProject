@@ -57,9 +57,6 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
                     
                 }
                 
-//                let section = Section(workoutTitle: strengthWorkoutHistories![i].title, subworkouts: subworkouts,times:times, expanded: false)
-//
-//                sections.append(section)
             }
             let section = Section(workoutTitle: strengthWorkoutHistories![i].title, subworkouts: subworkouts,times:times, expanded: false)
             
@@ -69,7 +66,6 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        //return strengthWorkoutHistories?.count ?? 1
         return sections.count
     }
     
@@ -117,6 +113,8 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
         }
         tableView.endUpdates()
     }
+    
+    
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let strengthWorkoutVC = StrengthWorkoutVC()
