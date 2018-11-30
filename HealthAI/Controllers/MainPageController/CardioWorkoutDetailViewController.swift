@@ -207,7 +207,8 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
             
             print("Traveled Distance:",  traveledDistance)
             print("Straight Distance:", straightDistance)
-            totalDistance.text = String(format: "%.2f", traveledDistance) + " M"
+            //totalDistance.text = String(format: "%.2f", traveledDistance) + " M"
+            totalDistance.text = String(format: "%.2f", straightDistance) + " M"
             let polyline = MKPolyline(coordinates: [lastLocation.coordinate,location.coordinate], count: 2)
             self.map.addOverlay((polyline),level: .aboveRoads)
         }
@@ -264,25 +265,25 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         dateFormatter.string(from: currentDate)
     }
     
+    func setupDateFormatter(format:String,date:Date)->String{
+        
+        let dateFormatter = DateFormatter()
+        //dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = format
+        dateFormatter.timeZone = NSTimeZone(name: "BST")! as TimeZone
+        //let date = dateFormatter.string(from: Date())
+        return dateFormatter.string(from: date)
+    }
+    
     
     func saveWorkout(){
         
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        dateFormatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
         
-//        let currentDateTime = Date()
-        
-      //  let currentDateTime = dateFormatter(currentDate: Date())
-        
-       // print(currentDateTime)
-        
-        // initialize the date formatter and set the style
-        //        let formatter = DateFormatter()
-        //        formatter.timeStyle = .medium
-        //        formatter.dateStyle = .long
-        //
+        let date = setupDateFormatter(format: "yyyy-MM-dd", date: Date())
         
         selectedWorkoutHistoryItem.title = selectedCardioWorkoutItem.title
         print("Cardio workout title: ",selectedCardioWorkoutItem.title)
@@ -290,11 +291,9 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         selectedWorkoutHistoryItem.time = String(time)
         selectedWorkoutHistoryItem.type = selectedCardioWorkoutItem.type
         selectedWorkoutHistoryItem.averageSpeed = traveledDistance / Double(time)
-        selectedWorkoutHistoryItem.currentDate = dateFormatter.string(from: Date())
+        //selectedWorkoutHistoryItem.currentDate = dateFormatter.string(from: Date())
+        selectedWorkoutHistoryItem.currentDate = date
         selectedWorkoutHistoryItem.totalDistance = traveledDistance
-        
-        
-        // get the date time String from the date object
         
         
         do{

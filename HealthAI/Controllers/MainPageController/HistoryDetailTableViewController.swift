@@ -36,6 +36,4 @@ class HistoryDetailTableViewController: UITableViewController {
         return cell
     }
     
-
-
 }

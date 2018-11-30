@@ -66,20 +66,31 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
 //        self.present(alert, animated: true, completion: nil)
     }
     
-    func formatter(currentDate: Date){
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
-        formatter.string(from: currentDate)
+//    func formatter(currentDate: Date){
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd"
+//        formatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+//        formatter.string(from: currentDate)
+//    }
+
+    
+    func setupDateFormatter(format:String,date:Date)->String{
+        
+        let dateFormatter = DateFormatter()
+        //dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = format
+        dateFormatter.timeZone = NSTimeZone(name: "BST")! as TimeZone
+        //let date = dateFormatter.string(from: Date())
+        return dateFormatter.string(from: date)
     }
     
     func saveWorkout(){
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd"
+//        formatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
         
-        
+        let date = setupDateFormatter(format: "yyyy-MM-dd", date: Date())
        
         
         workoutHistoryItem.type = self.selectedWorkoutItem.type
@@ -87,7 +98,9 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         print("type is saving!!!!:",self.selectedWorkoutItem.type)
         
         workoutHistoryItem.title = self.selectedWorkoutItem.title
-        workoutHistoryItem.currentDate = formatter.string(from:Date())
+        //workoutHistoryItem.currentDate = formatter.string(from:Date())
+        workoutHistoryItem.currentDate = date
+        
         
        // print("Current Date",NSDate())
         

@@ -22,8 +22,6 @@ class WorkoutHistoryTableViewController: UITableViewController {
         super.viewDidLoad()
         loadWorkoutHistoryData()
         
-        
-        
     }
     
     func loadWorkoutHistoryData(){
@@ -96,8 +94,6 @@ class WorkoutHistoryTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-    
-    
     
 }
 

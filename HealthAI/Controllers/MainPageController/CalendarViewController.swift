@@ -90,7 +90,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
 //        let strengthPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", selectedDate!,"Strength")
 //        let cardioPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", selectedDate!,"Cardio")
 
-        addWorkoutArray(selectedDate: CalenderView.dateSelected)
+        filterWorkoutArray(selectedDate: CalenderView.dateSelected)
         
 //        strengthWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(strengthPredicate)
 //        cardioWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(cardioPredicate)
@@ -118,7 +118,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         historyTableView.reloadData()
     }
     
-    func addWorkoutArray(selectedDate:String){
+    func filterWorkoutArray(selectedDate:String){
         
 //        arrayOfStrengthWorkouts = [WorkoutHistoryItem]()
 //        arrayOfCardioWorkouts = [WorkoutHistoryItem]()
@@ -130,8 +130,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         strengthWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(strengthPredicate)
         cardioWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(cardioPredicate)
-        
-        
         
         if let strengthWorkouts = strengthWorkoutHistories {
             if strengthWorkouts.count > 0{
@@ -277,7 +275,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
 //            }
 //        }
 
-        addWorkoutArray(selectedDate: date)
+        filterWorkoutArray(selectedDate: date)
         
         print(arrayOfCardioAndStrength)
         
