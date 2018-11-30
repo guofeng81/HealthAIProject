@@ -25,7 +25,6 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
         
         let strengthPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", strengthSelectedDate,"Strength")
         strengthWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(strengthPredicate)
-        
     }
     
      var sections = [Section]()
@@ -97,7 +96,6 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = ExpandableHeaderView()
-        
         header.customInit(title: sections[section].workoutTitle, section: section, delegate: self)
         return header
     }
