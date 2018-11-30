@@ -73,7 +73,6 @@ class HealthMainViewController: UIViewController, CLLocationManagerDelegate, UIN
         storageRef =  Storage.storage().reference()
         
         //MARK - Add CardView Gesture
-        
         setupTapView()
         setupMenu()
         loadLocationManager()
