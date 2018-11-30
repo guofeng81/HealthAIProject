@@ -29,6 +29,8 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         myTableView.reloadData()
     }
     
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         myTableView.reloadData()
     }
@@ -42,28 +44,28 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         titleText.text = selectedWorkoutItem.title
         contentText.text = selectedWorkoutItem.content
         
-         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "End", style: .done, target: self, action: #selector(endWorkoutPressed(sender:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "End", style: .done, target: self, action: #selector(endWorkoutPressed(sender:)))
     }
     
     @objc func endWorkoutPressed(sender:AnyObject){
         //print("End")
         
-        self.saveWorkout()
-        self.navigationController?.popViewController(animated: true)
+//        self.saveWorkout()
+//        self.navigationController?.popToRootViewController(animated: true)
+
         
-        
-//        let alert = UIAlertController(title: "End Workout", message: "Are you sure you want to end your workout?", preferredStyle: .alert)
-//
-//        // add the actions (buttons)
-//        alert.addAction(UIAlertAction(title: "End Workout", style: .default, handler: { (action) in
-//            self.saveWorkout()
-//            self.navigationController?.popViewController(animated: true)
-//        }))
-//
-//        //alert.addAction(UIAlertAction(title: "Back to Workout", style: .cancel, handler: nil))
-//
-//        // show the alert
-//        self.present(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "End Workout", message: "Are you sure you want to end your strength workout?", preferredStyle: .alert)
+
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "End Workout", style: .default, handler: { (action) in
+            self.saveWorkout()
+            self.navigationController?.popToRootViewController(animated: true)
+        }))
+
+        alert.addAction(UIAlertAction(title: "Back to Workout", style: .cancel, handler: nil))
+
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
     
 //    func formatter(currentDate: Date){
@@ -86,9 +88,6 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
     
     func saveWorkout(){
         
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "yyyy-MM-dd"
-//        formatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
         
         let date = setupDateFormatter(format: "yyyy-MM-dd", date: Date())
        

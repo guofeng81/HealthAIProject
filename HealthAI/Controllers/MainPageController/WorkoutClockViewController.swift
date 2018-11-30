@@ -24,7 +24,6 @@ class WorkoutClockViewController: UIViewController {
     var time:Int = 0
     var timer:Timer? = nil
    
-    
     var delegate : DataTransferDelegate?
     
     var selectedSubworkoutItem = SubworkoutItem()
@@ -33,7 +32,6 @@ class WorkoutClockViewController: UIViewController {
         super.viewDidLoad()
         
        // print("Selected Subworkout",selectedSubworkoutItem.title)
-        
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(endWorkoutPressed(sender:)))
         //self.navigationItem.hidesBackButton = true
@@ -46,18 +44,23 @@ class WorkoutClockViewController: UIViewController {
     @objc func endWorkoutPressed(sender:AnyObject){
         print("End")
         
-        let alert = UIAlertController(title: "End Workout", message: "Are you sure you want to end your workout?", preferredStyle: .alert)
         
-        // add the actions (buttons)
-        alert.addAction(UIAlertAction(title: "End Workout", style: .default, handler: { (action) in
-            self.saveWorkout()
-            self.navigationController?.popViewController(animated: true)
-        }))
+        self.saveWorkout()
+        self.navigationController?.popViewController(animated: true)
         
-        alert.addAction(UIAlertAction(title: "Back to Workout", style: .cancel, handler: nil))
         
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
+//        let alert = UIAlertController(title: "End Workout", message: "Are you sure you want to end your workout?", preferredStyle: .alert)
+//
+//        // add the actions (buttons)
+//        alert.addAction(UIAlertAction(title: "End Workout", style: .default, handler: { (action) in
+//            self.saveWorkout()
+//            self.navigationController?.popViewController(animated: true)
+//        }))
+//
+//        alert.addAction(UIAlertAction(title: "Back to Workout", style: .cancel, handler: nil))
+//
+//        // show the alert
+//        self.present(alert, animated: true, completion: nil)
     }
     
     func setupButtons(){
@@ -111,21 +114,6 @@ class WorkoutClockViewController: UIViewController {
         
         delegate!.userDidFinishedSubworkout(subworkoutItem: selectedSubworkoutItem)
 
-    }
-
-    @IBAction func startBtn(_ sender: UIButton) {
-        
-//        if timer != nil {
-//            //startBtn.setTitle("Start", for: .normal)
-//            startBtn.setBackgroundImage(UIImage(named: "startBtn"), for: .normal)
-//            timer!.invalidate()
-//            timer = nil
-//        }else{
-//            //startBtn.setTitle("Pause", for: .normal)
-//            startBtn.setBackgroundImage(UIImage(named: "pause"), for: .normal)
-//            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(WorkoutClockViewController.action),userInfo: nil, repeats: true)
-//
-//        }
     }
     
     

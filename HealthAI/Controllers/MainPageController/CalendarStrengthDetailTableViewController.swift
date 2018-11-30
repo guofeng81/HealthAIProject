@@ -43,23 +43,29 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
             var subworkouts = [String]()
             var times = [String]()
             
-            for j in 0...strengthWorkoutHistories![i].subworkoutItems.count-1 {
+            if strengthWorkoutHistories![i].subworkoutItems.count > 0 {
                 
-                subworkouts.append(strengthWorkoutHistories![i].subworkoutItems[j].title)
-                times.append(String(format:"%.1f",Double(strengthWorkoutHistories![i].subworkoutItems[j].time) / 60))
-               
-                print(strengthWorkoutHistories![j].title)
+                for j in 0...strengthWorkoutHistories![i].subworkoutItems.count-1 {
+                    
+                    subworkouts.append(strengthWorkoutHistories![i].subworkoutItems[j].title)
+                    times.append(String(format:"%.1f",Double(strengthWorkoutHistories![i].subworkoutItems[j].time) / 60))
+                    
+                    print(strengthWorkoutHistories![j].title)
+                    
+                    print("Subworkout Time:",String(strengthWorkoutHistories![i].subworkoutItems[j].time))
+                    
+                    print("Subworkout Title:",strengthWorkoutHistories![i].subworkoutItems[j].title )
+                    
+                }
                 
-                print("Subworkout Time:",String(strengthWorkoutHistories![i].subworkoutItems[j].time))
-                
-                print("Subworkout Title:",strengthWorkoutHistories![i].subworkoutItems[j].title )
-                
+//                let section = Section(workoutTitle: strengthWorkoutHistories![i].title, subworkouts: subworkouts,times:times, expanded: false)
+//                
+//                sections.append(section)
             }
-            
             let section = Section(workoutTitle: strengthWorkoutHistories![i].title, subworkouts: subworkouts,times:times, expanded: false)
             
             sections.append(section)
-           
+
         }
     
     }
