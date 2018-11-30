@@ -73,7 +73,7 @@ class CalendarDetailCardioTableViewController: UITableViewController {
             cell.distanceLabel.text = String(format: "%.2f",distance) + " mi"
             cell.averageSpeedLabel.text = "Average Speed: "+String(format: "%.2f",cardioWorkouts[indexPath.row].averageSpeed) + " MPH"
             cell.timeLabel.text = "Total Time: " + convertSecondToMin(time: cardioWorkouts[indexPath.row].time) + " min"
-            cell.dateLabel.text = cardioWorkouts[indexPath.row].currentDate
+            cell.dateLabel.text = cardioWorkouts[indexPath.row].currentDateTime
             cell.selectionStyle = UITableViewCell.SelectionStyle.none;
         }
         

@@ -70,7 +70,7 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         let dateFormatter = DateFormatter()
         //dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.dateFormat = format
-        dateFormatter.timeZone = NSTimeZone(name: "BST")! as TimeZone
+        dateFormatter.timeZone = NSTimeZone(name: "CST")! as TimeZone
         //let date = dateFormatter.string(from: Date())
         return dateFormatter.string(from: date)
     }
@@ -78,6 +78,7 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
     func saveWorkout(){
         
         let date = setupDateFormatter(format: "yyyy-MM-dd", date: Date())
+        let dateTime = setupDateFormatter(format: "yyyy-MM-dd HH:mm", date: Date())
         
         workoutHistoryItem.type = self.selectedWorkoutItem.type
         
@@ -86,6 +87,7 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         workoutHistoryItem.title = self.selectedWorkoutItem.title
         //workoutHistoryItem.currentDate = formatter.string(from:Date())
         workoutHistoryItem.currentDate = date
+        workoutHistoryItem.currentDateTime = dateTime
         
         // print("Current Date",NSDate())
         

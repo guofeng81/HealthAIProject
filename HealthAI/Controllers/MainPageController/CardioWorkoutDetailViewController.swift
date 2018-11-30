@@ -238,13 +238,14 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         let dateFormatter = DateFormatter()
         //dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.dateFormat = format
-        dateFormatter.timeZone = NSTimeZone(name: "BST")! as TimeZone
+        dateFormatter.timeZone = NSTimeZone(name: "CST")! as TimeZone
         //let date = dateFormatter.string(from: Date())
         return dateFormatter.string(from: date)
     }
 
     func saveWorkout(){
         let date = setupDateFormatter(format: "yyyy-MM-dd", date: Date())
+        let dateTime = setupDateFormatter(format: "yyyy-MM-dd HH:mm", date: Date())
         selectedWorkoutHistoryItem.title = selectedCardioWorkoutItem.title
         print("Cardio workout title: ",selectedCardioWorkoutItem.title)
         
@@ -253,6 +254,7 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         selectedWorkoutHistoryItem.averageSpeed = traveledDistance / Double(time)
         //selectedWorkoutHistoryItem.currentDate = dateFormatter.string(from: Date())
         selectedWorkoutHistoryItem.currentDate = date
+        selectedWorkoutHistoryItem.currentDateTime = dateTime
         selectedWorkoutHistoryItem.totalDistance = traveledDistance
         do{
             let realm = try Realm()
