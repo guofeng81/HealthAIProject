@@ -17,10 +17,6 @@ class WorkoutItem {
     var hardness:String = ""
     var duration: String = ""
     var strength:String = ""
-    
-    //    var totalDistance: Double = 0.0
-    //    var averageSpeed : Double = 0.0
-    //    var totalTime: Double = 0.0
     var currentDate: Date?
     
     var subworkouts = [SubworkoutItem]()

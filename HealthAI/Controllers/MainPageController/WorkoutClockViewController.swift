@@ -16,9 +16,7 @@ protocol DataTransferDelegate:class {
 
 class WorkoutClockViewController: UIViewController {
     
-    
     @IBOutlet var startBtn: UIButton!
-    
     
     //time is only for the seconds
     var time:Int = 0
@@ -44,10 +42,8 @@ class WorkoutClockViewController: UIViewController {
     @objc func endWorkoutPressed(sender:AnyObject){
         print("End")
         
-        
         self.saveWorkout()
         self.navigationController?.popViewController(animated: true)
-        
         
 //        let alert = UIAlertController(title: "End Workout", message: "Are you sure you want to end your workout?", preferredStyle: .alert)
 //
@@ -73,7 +69,6 @@ class WorkoutClockViewController: UIViewController {
         startBtn.layer.cornerRadius = startBtn.frame.width / 2
         startBtn.clipsToBounds = true
         
-      
         setupButtonImage(imageName: "play")
 
     }
@@ -145,7 +140,6 @@ class WorkoutClockViewController: UIViewController {
         }
     }
     
-    
     func setupButtonImage(imageName:String){
         
         let startBtnimage = UIImageView()
@@ -156,7 +150,6 @@ class WorkoutClockViewController: UIViewController {
         startBtn.addSubview(startBtnimage)
         
     }
-    
     
     //Play the workout tutorial video
     

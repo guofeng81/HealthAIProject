@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6418CCEB218A71BD0072951B /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418CCEA218A71BD0072951B /* Workout.swift */; };
 		6418CCF6218A77CA0072951B /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418CCF4218A77CA0072951B /* WorkoutTableViewCell.swift */; };
 		6418CCF7218A77CA0072951B /* WorkoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6418CCF5218A77CA0072951B /* WorkoutTableViewCell.xib */; };
 		6418CCFB218A892C0072951B /* DiabetesFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418CCFA218A892C0072951B /* DiabetesFormViewController.swift */; };
@@ -79,7 +78,6 @@
 		B3B6CCC421AA1C3A0095FECB /* StrengthWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6CCC221AA1C3A0095FECB /* StrengthWorkoutVC.swift */; };
 		B3B6CCC521AA1C3A0095FECB /* StrengthWorkoutVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3B6CCC321AA1C3A0095FECB /* StrengthWorkoutVC.xib */; };
 		B3B6CCC721AA1CA00095FECB /* CalendarStrengthDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B6CCC621AA1CA00095FECB /* CalendarStrengthDetailTableViewController.swift */; };
-		B3DEE16821894C72000B5CAC /* WorkoutDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DEE16721894C72000B5CAC /* WorkoutDataModel.swift */; };
 		B3EA6143219A7AA600D66927 /* CardioWorkoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA6142219A7AA600D66927 /* CardioWorkoutItem.swift */; };
 		B3EA6145219A837100D66927 /* CardioWorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA6144219A837100D66927 /* CardioWorkoutTableViewController.swift */; };
 		B3EA6147219A83CD00D66927 /* CardioWorkoutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA6146219A83CD00D66927 /* CardioWorkoutDetailViewController.swift */; };
@@ -90,7 +88,6 @@
 /* Begin PBXFileReference section */
 		3B4E58E5D376F852DBDD912E /* Pods_HealthAI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthAI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4291960B56D9C7369D8A7E22 /* Pods-HealthAI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthAI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HealthAI/Pods-HealthAI.debug.xcconfig"; sourceTree = "<group>"; };
-		6418CCEA218A71BD0072951B /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		6418CCF4218A77CA0072951B /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		6418CCF5218A77CA0072951B /* WorkoutTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkoutTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		6418CCFA218A892C0072951B /* DiabetesFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiabetesFormViewController.swift; path = Pods/DiabetesFormViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -165,7 +162,6 @@
 		B3B6CCC221AA1C3A0095FECB /* StrengthWorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengthWorkoutVC.swift; sourceTree = "<group>"; };
 		B3B6CCC321AA1C3A0095FECB /* StrengthWorkoutVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StrengthWorkoutVC.xib; sourceTree = "<group>"; };
 		B3B6CCC621AA1CA00095FECB /* CalendarStrengthDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStrengthDetailTableViewController.swift; sourceTree = "<group>"; };
-		B3DEE16721894C72000B5CAC /* WorkoutDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDataModel.swift; sourceTree = "<group>"; };
 		B3EA6142219A7AA600D66927 /* CardioWorkoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioWorkoutItem.swift; sourceTree = "<group>"; };
 		B3EA6144219A837100D66927 /* CardioWorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioWorkoutTableViewController.swift; sourceTree = "<group>"; };
 		B3EA6146219A83CD00D66927 /* CardioWorkoutDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioWorkoutDetailViewController.swift; sourceTree = "<group>"; };
@@ -304,8 +300,6 @@
 			children = (
 				B30E61C72176C373004135B9 /* WeatherDataModel.swift */,
 				642BA2F7218AAFCE009568AD /* CalorieDataModel.swift */,
-				B3DEE16721894C72000B5CAC /* WorkoutDataModel.swift */,
-				6418CCEA218A71BD0072951B /* Workout.swift */,
 				B3147F412193E6AD000A429D /* WorkoutItem.swift */,
 				B3147F432193E6E9000A429D /* SubworkoutItem.swift */,
 				B3147F452193E704000A429D /* WorkoutHistoryItem.swift */,
@@ -583,7 +577,6 @@
 				B3B6CCC721AA1CA00095FECB /* CalendarStrengthDetailTableViewController.swift in Sources */,
 				642BA2F6218AAB65009568AD /* GraphViewController.swift in Sources */,
 				B35747E92182A90000A141DC /* DatabaseHelper.swift in Sources */,
-				B3DEE16821894C72000B5CAC /* WorkoutDataModel.swift in Sources */,
 				B3B6CC2F219F62D70095FECB /* CalendarViewController.swift in Sources */,
 				B3B6CC2D219F62940095FECB /* MonthView.swift in Sources */,
 				6455C8E621642E36009F4D33 /* ViewController.swift in Sources */,
@@ -610,7 +603,6 @@
 				64303E7D218A68E800A59AF3 /* WorkoutDetailViewController.swift in Sources */,
 				B3B6CC5B21A764C50095FECB /* CardioSummaryCell.swift in Sources */,
 				6418CCFB218A892C0072951B /* DiabetesFormViewController.swift in Sources */,
-				6418CCEB218A71BD0072951B /* Workout.swift in Sources */,
 				B3147F462193E704000A429D /* WorkoutHistoryItem.swift in Sources */,
 				B3B6CCBF21AA1B500095FECB /* Section.swift in Sources */,
 				6418CCFD218A8AF70072951B /* DiabetesScoreViewController.swift in Sources */,

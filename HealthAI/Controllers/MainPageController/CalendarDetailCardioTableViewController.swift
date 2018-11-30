@@ -38,8 +38,17 @@ class CalendarDetailCardioTableViewController: UITableViewController {
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
         print("Cardio Selected Date: ",cardioSelectedDate)
+        
+        
+//        let rightBarBtn = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(rightBarBtnAction))
+//        self.navigationItem.leftBarButtonItem = rightBarBtn
 
     }
+    
+//    @objc func rightBarBtnAction(){
+//        self.navigationController?.popViewController(animated: true)
+//    }
+    
 
     // MARK: - Table view data source
 
@@ -84,6 +93,8 @@ class CalendarDetailCardioTableViewController: UITableViewController {
                 do{
                     try self.realm.write{
                         self.realm.delete(workoutHistroyForDeletion)
+                        //Refresh the Calendar View Controller Table View and reload the tableview again
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshCalendarTableView"), object: nil, userInfo: nil)
                     }
                 }catch{
                     print("Error delelting the the item using realm")

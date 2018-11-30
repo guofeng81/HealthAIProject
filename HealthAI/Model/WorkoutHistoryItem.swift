@@ -14,11 +14,11 @@ class WorkoutHistoryItem:Object{
     
     @objc dynamic var type: String = ""
     @objc dynamic var title: String = ""
-    @objc dynamic var duration: String = ""
-    @objc dynamic var content: String = ""
-    @objc dynamic var hardness: String = ""
-    @objc dynamic var strength: String = ""
-    @objc dynamic var body: String = ""
+//    @objc dynamic var duration: String = ""
+//    @objc dynamic var content: String = ""
+//    @objc dynamic var hardness: String = ""
+//    @objc dynamic var strength: String = ""
+//    @objc dynamic var body: String = ""
     @objc dynamic var time: String = ""
     
     //Use for the cardio workout Item

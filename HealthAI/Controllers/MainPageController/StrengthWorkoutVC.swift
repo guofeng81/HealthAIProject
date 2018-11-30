@@ -15,7 +15,6 @@ class StrengthWorkoutVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = workoutName
-    
     }
     
     func customInit(workoutName: String) {

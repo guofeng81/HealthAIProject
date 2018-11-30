@@ -28,7 +28,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     var arrayOfStrengthWorkouts = [WorkoutHistoryItem]()
     var arrayOfCardioWorkouts = [WorkoutHistoryItem]()
     
-    
     var firstDistance = 0
     
     //Divide Carido Workouts and Strength Workouts into two sections based on date
@@ -37,7 +36,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
      var arrayOfCardioAndStrength = [String]()
    
-    
     func convertMeterToMile(distance:Double)->Double {
          return distance / 1000 * 0.62
     }
@@ -48,8 +46,11 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        //From CalendarView Swift file in supporting files
          NotificationCenter.default.addObserver(self, selector: #selector(refreshTableView(notification:)), name: NSNotification.Name(rawValue: "refreshDate"), object: nil)
+        
+        //From CalendarDetailCardio
+         //NotificationCenter.default.addObserver(self, selector: #selector(refreshCalendarTableView(notification:)), name: NSNotification.Name(rawValue: "refreshCalendarTableView"), object: nil)
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! CalendarHistoryCell
         
@@ -64,15 +65,24 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
             }else{
                 cell.distanceLabel.text = ""
             }
-        
         }
-        
-        //make sure the cell is fetching the strength workout
-        
         
         return cell
     }
     
+//    @objc func refreshCalendarTableView(notification: NSNotification){
+//         historyTableView.reloadData()
+//    }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        print("View did appear")
+//
+//        let date = setupDateFormatter(format: "yyyy-MM-dd", date: Date())
+//        filterWorkoutArray(selectedDate: date)
+//        historyTableView.reloadData()
+//
+//    }
+
     @objc func refreshTableView(notification: NSNotification){
         
         //load the selected Date data
@@ -180,28 +190,17 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     }
     
     func setupDateFormatter(format:String,date:Date)->String{
-        
         let dateFormatter = DateFormatter()
-        //dateFormatter.dateFormat = "yyyy-MM-dd"
         dateFormatter.dateFormat = format
         dateFormatter.timeZone = NSTimeZone(name: "BST")! as TimeZone
-        //let date = dateFormatter.string(from: Date())
         return dateFormatter.string(from: date)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
          NotificationCenter.default.addObserver(self, selector: #selector(refresh(notification:)), name: NSNotification.Name(rawValue: "refreshSDate"), object: nil)
-        
-        // can be reformat!!!!!
+    
          let date = setupDateFormatter(format: "yyyy-MM-dd", date: Date())
-        
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd"
-//        dateFormatter.timeZone = NSTimeZone(name: "BST")! as TimeZone
-//
-//        let date = dateFormatter.string(from: Date())
-        
         
         //pass the selectedDate to the CalendarDetail TableViewController
         if segue.identifier == "goToStrengthDetail" {
@@ -238,11 +237,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     //first time load the realm
     
     func loadWorkoutHistoryData(){
-        
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd"
-//        dateFormatter.timeZone = NSTimeZone(name: "BST")! as TimeZone
-//        let date = dateFormatter.string(from: Date())
         
         let date = setupDateFormatter(format: "yyyy-MM-dd", date: Date())
         
@@ -309,17 +303,12 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
-        
         loadWorkoutHistoryData()
         
         self.title = "My Calendar"
-        
         self.navigationController?.navigationBar.isTranslucent=false
         self.view.backgroundColor=Style.bgColor
-        
         view.addSubview(calenderView)
-       // calView.addSubview(calenderView)
         
         calenderView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive=true
         calenderView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12).isActive=true
@@ -332,11 +321,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         self.navigationItem.leftBarButtonItem = leftBarBtn
         
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        loadWorkoutHistoryData()
-//    }
-    
 
     @objc func leftBarBtnAction(){
         self.dismiss(animated: true, completion: nil)

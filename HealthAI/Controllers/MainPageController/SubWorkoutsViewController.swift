@@ -28,7 +28,6 @@ class SubWorkoutsViewController: UIViewController,UITableViewDelegate,UITableVie
         myTableView.reloadData()
     }
     
-    
     @IBAction func endWorkoutBtn(_ sender: UIButton) {
         
         let alert = UIAlertController(title: "End Workout", message: "Are you sure you want to end your workout?", preferredStyle: .alert)

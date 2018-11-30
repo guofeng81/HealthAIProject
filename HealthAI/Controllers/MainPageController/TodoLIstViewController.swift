@@ -14,9 +14,6 @@ class TodoLIstViewController: UITableViewController{
     var workoutItems = [WorkoutItem]()
     var selectedworkoutItem = WorkoutItem()
     
-    
-   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -26,8 +23,6 @@ class TodoLIstViewController: UITableViewController{
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     
-    
-   
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return workoutItems.count
     }
@@ -43,7 +38,6 @@ class TodoLIstViewController: UITableViewController{
             seg.selectedWorkoutItem = self.selectedworkoutItem
         }
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -68,8 +62,5 @@ class TodoLIstViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 105
     }
-    
-    
-    
     
 }

@@ -68,12 +68,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         return 60
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return CGFloat(cellHeight)
-//    }
-    
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "bioCell", for: indexPath) as! BioCell
@@ -94,11 +88,9 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         cell.bioTitle.text = bioList[indexPath.row]
         cell.bioImage.image = UIImage(named:bio[indexPath.row])
         
-        
         cell.unitLabel.text = unitList[indexPath.row]
         
         print("Values in the table view \(bio[indexPath.row])")
-        
         
         print("Load database values!!!!")
         
@@ -124,17 +116,13 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
             
             let dictionary = snapshop.value as? NSDictionary
             
-            
             for index in 0..<self.bio.count {
                 let value = dictionary![self.bio[index]] as! String
                 newValues.append(value)
-                
             }
-        
             completionHandler(newValues)
             
         })
-        
     }
     
     //MARK - Build the edit method for the UITableView
@@ -151,7 +139,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
             }else{
                 self.updateAction(indexPath: indexPath)
             }
-            
         }
         
         editAction.backgroundColor = UIColor.blue
@@ -226,9 +213,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         DatabaseHelper.setDatabaseUsername(databaseRef: databaseRef, user: LoginUser, label: usernameLabel)
         
         setImageViewTap()
-    
         setGridentBackgroundColor()
-        
         
         //self.bioTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
@@ -260,7 +245,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
             andColors: [ UIColor.flatBlue, UIColor.flatGreen,UIColor.flatLime]
         )
     }
-    
     
     @objc func imageTapped()
     {
@@ -318,14 +302,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
     }
     
-    //Check in the mobile is this one works?
-    
-//    @objc func dismissFullScreenImage(sender : UITapGestureRecognizer){
-//        self.navigationController?.isNavigationBarHidden = false
-//        self.tabBarController?.tabBar.isHidden = false
-//        sender.view?.removeFromSuperview()
-//    }
-    
     func getReferences(){
         databaseRef = Database.database().reference()
         storageRef = Storage.storage().reference()
@@ -338,17 +314,14 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     }
     
 
-    
     @IBAction func saveProfileBtn(_ sender: UIButton) {
         
         //TODO - push all data which save in the screen to the database
-        
         //setBioValues(values: numberOfvalues)
         self.dismiss(animated: true, completion: nil)
         
     }
-    
-    
+
     //MARK -  Pick the image from the photo library
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

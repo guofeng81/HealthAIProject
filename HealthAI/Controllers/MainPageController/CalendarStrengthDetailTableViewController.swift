@@ -59,13 +59,12 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
                 }
                 
 //                let section = Section(workoutTitle: strengthWorkoutHistories![i].title, subworkouts: subworkouts,times:times, expanded: false)
-//                
+//
 //                sections.append(section)
             }
             let section = Section(workoutTitle: strengthWorkoutHistories![i].title, subworkouts: subworkouts,times:times, expanded: false)
             
             sections.append(section)
-
         }
     
     }
@@ -113,7 +112,6 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
     
     func toggleSection(header: ExpandableHeaderView, section: Int) {
         sections[section].expanded = !sections[section].expanded
-        
         
         tableView.beginUpdates()
         for i in 0 ..< sections[section].subworkouts.count {

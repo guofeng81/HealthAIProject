@@ -23,13 +23,10 @@ class WorkoutViewController: UIViewController {
     
     @IBOutlet var videoTutorialView: UIView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupWorkouts()
-        
         setupGesture()
         
     }
@@ -45,7 +42,6 @@ class WorkoutViewController: UIViewController {
         workout.strength = "strength"
         workout.duration = "40 mins"
         workout.hardness = "Intermediate"
-        
         
         let subworkout1 = SubworkoutItem()
         subworkout1.title = "Barbell Biceps Curl"
@@ -65,14 +61,12 @@ class WorkoutViewController: UIViewController {
         let subworkout6 = SubworkoutItem()
         subworkout6.title = "Cable Rope Pushdowns"
         
-        
         workout.subworkouts.append(subworkout1)
         workout.subworkouts.append(subworkout2)
         workout.subworkouts.append(subworkout3)
         workout.subworkouts.append(subworkout4)
         workout.subworkouts.append(subworkout5)
         workout.subworkouts.append(subworkout6)
-        
         
         let workout2 = WorkoutItem()
         workout2.type = "Strength"
@@ -100,7 +94,6 @@ class WorkoutViewController: UIViewController {
         workout2.subworkouts.append(subworkout23)
         workout2.subworkouts.append(subworkout24)
         
-        
         let workout3 = WorkoutItem()
         workout3.type = "Strength"
         workout3.title = "Bodyweight Basics 1"
@@ -127,7 +120,6 @@ class WorkoutViewController: UIViewController {
         workout3.subworkouts.append(subworkout32)
         workout3.subworkouts.append(subworkout33)
         workout3.subworkouts.append(subworkout34)
-        
         
         let workout4 = WorkoutItem()
         workout4.type = "Strength"
@@ -159,7 +151,6 @@ class WorkoutViewController: UIViewController {
         workout4.subworkouts.append(subworkout44)
         workout4.subworkouts.append(subworkout45)
         
-        
         workoutItems.append(workout)
         workoutItems.append(workout2)
         workoutItems.append(workout3)
@@ -179,8 +170,6 @@ class WorkoutViewController: UIViewController {
         self.cardioWorkoutView.addGestureRecognizer(cardioGesture)
         
     }
-    
-    
     
     @objc func cardiohandleTap(sender:UITapGestureRecognizer){
         performSegue(withIdentifier: "goToCardio", sender: self)

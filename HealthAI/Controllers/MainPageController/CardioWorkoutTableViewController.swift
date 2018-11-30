@@ -9,7 +9,7 @@
 import UIKit
 
 class CardioWorkoutTableViewController: UITableViewController {
-
+    
     let workoutImages = ["runningImage","cyclingImage","walkingImage"]
     let workoutTitles = ["Running","Cycling","Walking"]
     
@@ -29,22 +29,21 @@ class CardioWorkoutTableViewController: UITableViewController {
         cardioWorkout1.title = "Cycling"
         
         let cardioWorkout2 = CardioWorkoutItem()
-         cardioWorkout2.type = "Cardio"
+        cardioWorkout2.type = "Cardio"
         cardioWorkout2.title = "Walking"
-        
         
         arrayOfCardioWorkout.append(cardioWorkout)
         arrayOfCardioWorkout.append(cardioWorkout1)
         arrayOfCardioWorkout.append(cardioWorkout2)
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return workoutImages.count
     }
@@ -52,10 +51,8 @@ class CardioWorkoutTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardioCell", for: indexPath) as! WorkoutCell
         
         cell.workoutTitle.text = workoutTitles[indexPath.row]
@@ -75,7 +72,5 @@ class CardioWorkoutTableViewController: UITableViewController {
             seg.selectedCardioWorkoutItem = self.selectedCardioWorkoutItem
         }
     }
-    
-
     
 }

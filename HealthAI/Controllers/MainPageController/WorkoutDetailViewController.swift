@@ -29,8 +29,6 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         myTableView.reloadData()
     }
     
-    
-    
     override func viewDidAppear(_ animated: Bool) {
         myTableView.reloadData()
     }
@@ -50,31 +48,22 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
     @objc func endWorkoutPressed(sender:AnyObject){
         //print("End")
         
-//        self.saveWorkout()
-//        self.navigationController?.popToRootViewController(animated: true)
-
+        //        self.saveWorkout()
+        //        self.navigationController?.popToRootViewController(animated: true)
         
         let alert = UIAlertController(title: "End Workout", message: "Are you sure you want to end your strength workout?", preferredStyle: .alert)
-
+        
         // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "End Workout", style: .default, handler: { (action) in
             self.saveWorkout()
             self.navigationController?.popToRootViewController(animated: true)
         }))
-
+        
         alert.addAction(UIAlertAction(title: "Back to Workout", style: .cancel, handler: nil))
-
+        
         // show the alert
         self.present(alert, animated: true, completion: nil)
     }
-    
-//    func formatter(currentDate: Date){
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "yyyy-MM-dd"
-//        formatter.timeZone = NSTimeZone(name: "UTC")! as TimeZone
-//        formatter.string(from: currentDate)
-//    }
-
     
     func setupDateFormatter(format:String,date:Date)->String{
         
@@ -88,9 +77,7 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
     
     func saveWorkout(){
         
-        
         let date = setupDateFormatter(format: "yyyy-MM-dd", date: Date())
-       
         
         workoutHistoryItem.type = self.selectedWorkoutItem.type
         
@@ -100,7 +87,7 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         //workoutHistoryItem.currentDate = formatter.string(from:Date())
         workoutHistoryItem.currentDate = date
         
-       // print("Current Date",NSDate())
+        // print("Current Date",NSDate())
         
         for index in 0..<self.selectedWorkoutItem.subworkouts.count {
             
@@ -145,25 +132,23 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         return cell
     }
     
-     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Subworkouts"
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        
         selectedSubworkoutItem = selectedWorkoutItem.subworkouts[indexPath.row]
         
         performSegue(withIdentifier: "goToSubworkoutStopwatch", sender: self)
         
-       // print("see the title: ",selectedWorkoutItem.subworkouts[indexPath.row].title)
+        // print("see the title: ",selectedWorkoutItem.subworkouts[indexPath.row].title)
         
         tableView.deselectRow(at: indexPath, animated: true)
         
         tableView.reloadData()
         
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToSubworkoutStopwatch"{
@@ -173,6 +158,4 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         }
     }
     
-    
-
 }
