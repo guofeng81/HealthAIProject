@@ -59,6 +59,7 @@
 		B3147F4A2193E8F4000A429D /* SubWorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3147F492193E8F4000A429D /* SubWorkoutsViewController.swift */; };
 		B3147F4C2193EBAF000A429D /* HistoryDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3147F4B2193EBAF000A429D /* HistoryDetailTableViewController.swift */; };
 		B33A027721AB02B500D2E0D4 /* StrengthSubworkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33A027621AB02B500D2E0D4 /* StrengthSubworkoutCell.swift */; };
+		B340DE7221B191B700FE2FCE /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340DE7121B191B700FE2FCE /* Helper.swift */; };
 		B3428D1421753957000BEFAE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3428D1321753957000BEFAE /* RegisterViewController.swift */; };
 		B357476921811EEC00A141DC /* SlideAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357476821811EEC00A141DC /* SlideAnimation.swift */; };
 		B35747E92182A90000A141DC /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35747E82182A90000A141DC /* DatabaseHelper.swift */; };
@@ -143,6 +144,7 @@
 		B3147F492193E8F4000A429D /* SubWorkoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubWorkoutsViewController.swift; sourceTree = "<group>"; };
 		B3147F4B2193EBAF000A429D /* HistoryDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailTableViewController.swift; sourceTree = "<group>"; };
 		B33A027621AB02B500D2E0D4 /* StrengthSubworkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengthSubworkoutCell.swift; sourceTree = "<group>"; };
+		B340DE7121B191B700FE2FCE /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		B3428D1321753957000BEFAE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B357476821811EEC00A141DC /* SlideAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideAnimation.swift; sourceTree = "<group>"; };
 		B35747E82182A90000A141DC /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 			children = (
 				B30E61C321756EE5004135B9 /* AuthServices.swift */,
 				B35747E82182A90000A141DC /* DatabaseHelper.swift */,
+				B340DE7121B191B700FE2FCE /* Helper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				B3B6CC5921A703B20095FECB /* CalendarDetailStrengthTableViewController.swift in Sources */,
 				B310142D2186A5FC00324155 /* BioCell.swift in Sources */,
 				B3B6CCC421AA1C3A0095FECB /* StrengthWorkoutVC.swift in Sources */,
+				B340DE7221B191B700FE2FCE /* Helper.swift in Sources */,
 				6418CCF6218A77CA0072951B /* WorkoutTableViewCell.swift in Sources */,
 				B3147F482193E71C000A429D /* SubworkoutHistoryItem.swift in Sources */,
 				B3147F442193E6E9000A429D /* SubworkoutItem.swift in Sources */,

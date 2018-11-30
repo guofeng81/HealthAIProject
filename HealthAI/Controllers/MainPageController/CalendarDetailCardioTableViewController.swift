@@ -10,8 +10,8 @@ import UIKit
 import RealmSwift
 
 class CalendarDetailCardioTableViewController: UITableViewController {
-
-     let realm = try! Realm()
+    
+    let realm = try! Realm()
     
     func convertMeterToMile(distance:Double)->Double {
         return distance / 1000 * 0.62
@@ -19,9 +19,7 @@ class CalendarDetailCardioTableViewController: UITableViewController {
     
     var cardioSelectedDate = ""
     
-    //var arrayOfCardioWorkouts = [WorkoutHistoryItem]()
-    
-     var cardiohWorkoutHistories : Results<WorkoutHistoryItem>?
+    var cardiohWorkoutHistories : Results<WorkoutHistoryItem>?
     
     func loadCardioWorkoutHistoryData(){
         
@@ -29,7 +27,7 @@ class CalendarDetailCardioTableViewController: UITableViewController {
         cardiohWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(cardioPredicate)
         
     }
-  
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,22 +38,22 @@ class CalendarDetailCardioTableViewController: UITableViewController {
         print("Cardio Selected Date: ",cardioSelectedDate)
         
         
-//        let rightBarBtn = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(rightBarBtnAction))
-//        self.navigationItem.leftBarButtonItem = rightBarBtn
-
+        //        let rightBarBtn = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(rightBarBtnAction))
+        //        self.navigationItem.leftBarButtonItem = rightBarBtn
+        
     }
     
-//    @objc func rightBarBtnAction(){
-//        self.navigationController?.popViewController(animated: true)
-//    }
+    //    @objc func rightBarBtnAction(){
+    //        self.navigationController?.popViewController(animated: true)
+    //    }
     
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cardiohWorkoutHistories?.count ?? 1
     }
@@ -66,9 +64,9 @@ class CalendarDetailCardioTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardioCell", for: indexPath) as! CardioSummaryCell
-
+        
         if let cardioWorkouts = cardiohWorkoutHistories {
-             cell.titleLabel.text = cardioWorkouts[indexPath.row].title
+            cell.titleLabel.text = cardioWorkouts[indexPath.row].title
             let distance = convertMeterToMile(distance: cardioWorkouts[indexPath.row].totalDistance)
             cell.distanceLabel.text = String(format: "%.2f",distance) + " mi"
             cell.averageSpeedLabel.text = "Average Speed: "+String(format: "%.2f",cardioWorkouts[indexPath.row].averageSpeed) + " MPH"
@@ -104,5 +102,5 @@ class CalendarDetailCardioTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-
+    
 }

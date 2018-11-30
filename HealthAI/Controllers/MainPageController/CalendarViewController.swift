@@ -15,7 +15,7 @@ enum MyTheme {
 }
 
 class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
-   
+    
     let realm = try! Realm()
     
     var workoutHistories : Results<WorkoutHistoryItem>?
@@ -34,10 +34,10 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     var seletedDate : String = ""
     
-     var arrayOfCardioAndStrength = [String]()
-   
+    var arrayOfCardioAndStrength = [String]()
+    
     func convertMeterToMile(distance:Double)->Double {
-         return distance / 1000 * 0.62
+        return distance / 1000 * 0.62
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,10 +47,10 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //From CalendarView Swift file in supporting files
-         NotificationCenter.default.addObserver(self, selector: #selector(refreshTableView(notification:)), name: NSNotification.Name(rawValue: "refreshDate"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshTableView(notification:)), name: NSNotification.Name(rawValue: "refreshDate"), object: nil)
         
         //From CalendarDetailCardio
-         //NotificationCenter.default.addObserver(self, selector: #selector(refreshCalendarTableView(notification:)), name: NSNotification.Name(rawValue: "refreshCalendarTableView"), object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(refreshCalendarTableView(notification:)), name: NSNotification.Name(rawValue: "refreshCalendarTableView"), object: nil)
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! CalendarHistoryCell
         
@@ -70,19 +70,19 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         return cell
     }
     
-//    @objc func refreshCalendarTableView(notification: NSNotification){
-//         historyTableView.reloadData()
-//    }
+    //    @objc func refreshCalendarTableView(notification: NSNotification){
+    //         historyTableView.reloadData()
+    //    }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        print("View did appear")
-//
-//        let date = setupDateFormatter(format: "yyyy-MM-dd", date: Date())
-//        filterWorkoutArray(selectedDate: date)
-//        historyTableView.reloadData()
-//
-//    }
-
+    //    override func viewDidAppear(_ animated: Bool) {
+    //        print("View did appear")
+    //
+    //        let date = setupDateFormatter(format: "yyyy-MM-dd", date: Date())
+    //        filterWorkoutArray(selectedDate: date)
+    //        historyTableView.reloadData()
+    //
+    //    }
+    
     @objc func refreshTableView(notification: NSNotification){
         
         //load the selected Date data
@@ -93,35 +93,8 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         arrayOfStrengthWorkouts = [WorkoutHistoryItem]()
         arrayOfCardioWorkouts = [WorkoutHistoryItem]()
         
-        
-//        arrayOfCardioAndStrength = [String]()
-//
-//        let strengthPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", selectedDate!,"Strength")
-//        let cardioPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", selectedDate!,"Cardio")
-
         filterWorkoutArray(selectedDate: CalenderView.dateSelected)
         
-//        strengthWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(strengthPredicate)
-//        cardioWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(cardioPredicate)
-//
-//        if let strengthWorkouts = strengthWorkoutHistories {
-//            if strengthWorkouts.count > 0{
-//                arrayOfCardioAndStrength.append("Strength Workouts")
-//                for strengthWorkout in strengthWorkouts {
-//                    arrayOfStrengthWorkouts.append(strengthWorkout)
-//                }
-//            }
-//        }
-//
-//        if let cardioWorkouts = cardioWorkoutHistories {
-//            if cardioWorkouts.count > 0 {
-//                arrayOfCardioAndStrength.append("Total Cardio Distance")
-//                for cardioWorkout in cardioWorkouts {
-//                    arrayOfCardioWorkouts.append(cardioWorkout)
-//                }
-//            }
-//        }
-
         print("Reload array",arrayOfCardioAndStrength)
         
         historyTableView.reloadData()
@@ -129,8 +102,8 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     func filterWorkoutArray(selectedDate:String){
         
-//        arrayOfStrengthWorkouts = [WorkoutHistoryItem]()
-//        arrayOfCardioWorkouts = [WorkoutHistoryItem]()
+        //        arrayOfStrengthWorkouts = [WorkoutHistoryItem]()
+        //        arrayOfCardioWorkouts = [WorkoutHistoryItem]()
         
         arrayOfCardioAndStrength = [String]()
         
@@ -158,7 +131,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
             }
         }
     }
-
+    
     func calculateCardioWorkoutTotalDistance(cardioWorkoutArray:[WorkoutHistoryItem])->Double{
         
         var distance:Double = 0
@@ -170,7 +143,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         return distance
     }
     
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if arrayOfCardioAndStrength[indexPath.row] == "Strength Workouts" {
             performSegue(withIdentifier: "goToStrengthDetail", sender: self)
@@ -189,18 +162,11 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         return "Activity"
     }
     
-    func setupDateFormatter(format:String,date:Date)->String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        dateFormatter.timeZone = NSTimeZone(name: "BST")! as TimeZone
-        return dateFormatter.string(from: date)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-         NotificationCenter.default.addObserver(self, selector: #selector(refresh(notification:)), name: NSNotification.Name(rawValue: "refreshSDate"), object: nil)
-    
-         let date = setupDateFormatter(format: "yyyy-MM-dd", date: Date())
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh(notification:)), name: NSNotification.Name(rawValue: "refreshSDate"), object: nil)
+        
+        let date = Helper.setupDateFormatter(format: "yyyy-MM-dd", date: Date())
         
         //pass the selectedDate to the CalendarDetail TableViewController
         if segue.identifier == "goToStrengthDetail" {
@@ -209,7 +175,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
             if selectedDate == nil {
                 seg.strengthSelectedDate = date
             }else{
-                 seg.strengthSelectedDate = self.selectedDate!
+                seg.strengthSelectedDate = self.selectedDate!
             }
             
         }else if segue.identifier == "goToCardioDetail" {
@@ -228,9 +194,9 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     @objc func refresh(notification: NSNotification){
         selectedDate = CalenderView.dateSelected
     }
-
     
-     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     
@@ -238,36 +204,12 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     func loadWorkoutHistoryData(){
         
-        let date = setupDateFormatter(format: "yyyy-MM-dd", date: Date())
+        let date = Helper.setupDateFormatter(format: "yyyy-MM-dd", date: Date())
         
-       //arrayOfCardioAndStrength = [String]()
+        //arrayOfCardioAndStrength = [String]()
         
-       print(date)
+        print(date)
         
-//        let strengthPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", date,"Strength")
-//        let cardioPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", date,"Cardio")
-//
-//        strengthWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(strengthPredicate)
-//        cardioWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(cardioPredicate)
-//
-//        if let strengthWorkouts = strengthWorkoutHistories {
-//            if strengthWorkouts.count > 0{
-//                arrayOfCardioAndStrength.append("Strength Workouts")
-//                for strengthWorkout in strengthWorkouts {
-//                    arrayOfStrengthWorkouts.append(strengthWorkout)
-//                }
-//            }
-//        }
-//
-//        if let cardioWorkouts = cardioWorkoutHistories {
-//            if cardioWorkouts.count > 0 {
-//                arrayOfCardioAndStrength.append("Total Cardio Distance")
-//                for cardioWorkout in cardioWorkouts {
-//                    arrayOfCardioWorkouts.append(cardioWorkout)
-//                }
-//            }
-//        }
-
         filterWorkoutArray(selectedDate: date)
         
         print(arrayOfCardioAndStrength)
@@ -276,22 +218,22 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     }
     
     
-//     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//
-//            if let workoutHistroyForDeletion = self.workoutHistories?[indexPath.row]{
-//                do{
-//                    try self.realm.write{
-//                        self.realm.delete(workoutHistroyForDeletion)
-//                    }
-//                }catch{
-//                    print("Error delelting the the item using realm")
-//                }
-//            }
-//
-//            self.historyTableView.reloadData()
-//        }
-//    }
+    //     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //        if editingStyle == .delete {
+    //
+    //            if let workoutHistroyForDeletion = self.workoutHistories?[indexPath.row]{
+    //                do{
+    //                    try self.realm.write{
+    //                        self.realm.delete(workoutHistroyForDeletion)
+    //                    }
+    //                }catch{
+    //                    print("Error delelting the the item using realm")
+    //                }
+    //            }
+    //
+    //            self.historyTableView.reloadData()
+    //        }
+    //    }
     
     
     @IBOutlet var historyTableView: UITableView!
@@ -321,7 +263,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         self.navigationItem.leftBarButtonItem = leftBarBtn
         
     }
-
+    
     @objc func leftBarBtnAction(){
         self.dismiss(animated: true, completion: nil)
     }
@@ -329,7 +271,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         calenderView.myCollectionView.collectionViewLayout.invalidateLayout()
-       
+        
     }
     
     @objc func rightBarBtnAction(sender: UIBarButtonItem) {

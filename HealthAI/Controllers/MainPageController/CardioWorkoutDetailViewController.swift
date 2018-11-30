@@ -12,7 +12,7 @@ import MapKit
 import CoreLocation
 
 class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
-
+    
     var time:Int = 0
     var timer:Timer? = nil
     
@@ -91,48 +91,33 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         startCardioWorkout.layer.cornerRadius = startCardioWorkout.frame.width / 2
         startCardioWorkout.clipsToBounds = true
         
-         startCardioWorkout.setImage(UIImage(named: "play"), for: .normal)
+        startCardioWorkout.setImage(UIImage(named: "play"), for: .normal)
         
         //setupButtonImage(imageName: "play")
     }
     
     @objc func longTap(_ sender:UIGestureRecognizer){
-         startCardioWorkout.setImage(UIImage(named: "play"), for: .normal)
-       if timer != nil {
+        startCardioWorkout.setImage(UIImage(named: "play"), for: .normal)
+        if timer != nil {
             time = 0
             timer!.invalidate()
             timer = nil
-//            let minutesPortion = String(format: "%02d", self.time / 60)
-//            let secondsPortion = String(format: "%02d", self.time % 60)
-//            let hoursPortion = String(format: "%02d", self.time % 3600)
-        
-           // timeLabel.text = "\(hoursPortion):\(minutesPortion):\(secondsPortion)"
             resetLabels()
             traveledDistance = 0
             manager.stopUpdatingLocation()
             self.startLocation = nil
             self.lastLocation = nil
-//            speedLabel.text = String(format:"%.0f",0.00)
-//            totalDistance.text = String(format:"%.0f",0.00)
-//
-//            manager.startUpdatingLocation()
-//            startLocation = nil
-//            lastLocation = nil
-             //restartLocationManager()
-             resetLabels()
-        
-            //set button image to start image
+            resetLabels()
             
-       }else{
-        // do the same thing as the above to set everything to 0
-        time = 0
-        resetLabels()
-        traveledDistance = 0
-        manager.stopUpdatingLocation()
-        self.startLocation = nil
-        self.lastLocation = nil
-        //set the image back to the start button image
-        
+        }else{
+            // do the same thing as the above to set everything to 0
+            time = 0
+            resetLabels()
+            traveledDistance = 0
+            manager.stopUpdatingLocation()
+            self.startLocation = nil
+            self.lastLocation = nil
+            //set the image back to the start button image
         }
     }
     
@@ -161,7 +146,7 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
             startCardioWorkout.setImage(UIImage(named: "pause"), for: .normal)
             restartLocationManager()
             speedLabel.text = String(format:"%.2f",0.00)
-           
+            
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(WorkoutClockViewController.action),userInfo: nil, repeats: true)
         }
     }
@@ -174,7 +159,7 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         startBtnimage.image = UIImage(named: imageName)
         startCardioWorkout.addSubview(startBtnimage)
     }
-
+    
     @IBOutlet var speedLabel: UILabel!
     @IBOutlet var totalDistance: UILabel!
     
@@ -210,7 +195,7 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         self.map.setRegion(region, animated: true)
         self.map.showsUserLocation = true
     }
-
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
         renderer.strokeColor = UIColor(red: 17.0/255.0, green: 147.0/255.0, blue: 255.0/255.0, alpha: 1)
@@ -234,18 +219,9 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         timeLabel.text = "\(hoursPortion):\(minutesPortion):\(secondsPortion)"
     }
     
-    func setupDateFormatter(format:String,date:Date)->String{
-        let dateFormatter = DateFormatter()
-        //dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.dateFormat = format
-        dateFormatter.timeZone = NSTimeZone(name: "CST")! as TimeZone
-        //let date = dateFormatter.string(from: Date())
-        return dateFormatter.string(from: date)
-    }
-
     func saveWorkout(){
-        let date = setupDateFormatter(format: "yyyy-MM-dd", date: Date())
-        let dateTime = setupDateFormatter(format: "yyyy-MM-dd HH:mm", date: Date())
+        let date = Helper.setupDateFormatter(format: "yyyy-MM-dd", date: Date())
+        let dateTime = Helper.setupDateFormatter(format: "yyyy-MM-dd HH:mm", date: Date())
         selectedWorkoutHistoryItem.title = selectedCardioWorkoutItem.title
         print("Cardio workout title: ",selectedCardioWorkoutItem.title)
         

@@ -65,20 +65,10 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         self.present(alert, animated: true, completion: nil)
     }
     
-    func setupDateFormatter(format:String,date:Date)->String{
-        
-        let dateFormatter = DateFormatter()
-        //dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.dateFormat = format
-        dateFormatter.timeZone = NSTimeZone(name: "CST")! as TimeZone
-        //let date = dateFormatter.string(from: Date())
-        return dateFormatter.string(from: date)
-    }
-    
     func saveWorkout(){
         
-        let date = setupDateFormatter(format: "yyyy-MM-dd", date: Date())
-        let dateTime = setupDateFormatter(format: "yyyy-MM-dd HH:mm", date: Date())
+        let date = Helper.setupDateFormatter(format: "yyyy-MM-dd", date: Date())
+        let dateTime = Helper.setupDateFormatter(format: "yyyy-MM-dd HH:mm", date: Date())
         
         workoutHistoryItem.type = self.selectedWorkoutItem.type
         
