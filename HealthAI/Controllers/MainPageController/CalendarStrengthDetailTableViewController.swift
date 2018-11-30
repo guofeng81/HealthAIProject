@@ -64,7 +64,6 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
     
     }
     
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         //return strengthWorkoutHistories?.count ?? 1
         return sections.count
@@ -125,9 +124,4 @@ class CalendarStrengthDetailTableViewController: UIViewController,UITableViewDel
 //    }
     
     
-    
-
-    
-    
-
 }
