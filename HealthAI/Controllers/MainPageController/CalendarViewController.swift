@@ -53,7 +53,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath) as! CalendarHistoryCell
         
-       
         // make sure the cell is fetching the cardio workout
         
         if arrayOfCardioAndStrength.count > 0 {
@@ -283,26 +282,25 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     }
     
     
-     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-            if let workoutHistroyForDeletion = self.workoutHistories?[indexPath.row]{
-                do{
-                    try self.realm.write{
-                        self.realm.delete(workoutHistroyForDeletion)
-                    }
-                }catch{
-                    print("Error delelting the the item using realm")
-                }
-            }
-            
-            self.historyTableView.reloadData()
-        }
-    }
+//     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//
+//            if let workoutHistroyForDeletion = self.workoutHistories?[indexPath.row]{
+//                do{
+//                    try self.realm.write{
+//                        self.realm.delete(workoutHistroyForDeletion)
+//                    }
+//                }catch{
+//                    print("Error delelting the the item using realm")
+//                }
+//            }
+//
+//            self.historyTableView.reloadData()
+//        }
+//    }
     
     
     @IBOutlet var historyTableView: UITableView!
-    
     
     var theme = MyTheme.dark
     
@@ -310,6 +308,8 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    
         
         loadWorkoutHistoryData()
         
@@ -332,6 +332,10 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         self.navigationItem.leftBarButtonItem = leftBarBtn
         
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        loadWorkoutHistoryData()
+//    }
     
 
     @objc func leftBarBtnAction(){

@@ -57,7 +57,7 @@ class SidebarView: UIView, UITableViewDelegate, UITableViewDataSource {
         myTableView.dataSource=self
         myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         myTableView.tableFooterView=UIView()
-        //myTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        myTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         myTableView.allowsSelection = true
         myTableView.bounces=false
         myTableView.showsVerticalScrollIndicator=false
@@ -69,14 +69,13 @@ class SidebarView: UIView, UITableViewDelegate, UITableViewDataSource {
         return titleArr.count
     }
     
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell=tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
         
         if indexPath.row == 0 {
+            
             cell.backgroundColor=UIColor(red: 77/255, green: 77/255, blue: 77/255, alpha: 1.0)
             let cellImg: UIImageView!
             cellImg = UIImageView(frame: CGRect(x: 15, y: 10, width: 80, height: 80))
@@ -93,9 +92,7 @@ class SidebarView: UIView, UITableViewDelegate, UITableViewDataSource {
             DatabaseHelper.loadDatabaseImage(databaseRef: databaseRef, user: user, imageView: cellImg,referenceName: "photo")
             DatabaseHelper.setDatabaseUsername(databaseRef: databaseRef, user: user, label: cellLbl)
             
-            
             NotificationCenter.default.addObserver(self, selector: #selector(refreshTable(notification:)), name: NSNotification.Name(rawValue: "refresh"), object: nil)
-            
             
             cell.addSubview(cellImg)
             cell.addSubview(cellLbl)

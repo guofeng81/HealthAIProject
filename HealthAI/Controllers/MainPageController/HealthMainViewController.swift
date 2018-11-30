@@ -347,6 +347,8 @@ extension HealthMainViewController: SidebarViewDelegate {
             print("Calendar")
         case .contact:
             print("Contact")
+            
+            
         case .signOut:
             print("Sign out!!")
             

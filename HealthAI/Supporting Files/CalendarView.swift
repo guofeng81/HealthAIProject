@@ -55,8 +55,6 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     static var dateSelected: String = ""
     
-    
-    
     let realm = try! Realm()
     
     var workoutHistories : Results<WorkoutHistoryItem>?
