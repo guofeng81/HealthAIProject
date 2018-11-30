@@ -56,6 +56,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>We need your camera to take a photo.</string>
 	<key>NSLocationUsageDescription</key>
 	<string>We need your location to obtain your current weather conditions</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
