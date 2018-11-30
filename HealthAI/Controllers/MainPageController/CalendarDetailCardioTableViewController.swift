@@ -37,7 +37,6 @@ class CalendarDetailCardioTableViewController: UITableViewController {
         
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
-        
         print("Cardio Selected Date: ",cardioSelectedDate)
 
     }
