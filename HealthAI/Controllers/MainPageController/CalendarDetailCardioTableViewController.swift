@@ -77,5 +77,21 @@ class CalendarDetailCardioTableViewController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            if let workoutHistroyForDeletion = self.cardiohWorkoutHistories?[indexPath.row]{
+                do{
+                    try self.realm.write{
+                        self.realm.delete(workoutHistroyForDeletion)
+                    }
+                }catch{
+                    print("Error delelting the the item using realm")
+                }
+            }
+            
+            self.tableView.reloadData()
+        }
+    }
 
 }

@@ -101,7 +101,6 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
         //workoutHistoryItem.currentDate = formatter.string(from:Date())
         workoutHistoryItem.currentDate = date
         
-        
        // print("Current Date",NSDate())
         
         for index in 0..<self.selectedWorkoutItem.subworkouts.count {
@@ -150,8 +149,6 @@ class WorkoutDetailViewController: UIViewController,UITableViewDelegate,UITableV
      func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Subworkouts"
     }
-    
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
