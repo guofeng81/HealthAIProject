@@ -60,6 +60,8 @@
 		B3147F4C2193EBAF000A429D /* HistoryDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3147F4B2193EBAF000A429D /* HistoryDetailTableViewController.swift */; };
 		B33A027721AB02B500D2E0D4 /* StrengthSubworkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33A027621AB02B500D2E0D4 /* StrengthSubworkoutCell.swift */; };
 		B340DE7221B191B700FE2FCE /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340DE7121B191B700FE2FCE /* Helper.swift */; };
+		B340DE7421B1DECE00FE2FCE /* VideosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340DE7321B1DECE00FE2FCE /* VideosTableViewController.swift */; };
+		B340DE7621B1E1A800FE2FCE /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340DE7521B1E1A800FE2FCE /* VideoCell.swift */; };
 		B3428D1421753957000BEFAE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3428D1321753957000BEFAE /* RegisterViewController.swift */; };
 		B357476921811EEC00A141DC /* SlideAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357476821811EEC00A141DC /* SlideAnimation.swift */; };
 		B35747E92182A90000A141DC /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35747E82182A90000A141DC /* DatabaseHelper.swift */; };
@@ -145,6 +147,8 @@
 		B3147F4B2193EBAF000A429D /* HistoryDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailTableViewController.swift; sourceTree = "<group>"; };
 		B33A027621AB02B500D2E0D4 /* StrengthSubworkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengthSubworkoutCell.swift; sourceTree = "<group>"; };
 		B340DE7121B191B700FE2FCE /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		B340DE7321B1DECE00FE2FCE /* VideosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosTableViewController.swift; sourceTree = "<group>"; };
+		B340DE7521B1E1A800FE2FCE /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		B3428D1321753957000BEFAE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B357476821811EEC00A141DC /* SlideAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideAnimation.swift; sourceTree = "<group>"; };
 		B35747E82182A90000A141DC /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
@@ -327,6 +331,7 @@
 				B3B6CC5A21A764C50095FECB /* CardioSummaryCell.swift */,
 				B3B6CCBE21AA1B500095FECB /* Section.swift */,
 				B33A027621AB02B500D2E0D4 /* StrengthSubworkoutCell.swift */,
+				B340DE7521B1E1A800FE2FCE /* VideoCell.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 				B3B6CCC221AA1C3A0095FECB /* StrengthWorkoutVC.swift */,
 				B3B6CCC321AA1C3A0095FECB /* StrengthWorkoutVC.xib */,
 				B3B6CCC621AA1CA00095FECB /* CalendarStrengthDetailTableViewController.swift */,
+				B340DE7321B1DECE00FE2FCE /* VideosTableViewController.swift */,
 			);
 			path = MainPageController;
 			sourceTree = "<group>";
@@ -596,6 +602,7 @@
 				B3147F442193E6E9000A429D /* SubworkoutItem.swift in Sources */,
 				B3147F4C2193EBAF000A429D /* HistoryDetailTableViewController.swift in Sources */,
 				642BA2FC218AB0BE009568AD /* CalorieTableViewController.swift in Sources */,
+				B340DE7621B1E1A800FE2FCE /* VideoCell.swift in Sources */,
 				AE42F896218A3818008AF49C /* StepsViewController.swift in Sources */,
 				B3B6CCC121AA1BB00095FECB /* ExpandableHeaderView.swift in Sources */,
 				AE42F894218A26BB008AF49C /* BMIViewController.swift in Sources */,
@@ -618,6 +625,7 @@
 				B30E61C421756EE5004135B9 /* AuthServices.swift in Sources */,
 				B31051752187B6D100D9932F /* ProfileViewController.swift in Sources */,
 				B3428D1421753957000BEFAE /* RegisterViewController.swift in Sources */,
+				B340DE7421B1DECE00FE2FCE /* VideosTableViewController.swift in Sources */,
 				642BA2F8218AAFCE009568AD /* CalorieDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
