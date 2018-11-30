@@ -13,13 +13,13 @@ class WorkoutViewController: UIViewController {
     var workoutItems = [WorkoutItem]()
     var cardioWorkoutItems = [CardioWorkoutItem]()
     
-    @IBOutlet var historyView: UIView!
+    //@IBOutlet var historyView: UIView!
     
     @IBOutlet var strengthWorkoutView: UIView!
     
     @IBOutlet var cardioWorkoutView: UIView!
     
-    @IBOutlet var favoriteWorkoutView: UIView!
+    //@IBOutlet var favoriteWorkoutView: UIView!
     
     @IBOutlet var videoTutorialView: UIView!
     
@@ -163,8 +163,8 @@ class WorkoutViewController: UIViewController {
         let workoutGesture = UITapGestureRecognizer(target: self, action: #selector(workouthandleTap(sender:)))
         self.strengthWorkoutView.addGestureRecognizer(workoutGesture)
         
-//        let historyGesture = UITapGestureRecognizer(target: self, action: #selector(historyhandleTap(sender:)))
-//        self.historyView.addGestureRecognizer(historyGesture)
+        let videoGesture = UITapGestureRecognizer(target: self, action: #selector(videoHandleTap(sender:)))
+        self.videoTutorialView.addGestureRecognizer(videoGesture)
         
         let cardioGesture = UITapGestureRecognizer(target: self, action: #selector(cardiohandleTap(sender:)))
         self.cardioWorkoutView.addGestureRecognizer(cardioGesture)
@@ -179,9 +179,9 @@ class WorkoutViewController: UIViewController {
         performSegue(withIdentifier: "goToWorkout", sender: self)
     }
     
-//    @objc func historyhandleTap(sender:UITapGestureRecognizer){
-//        performSegue(withIdentifier: "goToWorkoutHistory", sender: self)
-//    }
+    @objc func videoHandleTap(sender:UITapGestureRecognizer){
+        performSegue(withIdentifier: "goToVideo", sender: self)
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

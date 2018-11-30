@@ -11,8 +11,8 @@ import AVKit
 
 class VideosTableViewController: UITableViewController {
 
-    let videos = ["video1","video2"]
-    let videoTitles = ["",""]
+    let videos = ["video1","video"]
+    let videoTitles = ["Workout1","Workout2"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class VideosTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,6 +34,8 @@ class VideosTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoCell
+        
+        cell.videoTitleLabel.text = videoTitles[indexPath.row]
         
         let button = cell.viewWithTag(1) as! UIButton
 

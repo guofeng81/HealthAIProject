@@ -2068,6 +2068,7 @@
                         <segue destination="aB4-Ri-cVr" kind="show" identifier="goToWorkout" id="3Pk-bE-Cdo"/>
                         <segue destination="wNw-Oq-fKw" kind="show" identifier="goToWorkoutHistory" id="MRf-Sg-eZC"/>
                         <segue destination="eYi-sa-Ic3" kind="show" identifier="goToCardio" id="T6u-hR-9CQ"/>
+                        <segue destination="yhR-fe-QBp" kind="show" identifier="goToVideo" id="jJ5-Eo-pIP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qWI-O1-bgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
