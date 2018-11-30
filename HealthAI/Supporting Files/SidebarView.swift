@@ -57,7 +57,7 @@ class SidebarView: UIView, UITableViewDelegate, UITableViewDataSource {
         myTableView.dataSource=self
         myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         myTableView.tableFooterView=UIView()
-        myTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        //myTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         myTableView.allowsSelection = true
         myTableView.bounces=false
         myTableView.showsVerticalScrollIndicator=false

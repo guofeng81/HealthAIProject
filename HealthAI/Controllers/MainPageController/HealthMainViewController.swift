@@ -334,7 +334,6 @@ extension HealthMainViewController: SidebarViewDelegate {
             
         case .calendar:
             
-            
             if let calendarViewController = self.storyboard?.instantiateViewController(withIdentifier: "Calendar") as? CalendarViewController {
                 let navigationController = UINavigationController(rootViewController: calendarViewController)
                 self.navigationController?.present(navigationController, animated: true, completion: nil)

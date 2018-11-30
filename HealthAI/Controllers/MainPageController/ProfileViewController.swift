@@ -36,7 +36,6 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         return gender.count
     }
     
-    
     @IBOutlet var backgroundView: UIView!
     @IBOutlet var bioTableView: UITableView!
     @IBOutlet var usernameLabel: UILabel!
@@ -268,24 +267,24 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         
         let myActionSheet = UIAlertController(title: "Profile Picture", message: "Select the photo you want to change.", preferredStyle: .actionSheet)
         
-        let viewPicture = UIAlertAction(title: "View Picture", style: .default) { (action) in
-            
-            let newImageView = UIImageView(image: self.profileImageView.image)
-            
-            newImageView.frame = self.view.frame
-            
-            newImageView.backgroundColor = UIColor.white
-            newImageView.contentMode = .scaleAspectFit
-            newImageView.isUserInteractionEnabled = true
-            
-            let tap = UIGestureRecognizer(target: self, action: #selector(self.dismissFullScreenImage(sender:)))
-            newImageView.isUserInteractionEnabled = true
-            newImageView.addGestureRecognizer(tap)
-            
-            self.view.addSubview(newImageView)
-            
-        }
-        
+//        let viewPicture = UIAlertAction(title: "View Picture", style: .default) { (action) in
+//
+//            let newImageView = UIImageView(image: self.profileImageView.image)
+//
+//            newImageView.frame = self.view.frame
+//
+//            newImageView.backgroundColor = UIColor.white
+//            newImageView.contentMode = .scaleAspectFit
+//            newImageView.isUserInteractionEnabled = true
+//
+//            let tap = UIGestureRecognizer(target: self, action: #selector(self.dismissFullScreenImage(sender:)))
+//            newImageView.isUserInteractionEnabled = true
+//            newImageView.addGestureRecognizer(tap)
+//
+//            self.view.addSubview(newImageView)
+//
+//        }
+//
         let photoGallery = UIAlertAction(title: "Photos", style: .default) { (action) in
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.savedPhotosAlbum) {
                 
@@ -310,7 +309,7 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
             }
         }
         
-        myActionSheet.addAction(viewPicture)
+        //myActionSheet.addAction(viewPicture)
         myActionSheet.addAction(photoGallery)
         myActionSheet.addAction(camera)
         myActionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -321,11 +320,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
     
     //Check in the mobile is this one works?
     
-    @objc func dismissFullScreenImage(sender : UITapGestureRecognizer){
-        self.navigationController?.isNavigationBarHidden = false
-        self.tabBarController?.tabBar.isHidden = false
-        sender.view?.removeFromSuperview()
-    }
+//    @objc func dismissFullScreenImage(sender : UITapGestureRecognizer){
+//        self.navigationController?.isNavigationBarHidden = false
+//        self.tabBarController?.tabBar.isHidden = false
+//        sender.view?.removeFromSuperview()
+//    }
     
     func getReferences(){
         databaseRef = Database.database().reference()
