@@ -90,10 +90,42 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         print("Selected Date Here:" , selectedDate!)
         
+        print("Calendar View Date Here:" , CalenderView.dateSelected)
+        
         arrayOfStrengthWorkouts = [WorkoutHistoryItem]()
         arrayOfCardioWorkouts = [WorkoutHistoryItem]()
         
         filterWorkoutArray(selectedDate: CalenderView.dateSelected)
+        
+        
+        
+//        arrayOfCardioAndStrength = [String]()
+//
+//        let strengthPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", selectedDate!,"Strength")
+//        let cardioPredicate = NSPredicate(format: "currentDate==%@ AND type==%@", selectedDate!,"Cardio")
+//
+//        strengthWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(strengthPredicate)
+//        cardioWorkoutHistories = realm.objects(WorkoutHistoryItem.self).filter(cardioPredicate)
+//
+//        if let strengthWorkouts = strengthWorkoutHistories {
+//            if strengthWorkouts.count > 0{
+//                arrayOfCardioAndStrength.append("Strength Workouts")
+//                for strengthWorkout in strengthWorkouts {
+//                    arrayOfStrengthWorkouts.append(strengthWorkout)
+//                }
+//            }
+//        }
+//
+//        if let cardioWorkouts = cardioWorkoutHistories {
+//            if cardioWorkouts.count > 0 {
+//                arrayOfCardioAndStrength.append("Total Cardio Distance")
+//                for cardioWorkout in cardioWorkouts {
+//                    arrayOfCardioWorkouts.append(cardioWorkout)
+//                }
+//            }
+//        }
+        
+        
         
         print("Reload array",arrayOfCardioAndStrength)
         

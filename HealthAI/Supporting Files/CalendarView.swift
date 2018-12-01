@@ -181,8 +181,13 @@ class CalenderView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
          
         self.selectedDate = "\(currentYear)-\(currentMonthIndex)-\(indexPath.row-getFirstWeekDay()+2)"
         
+        if indexPath.row-getFirstWeekDay()+2 < 10 {
+            CalenderView.dateSelected = "\(currentYear)-\(currentMonthIndex)-0\(indexPath.row-getFirstWeekDay()+2)"
+        }else{
+            CalenderView.dateSelected = "\(currentYear)-\(currentMonthIndex)-\(indexPath.row-getFirstWeekDay()+2)"
+        }
         
-        CalenderView.dateSelected = "\(currentYear)-\(currentMonthIndex)-\(indexPath.row-getFirstWeekDay()+2)"
+        
         
          //TODO - Not sure !!!!!
         
