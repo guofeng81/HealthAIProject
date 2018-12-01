@@ -2166,7 +2166,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzl-ge-pPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5354" y="143"/>
+            <point key="canvasLocation" x="5353" y="8"/>
         </scene>
         <!--Workout History Table View Controller-->
         <scene sceneID="fmr-o2-Bod">
