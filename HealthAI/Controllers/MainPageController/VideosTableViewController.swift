@@ -15,7 +15,7 @@ class VideosTableViewController: UITableViewController {
 
     let videos = ["BBC","BRC","DIC","CPC","ATD","CRP","CCGSR","CWGR","CWGLP","PO","BS","SM","BD","BMC","BBP","DFBF","DIBCP","DIBF","PU"]
     
-    let videoTitles = ["Barbell Reverse Curl","Barbell Reverse Curl","Dumbbell Incline Curls","Cable Preacher Curls","Assisted Triceps Dip","Cable Rope Pushdowns","Cable Close Grip Seated Row","Cable Wide Grip Row","Cable Wide Grip Lat Pulldown","Pullover","Bodyweight Squat","Superman","Bench Dip","Bodyweigth Mountain Climbers","Barbell Bench Press","Dumbbell Flat Bench Fly","Dumbbell Incline Bench Chest Press","Dumbbell Incline Bench Fly","Push Up"]
+    let videoTitles = ["Barbell Biceps Curl","Barbell Reverse Curl","Dumbbell Incline Curls","Cable Preacher Curls","Assisted Triceps Dip","Cable Rope Pushdowns","Cable Close Grip Seated Row","Cable Wide Grip Row","Cable Wide Grip Lat Pulldown","Pullover","Bodyweight Squat","Superman","Bench Dip","Bodyweigth Mountain Climbers","Barbell Bench Press","Dumbbell Flat Bench Fly","Dumbbell Incline Bench Chest Press","Dumbbell Incline Bench Fly","Push Up"]
     
     let imagesArray = ["workout11","workout21","workout3","workout4","workout5","workout6","workout7","workout8","workout9","workout10","workout11","workout21","workout3","workout4","workout5","workout6","workout7","workout8","workout9"]
     
