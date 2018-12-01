@@ -973,7 +973,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PiC-NV-PE0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="654" y="-547"/>
+            <point key="canvasLocation" x="569" y="-584"/>
         </scene>
         <!--Calorie View Controller-->
         <scene sceneID="WNt-uc-1NZ">
@@ -2100,7 +2100,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="YYn-uz-xfO">
                                                             <rect key="frame" x="0.0" y="0.0" width="333" height="160"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="workout1" translatesAutoresizingMaskIntoConstraints="NO" id="KJn-kL-rmT">
+                                                                <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="workout1" translatesAutoresizingMaskIntoConstraints="NO" id="KJn-kL-rmT">
                                                                     <rect key="frame" x="0.0" y="0.0" width="333" height="160"/>
                                                                 </imageView>
                                                             </subviews>

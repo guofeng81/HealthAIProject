@@ -169,19 +169,19 @@ class CardioWorkoutDetailViewController: UIViewController,CLLocationManagerDeleg
         speed = (manager.location?.speed)!
         print("Speed:\(speed) mph ")
         
-        speedLabel.text = String(format: "%.2f", speed) + " MPH"
+        speedLabel.text = String(format: "%.2f", speed) + " Meter/S"
         
         if startLocation == nil {
             startLocation = locations.first
         } else if let location = locations.last {
             
             traveledDistance += lastLocation.distance(from: location)
-            let straightDistance = startLocation.distance(from: location)
+            //let straightDistance = startLocation.distance(from: location)
             
             //print("Traveled Distance:",  traveledDistance)
-            print("Straight Distance:", straightDistance)
-            //totalDistance.text = String(format: "%.2f", traveledDistance) + " M"
-            totalDistance.text = String(format: "%.2f", straightDistance) + " M"
+            //print("Straight Distance:", straightDistance)
+            totalDistance.text = String(format: "%.2f", traveledDistance) + " M"
+            //totalDistance.text = String(format: "%.2f", straightDistance) + " M"
             let polyline = MKPolyline(coordinates: [lastLocation.coordinate,location.coordinate], count: 2)
             self.map.addOverlay((polyline),level: .aboveRoads)
         }
