@@ -12,88 +12,88 @@ import SwipeCellKit
 
 class WorkoutHistoryTableViewController: UITableViewController {
     
-    let realm = try! Realm()
-    
-    var workoutHistories : Results<WorkoutHistoryItem>?
-    
-    var selectedWorkoutHistoryItem = WorkoutHistoryItem()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        loadWorkoutHistoryData()
-        
-    }
-    
-    func loadWorkoutHistoryData(){
-        workoutHistories = realm.objects(WorkoutHistoryItem.self)
-        tableView.reloadData()
-    }
-    
-    // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return workoutHistories?.count ?? 1
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        //cell.delegate = self
-        
-        if let workout = workoutHistories?[indexPath.row]{
-            cell.textLabel?.text = workout.title
-        }else{
-            cell.textLabel?.text = "No Workout Item added"
-        }
-        
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        selectedWorkoutHistoryItem = workoutHistories![indexPath.row]
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        performSegue(withIdentifier: "goToHistoryDetail", sender: self)
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToHistoryDetail" {
-            let seg = segue.destination as! HistoryDetailTableViewController
-            seg.selectedWorkoutHistoryItem = self.selectedWorkoutHistoryItem
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-            if let workoutHistroyForDeletion = self.workoutHistories?[indexPath.row]{
-                do{
-                    try self.realm.write{
-                        self.realm.delete(workoutHistroyForDeletion)
-                    }
-                }catch{
-                    print("Error delelting the the item using realm")
-                }
-            }
-            
-            self.tableView.reloadData()
-        }
-    }
+//    let realm = try! Realm()
+//
+//    var workoutHistories : Results<WorkoutHistoryItem>?
+//
+//    var selectedWorkoutHistoryItem = WorkoutHistoryItem()
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        loadWorkoutHistoryData()
+//
+//    }
+//
+//    func loadWorkoutHistoryData(){
+//        workoutHistories = realm.objects(WorkoutHistoryItem.self)
+//        tableView.reloadData()
+//    }
+//
+//    // MARK: - Table view data source
+//
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return workoutHistories?.count ?? 1
+//    }
+//
+//
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+//
+//        //cell.delegate = self
+//
+//        if let workout = workoutHistories?[indexPath.row]{
+//            cell.textLabel?.text = workout.title
+//        }else{
+//            cell.textLabel?.text = "No Workout Item added"
+//        }
+//
+//        return cell
+//    }
+//
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        selectedWorkoutHistoryItem = workoutHistories![indexPath.row]
+//
+//        tableView.deselectRow(at: indexPath, animated: true)
+//
+//        performSegue(withIdentifier: "goToHistoryDetail", sender: self)
+//    }
+//
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 50
+//    }
+//
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "goToHistoryDetail" {
+//            let seg = segue.destination as! HistoryDetailTableViewController
+//            seg.selectedWorkoutHistoryItem = self.selectedWorkoutHistoryItem
+//        }
+//    }
+//
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//
+//            if let workoutHistroyForDeletion = self.workoutHistories?[indexPath.row]{
+//                do{
+//                    try self.realm.write{
+//                        self.realm.delete(workoutHistroyForDeletion)
+//                    }
+//                }catch{
+//                    print("Error delelting the the item using realm")
+//                }
+//            }
+//
+//            self.tableView.reloadData()
+//        }
+//    }
     
 }
 

@@ -10,13 +10,17 @@ import UIKit
 import AVKit
 
 class VideosTableViewController: UITableViewController {
+    
+    
 
-    let videos = ["video1","video"]
-    let videoTitles = ["Workout1","Workout2"]
+    let videos = ["video","video","video","video3","video4","video5","video6","video7","video8","video9"]
+    let videoTitles = ["Workout1","Workout2","Workout3","Workout4","Workout5","Workout6","Workout7","Workout8","Workout9","Workout10"]
+    let imagesArray = ["workout11","workout21","workout3","workout4","workout5","workout6","workout7","workout8","workout9","workout10"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
 
     // MARK: - Table view data source
@@ -37,13 +41,12 @@ class VideosTableViewController: UITableViewController {
         
         cell.videoTitleLabel.text = videoTitles[indexPath.row]
         
-        let button = cell.viewWithTag(1) as! UIButton
-
         cell.videoTitleLabel.text = videoTitles[indexPath.row]
+        cell.videoCellImageView.image = UIImage(named: imagesArray[indexPath.row])
         
-        button.tag = indexPath.row
+        cell.playButton.tag = indexPath.row
         
-        button.addTarget(self, action: #selector(videoplayPressed(sender:)), for: .touchUpInside)
+        cell.playButton.addTarget(self, action: #selector(videoplayPressed(sender:)), for: .touchUpInside)
 
         return cell
     }

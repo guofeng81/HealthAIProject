@@ -12,23 +12,17 @@ class BioCell: UITableViewCell {
 
     
     @IBOutlet var unitLabel: UILabel!
-    
     @IBOutlet var valueLabel: UILabel!
-    
     @IBOutlet var bioTitle: UILabel!
-    
     @IBOutlet var bioImage: UIImageView!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

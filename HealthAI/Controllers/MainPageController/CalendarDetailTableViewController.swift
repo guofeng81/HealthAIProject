@@ -11,81 +11,70 @@ import RealmSwift
 
 class CalendarDetailTableViewController: UITableViewController {
     
-    var selectedWorkoutHistoryItem = WorkoutHistoryItem()
-    
-    var selectedDate:String?
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-         //return workoutHistories?.count ?? 1
-        return 1
-    }
-
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell", for: indexPath)
-        
-        //cell.delegate = self
-        
-//        if let workout = workoutHistories?[indexPath.row]{
-//            cell.textLabel?.text = workout.title
-//        }else{
-//            cell.textLabel?.text = "No Workout Item added"
+//    var selectedWorkoutHistoryItem = WorkoutHistoryItem()
+//
+//    var selectedDate:String?
+//
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//    }
+//
+//    // MARK: - Table view data source
+//
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 0
+//    }
+//
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//         //return workoutHistories?.count ?? 1
+//        return 1
+//    }
+//
+//
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell", for: indexPath)
+//
+//        //cell.delegate = self
+//
+////        if let workout = workoutHistories?[indexPath.row]{
+////            cell.textLabel?.text = workout.title
+////        }else{
+////            cell.textLabel?.text = "No Workout Item added"
+////        }
+//
+//        //based on the current date
+//
+//        return cell
+//    }
+//
+//
+//   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+////        selectedWorkoutHistoryItem = workoutHistories![indexPath.row]
+////
+////        print("After date formatter",dateFormatter(currentDate: selectedWorkoutHistoryItem.currentDate!))
+////
+////
+////        print("SelectworkoutHistroy Item:", selectedWorkoutHistoryItem.currentDate)
+//
+//        tableView.deselectRow(at: indexPath, animated: true)
+//
+//        performSegue(withIdentifier: "goToDetail", sender: self)
+//    }
+//
+//
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "goToDetail" {
+//            let seg = segue.destination as! CalendarDetailTableViewController
+//            seg.selectedWorkoutHistoryItem = self.selectedWorkoutHistoryItem
 //        }
-        
-        //based on the current date
-        
-        return cell
-    }
-    
-    
-    
-    func dateFormatter(currentDate: Date){
-        
-        let dateFormatter = DateFormatter()
-//        dateFormatter.timeStyle = .none
-//        dateFormatter.dateStyle = .medium
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        print("After date formatter: ", dateFormatter.string(from: currentDate))
-        
-    }
-    
-   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-//        selectedWorkoutHistoryItem = workoutHistories![indexPath.row]
+//    }
 //
-//        print("After date formatter",dateFormatter(currentDate: selectedWorkoutHistoryItem.currentDate!))
-//
-//
-//        print("SelectworkoutHistroy Item:", selectedWorkoutHistoryItem.currentDate)
-    
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        performSegue(withIdentifier: "goToDetail", sender: self)
-    }
-    
-   
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToDetail" {
-            let seg = segue.destination as! CalendarDetailTableViewController
-            seg.selectedWorkoutHistoryItem = self.selectedWorkoutHistoryItem
-        }
-    }
-    
 
     /*
     // Override to support conditional editing of the table view.

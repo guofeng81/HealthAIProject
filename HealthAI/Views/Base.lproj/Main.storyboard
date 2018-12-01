@@ -2151,6 +2151,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="playButton" destination="yjP-Lf-tty" id="IXU-ax-VKi"/>
                                     <outlet property="videoCellImageView" destination="KJn-kL-rmT" id="wEt-jb-s3f"/>
                                     <outlet property="videoCellView" destination="aMG-YD-EDA" id="s1h-Qg-LUo"/>
                                     <outlet property="videoTitleLabel" destination="0iK-WP-lNg" id="2El-tL-pLo"/>
