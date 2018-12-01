@@ -155,7 +155,7 @@ class WorkoutClockViewController: UIViewController {
     
     @IBAction func videoPlayBtn(_ sender: UIButton) {
         
-        if let path = Bundle.main.path(forResource: "video", ofType: "MOV"){
+        if let path = Bundle.main.path(forResource: selectedSubworkoutItem.videoName, ofType: "MOV"){
             
             let video = AVPlayer(url: URL(fileURLWithPath: path))
             

@@ -62,6 +62,25 @@
 		B340DE7221B191B700FE2FCE /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340DE7121B191B700FE2FCE /* Helper.swift */; };
 		B340DE7421B1DECE00FE2FCE /* VideosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340DE7321B1DECE00FE2FCE /* VideosTableViewController.swift */; };
 		B340DE7621B1E1A800FE2FCE /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B340DE7521B1E1A800FE2FCE /* VideoCell.swift */; };
+		B340DE7821B2631C00FE2FCE /* BBC.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE7721B2631C00FE2FCE /* BBC.MOV */; };
+		B340DE7D21B2660800FE2FCE /* ATD.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE7921B2660800FE2FCE /* ATD.MOV */; };
+		B340DE7E21B2660800FE2FCE /* CRP.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE7A21B2660800FE2FCE /* CRP.MOV */; };
+		B340DE7F21B2660800FE2FCE /* BRC.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE7B21B2660800FE2FCE /* BRC.MOV */; };
+		B340DE8021B2660800FE2FCE /* CPC.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE7C21B2660800FE2FCE /* CPC.MOV */; };
+		B340DE8221B2668C00FE2FCE /* DIC.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE8121B2668B00FE2FCE /* DIC.MOV */; };
+		B340DE8721B2680000FE2FCE /* CCGSR.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE8321B267FF00FE2FCE /* CCGSR.MOV */; };
+		B340DE8821B2680000FE2FCE /* PO.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE8421B267FF00FE2FCE /* PO.MOV */; };
+		B340DE8921B2680000FE2FCE /* CWGLP.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE8521B267FF00FE2FCE /* CWGLP.MOV */; };
+		B340DE8A21B2680000FE2FCE /* CWGR.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE8621B2680000FE2FCE /* CWGR.MOV */; };
+		B340DE8F21B2694400FE2FCE /* BD.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE8B21B2694400FE2FCE /* BD.MOV */; };
+		B340DE9021B2694400FE2FCE /* BMC.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE8C21B2694400FE2FCE /* BMC.MOV */; };
+		B340DE9121B2694500FE2FCE /* BS.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE8D21B2694400FE2FCE /* BS.MOV */; };
+		B340DE9221B2694500FE2FCE /* SM.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE8E21B2694400FE2FCE /* SM.MOV */; };
+		B340DE9821B269EE00FE2FCE /* PU.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE9321B269ED00FE2FCE /* PU.MOV */; };
+		B340DE9921B269EE00FE2FCE /* DIBF.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE9421B269ED00FE2FCE /* DIBF.MOV */; };
+		B340DE9A21B269EE00FE2FCE /* BBP.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE9521B269ED00FE2FCE /* BBP.MOV */; };
+		B340DE9B21B269EE00FE2FCE /* DIBCP.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE9621B269EE00FE2FCE /* DIBCP.MOV */; };
+		B340DE9C21B269EE00FE2FCE /* DFBF.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B340DE9721B269EE00FE2FCE /* DFBF.MOV */; };
 		B3428D1421753957000BEFAE /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3428D1321753957000BEFAE /* RegisterViewController.swift */; };
 		B357476921811EEC00A141DC /* SlideAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B357476821811EEC00A141DC /* SlideAnimation.swift */; };
 		B35747E92182A90000A141DC /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35747E82182A90000A141DC /* DatabaseHelper.swift */; };
@@ -84,7 +103,6 @@
 		B3EA6143219A7AA600D66927 /* CardioWorkoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA6142219A7AA600D66927 /* CardioWorkoutItem.swift */; };
 		B3EA6145219A837100D66927 /* CardioWorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA6144219A837100D66927 /* CardioWorkoutTableViewController.swift */; };
 		B3EA6147219A83CD00D66927 /* CardioWorkoutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA6146219A83CD00D66927 /* CardioWorkoutDetailViewController.swift */; };
-		B3EA6149219A964D00D66927 /* video.MOV in Resources */ = {isa = PBXBuildFile; fileRef = B3EA6148219A964D00D66927 /* video.MOV */; };
 		FE70AD21C410493CA553750D /* Pods_HealthAI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4E58E5D376F852DBDD912E /* Pods_HealthAI.framework */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +167,25 @@
 		B340DE7121B191B700FE2FCE /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		B340DE7321B1DECE00FE2FCE /* VideosTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosTableViewController.swift; sourceTree = "<group>"; };
 		B340DE7521B1E1A800FE2FCE /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		B340DE7721B2631C00FE2FCE /* BBC.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = BBC.MOV; path = "../workout videos/BBC.MOV"; sourceTree = "<group>"; };
+		B340DE7921B2660800FE2FCE /* ATD.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = ATD.MOV; path = "../workout videos/ATD.MOV"; sourceTree = "<group>"; };
+		B340DE7A21B2660800FE2FCE /* CRP.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = CRP.MOV; path = "../workout videos/CRP.MOV"; sourceTree = "<group>"; };
+		B340DE7B21B2660800FE2FCE /* BRC.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = BRC.MOV; path = "../workout videos/BRC.MOV"; sourceTree = "<group>"; };
+		B340DE7C21B2660800FE2FCE /* CPC.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = CPC.MOV; path = "../workout videos/CPC.MOV"; sourceTree = "<group>"; };
+		B340DE8121B2668B00FE2FCE /* DIC.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = DIC.MOV; path = "../workout videos/DIC.MOV"; sourceTree = "<group>"; };
+		B340DE8321B267FF00FE2FCE /* CCGSR.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = CCGSR.MOV; path = "../workout videos/CCGSR.MOV"; sourceTree = "<group>"; };
+		B340DE8421B267FF00FE2FCE /* PO.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = PO.MOV; path = "../workout videos/PO.MOV"; sourceTree = "<group>"; };
+		B340DE8521B267FF00FE2FCE /* CWGLP.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = CWGLP.MOV; path = "../workout videos/CWGLP.MOV"; sourceTree = "<group>"; };
+		B340DE8621B2680000FE2FCE /* CWGR.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = CWGR.MOV; path = "../workout videos/CWGR.MOV"; sourceTree = "<group>"; };
+		B340DE8B21B2694400FE2FCE /* BD.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = BD.MOV; path = "../workout videos/BD.MOV"; sourceTree = "<group>"; };
+		B340DE8C21B2694400FE2FCE /* BMC.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = BMC.MOV; path = "../workout videos/BMC.MOV"; sourceTree = "<group>"; };
+		B340DE8D21B2694400FE2FCE /* BS.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = BS.MOV; path = "../workout videos/BS.MOV"; sourceTree = "<group>"; };
+		B340DE8E21B2694400FE2FCE /* SM.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = SM.MOV; path = "../workout videos/SM.MOV"; sourceTree = "<group>"; };
+		B340DE9321B269ED00FE2FCE /* PU.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = PU.MOV; path = "../workout videos/PU.MOV"; sourceTree = "<group>"; };
+		B340DE9421B269ED00FE2FCE /* DIBF.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = DIBF.MOV; path = "../workout videos/DIBF.MOV"; sourceTree = "<group>"; };
+		B340DE9521B269ED00FE2FCE /* BBP.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = BBP.MOV; path = "../workout videos/BBP.MOV"; sourceTree = "<group>"; };
+		B340DE9621B269EE00FE2FCE /* DIBCP.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = DIBCP.MOV; path = "../workout videos/DIBCP.MOV"; sourceTree = "<group>"; };
+		B340DE9721B269EE00FE2FCE /* DFBF.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = DFBF.MOV; path = "../workout videos/DFBF.MOV"; sourceTree = "<group>"; };
 		B3428D1321753957000BEFAE /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B357476821811EEC00A141DC /* SlideAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideAnimation.swift; sourceTree = "<group>"; };
 		B35747E82182A90000A141DC /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
@@ -171,7 +208,6 @@
 		B3EA6142219A7AA600D66927 /* CardioWorkoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioWorkoutItem.swift; sourceTree = "<group>"; };
 		B3EA6144219A837100D66927 /* CardioWorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioWorkoutTableViewController.swift; sourceTree = "<group>"; };
 		B3EA6146219A83CD00D66927 /* CardioWorkoutDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardioWorkoutDetailViewController.swift; sourceTree = "<group>"; };
-		B3EA6148219A964D00D66927 /* video.MOV */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = video.MOV; path = ../video.MOV; sourceTree = "<group>"; };
 		E40F50F27A038588BD108CD7 /* Pods-HealthAI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthAI.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthAI/Pods-HealthAI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,7 +252,25 @@
 		6455C8D721642E35009F4D33 = {
 			isa = PBXGroup;
 			children = (
-				B3EA6148219A964D00D66927 /* video.MOV */,
+				B340DE9521B269ED00FE2FCE /* BBP.MOV */,
+				B340DE9721B269EE00FE2FCE /* DFBF.MOV */,
+				B340DE9621B269EE00FE2FCE /* DIBCP.MOV */,
+				B340DE9421B269ED00FE2FCE /* DIBF.MOV */,
+				B340DE9321B269ED00FE2FCE /* PU.MOV */,
+				B340DE8B21B2694400FE2FCE /* BD.MOV */,
+				B340DE8C21B2694400FE2FCE /* BMC.MOV */,
+				B340DE8D21B2694400FE2FCE /* BS.MOV */,
+				B340DE8E21B2694400FE2FCE /* SM.MOV */,
+				B340DE8321B267FF00FE2FCE /* CCGSR.MOV */,
+				B340DE8521B267FF00FE2FCE /* CWGLP.MOV */,
+				B340DE8621B2680000FE2FCE /* CWGR.MOV */,
+				B340DE8421B267FF00FE2FCE /* PO.MOV */,
+				B340DE8121B2668B00FE2FCE /* DIC.MOV */,
+				B340DE7921B2660800FE2FCE /* ATD.MOV */,
+				B340DE7B21B2660800FE2FCE /* BRC.MOV */,
+				B340DE7C21B2660800FE2FCE /* CPC.MOV */,
+				B340DE7A21B2660800FE2FCE /* CRP.MOV */,
+				B340DE7721B2631C00FE2FCE /* BBC.MOV */,
 				6455C8E221642E36009F4D33 /* HealthAI */,
 				6455C8E121642E36009F4D33 /* Products */,
 				29C97F08B9B371C43A3724E8 /* Pods */,
@@ -454,7 +508,25 @@
 				6455C8EE21642E38009F4D33 /* LaunchScreen.storyboard in Resources */,
 				6455C8EB21642E38009F4D33 /* Assets.xcassets in Resources */,
 				6455C8E921642E36009F4D33 /* Main.storyboard in Resources */,
-				B3EA6149219A964D00D66927 /* video.MOV in Resources */,
+				B340DE9821B269EE00FE2FCE /* PU.MOV in Resources */,
+				B340DE9921B269EE00FE2FCE /* DIBF.MOV in Resources */,
+				B340DE9A21B269EE00FE2FCE /* BBP.MOV in Resources */,
+				B340DE9B21B269EE00FE2FCE /* DIBCP.MOV in Resources */,
+				B340DE9C21B269EE00FE2FCE /* DFBF.MOV in Resources */,
+				B340DE7821B2631C00FE2FCE /* BBC.MOV in Resources */,
+				B340DE7D21B2660800FE2FCE /* ATD.MOV in Resources */,
+				B340DE7E21B2660800FE2FCE /* CRP.MOV in Resources */,
+				B340DE7F21B2660800FE2FCE /* BRC.MOV in Resources */,
+				B340DE8021B2660800FE2FCE /* CPC.MOV in Resources */,
+				B340DE8721B2680000FE2FCE /* CCGSR.MOV in Resources */,
+				B340DE8821B2680000FE2FCE /* PO.MOV in Resources */,
+				B340DE8921B2680000FE2FCE /* CWGLP.MOV in Resources */,
+				B340DE8A21B2680000FE2FCE /* CWGR.MOV in Resources */,
+				B340DE8221B2668C00FE2FCE /* DIC.MOV in Resources */,
+				B340DE8F21B2694400FE2FCE /* BD.MOV in Resources */,
+				B340DE9021B2694400FE2FCE /* BMC.MOV in Resources */,
+				B340DE9121B2694500FE2FCE /* BS.MOV in Resources */,
+				B340DE9221B2694500FE2FCE /* SM.MOV in Resources */,
 				B3B4787121AF509400A286B1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

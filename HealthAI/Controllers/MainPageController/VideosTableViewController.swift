@@ -13,7 +13,7 @@ class VideosTableViewController: UITableViewController {
     
     
 
-    let videos = ["video","video","video","video3","video4","video5","video6","video7","video8","video9"]
+    let videos = ["video1","video","video","video3","video4","video5","video6","video7","video8","video9"]
     let videoTitles = ["Workout1","Workout2","Workout3","Workout4","Workout5","Workout6","Workout7","Workout8","Workout9","Workout10"]
     let imagesArray = ["workout11","workout21","workout3","workout4","workout5","workout6","workout7","workout8","workout9","workout10"]
     

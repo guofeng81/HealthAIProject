@@ -2092,16 +2092,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMG-YD-EDA">
-                                            <rect key="frame" x="21" y="16" width="333" height="196"/>
+                                            <rect key="frame" x="18.5" y="13.5" width="338" height="201"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="1U3-0e-DOk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="333" height="196"/>
+                                                <stackView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1U3-0e-DOk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="338" height="201"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="YYn-uz-xfO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="333" height="160"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="338" height="160"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="workout1" translatesAutoresizingMaskIntoConstraints="NO" id="KJn-kL-rmT">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="333" height="160"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="338" height="160"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <constraints>
@@ -2112,7 +2112,7 @@
                                                             </constraints>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iK-WP-lNg">
-                                                            <rect key="frame" x="140.5" y="167" width="52.5" height="29"/>
+                                                            <rect key="frame" x="143" y="165" width="52.5" height="36"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -2142,12 +2142,12 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="aMG-YD-EDA" firstAttribute="leading" secondItem="R4r-1j-4iU" secondAttribute="leadingMargin" constant="5" id="7IA-pT-4qq"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="aMG-YD-EDA" secondAttribute="bottom" constant="2.5" id="13n-Kd-NDb"/>
                                         <constraint firstItem="yjP-Lf-tty" firstAttribute="centerY" secondItem="R4r-1j-4iU" secondAttribute="centerY" id="8d1-GO-wzd"/>
-                                        <constraint firstItem="aMG-YD-EDA" firstAttribute="top" secondItem="R4r-1j-4iU" secondAttribute="topMargin" constant="5" id="Sne-ge-TJ4"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="aMG-YD-EDA" secondAttribute="trailing" constant="5" id="V4a-gI-DQg"/>
+                                        <constraint firstItem="aMG-YD-EDA" firstAttribute="leading" secondItem="R4r-1j-4iU" secondAttribute="leadingMargin" constant="2.5" id="Ly0-Qx-9Gd"/>
                                         <constraint firstItem="yjP-Lf-tty" firstAttribute="centerX" secondItem="R4r-1j-4iU" secondAttribute="centerX" id="euI-VV-RCY"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="aMG-YD-EDA" secondAttribute="bottom" constant="5" id="zXB-Su-zaO"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="aMG-YD-EDA" secondAttribute="trailing" constant="2.5" id="pDK-S8-B6X"/>
+                                        <constraint firstItem="aMG-YD-EDA" firstAttribute="top" secondItem="R4r-1j-4iU" secondAttribute="topMargin" constant="2.5" id="van-k1-mxh"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -2166,7 +2166,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzl-ge-pPD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5356" y="211.84407796101951"/>
+            <point key="canvasLocation" x="5354" y="143"/>
         </scene>
         <!--Workout History Table View Controller-->
         <scene sceneID="fmr-o2-Bod">

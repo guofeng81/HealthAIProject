@@ -45,21 +45,27 @@ class WorkoutViewController: UIViewController {
         
         let subworkout1 = SubworkoutItem()
         subworkout1.title = "Barbell Biceps Curl"
+        subworkout1.videoName = "BBC"
         
         let subworkout2 = SubworkoutItem()
         subworkout2.title = "Barbell Reverse Curl"
+        subworkout2.videoName = "BRC"
         
         let subworkout3 = SubworkoutItem()
         subworkout3.title = "Dumbbell Incline Curls"
+        subworkout3.videoName = "DIC"
         
         let subworkout4 = SubworkoutItem()
         subworkout4.title = "Cable Preacher Curls"
+        subworkout4.videoName = "CPC"
         
         let subworkout5 = SubworkoutItem()
         subworkout5.title = "Assisted Triceps Dip"
+        subworkout5.videoName = "ATD"
         
         let subworkout6 = SubworkoutItem()
         subworkout6.title = "Cable Rope Pushdowns"
+        subworkout6.videoName = "CRP"
         
         workout.subworkouts.append(subworkout1)
         workout.subworkouts.append(subworkout2)
@@ -79,15 +85,19 @@ class WorkoutViewController: UIViewController {
         
         let subworkout21 = SubworkoutItem()
         subworkout21.title = "Cable Close Grip Seated Row"
+        subworkout21.videoName = "CCGSR"
         
         let subworkout22 = SubworkoutItem()
         subworkout22.title = "Cable Wide Grip Row"
+        subworkout22.videoName = "CWGR"
         
         let subworkout23 = SubworkoutItem()
         subworkout23.title = "Cable Wide Grip Lat Pulldown"
+        subworkout23.videoName = "CWGLP"
         
         let subworkout24 = SubworkoutItem()
         subworkout24.title = "Pullover"
+        subworkout24.videoName = "PO"
         
         workout2.subworkouts.append(subworkout21)
         workout2.subworkouts.append(subworkout22)
@@ -106,15 +116,19 @@ class WorkoutViewController: UIViewController {
         
         let subworkout31 = SubworkoutItem()
         subworkout31.title = "Bodyweight Squat"
+        subworkout31.videoName = "BS"
         
         let subworkout32 = SubworkoutItem()
         subworkout32.title = "Superman"
+         subworkout32.videoName = "SM"
         
         let subworkout33 = SubworkoutItem()
         subworkout33.title = "Bench Dip"
+         subworkout33.videoName = "BD"
         
         let subworkout34 = SubworkoutItem()
         subworkout34.title = "Bodyweight Mountain Climbers"
+         subworkout34.videoName = "BMC"
         
         workout3.subworkouts.append(subworkout31)
         workout3.subworkouts.append(subworkout32)
@@ -132,18 +146,24 @@ class WorkoutViewController: UIViewController {
         
         let subworkout41 = SubworkoutItem()
         subworkout41.title = "Barbell Bench Press"
+        subworkout41.videoName = "BBP"
+        
         
         let subworkout42 = SubworkoutItem()
         subworkout42.title = "Dumbbell Flat Bench Fly"
+        subworkout42.videoName = "DFBF"
         
         let subworkout43 = SubworkoutItem()
         subworkout43.title = "Dumbbell Incline Bench Chest Press"
+        subworkout43.videoName = "DIBCP"
         
         let subworkout44 = SubworkoutItem()
         subworkout44.title = "Push Up"
+        subworkout44.videoName = "PU"
         
         let subworkout45 = SubworkoutItem()
         subworkout45.title = "Dumbbell Incline Bench Fly"
+        subworkout45.videoName = "DIBF"
         
         workout4.subworkouts.append(subworkout41)
         workout4.subworkouts.append(subworkout42)
