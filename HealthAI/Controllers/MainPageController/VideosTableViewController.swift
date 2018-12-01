@@ -13,9 +13,11 @@ class VideosTableViewController: UITableViewController {
     
     
 
-    let videos = ["video1","video","video","video3","video4","video5","video6","video7","video8","video9"]
-    let videoTitles = ["Workout1","Workout2","Workout3","Workout4","Workout5","Workout6","Workout7","Workout8","Workout9","Workout10"]
-    let imagesArray = ["workout11","workout21","workout3","workout4","workout5","workout6","workout7","workout8","workout9","workout10"]
+    let videos = ["BBC","BRC","DIC","CPC","ATD","CRP","CCGSR","CWGR","CWGLP","PO","BS","SM","BD","BMC","BBP","DFBF","DIBCP","DIBF","PU"]
+    
+    let videoTitles = ["Barbell Reverse Curl","Barbell Reverse Curl","Dumbbell Incline Curls","Cable Preacher Curls","Assisted Triceps Dip","Cable Rope Pushdowns","Cable Close Grip Seated Row","Cable Wide Grip Row","Cable Wide Grip Lat Pulldown","Pullover","Bodyweight Squat","Superman","Bench Dip","Bodyweigth Mountain Climbers","Barbell Bench Press","Dumbbell Flat Bench Fly","Dumbbell Incline Bench Chest Press","Dumbbell Incline Bench Fly","Push Up"]
+    
+    let imagesArray = ["workout11","workout21","workout3","workout4","workout5","workout6","workout7","workout8","workout9","workout10","workout11","workout21","workout3","workout4","workout5","workout6","workout7","workout8","workout9"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,23 +69,6 @@ class VideosTableViewController: UITableViewController {
             }
             
         }
-        
-//        if sender.tag == 0 {
-//
-//            if let path = Bundle.main.path(forResource: "video", ofType: "MOV"){
-//
-//                let video = AVPlayer(url: URL(fileURLWithPath: path))
-//
-//                let videoPlayer = AVPlayerViewController()
-//
-//                videoPlayer.player = video
-//
-//                present(videoPlayer,animated: true,completion: {
-//                    video.play()
-//
-//                })
-//            }
-//        }
         
     }
     

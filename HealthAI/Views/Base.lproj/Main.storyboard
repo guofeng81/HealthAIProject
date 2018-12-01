@@ -388,7 +388,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strength Workout Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPy-wP-bYK">
-                                <rect key="frame" x="30" y="76" width="315" height="30"/>
+                                <rect key="frame" x="30" y="84" width="315" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -397,9 +397,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="voD-1y-3T5" firstAttribute="trailing" secondItem="bNz-yu-yzF" secondAttribute="trailing" id="JY9-CC-vzF"/>
+                            <constraint firstItem="rPy-wP-bYK" firstAttribute="top" secondItem="bNz-yu-yzF" secondAttribute="top" constant="20" id="MfA-nB-zkQ"/>
                             <constraint firstItem="voD-1y-3T5" firstAttribute="leading" secondItem="bNz-yu-yzF" secondAttribute="leading" id="N7P-Ms-Iv4"/>
                             <constraint firstItem="rPy-wP-bYK" firstAttribute="centerX" secondItem="rI9-ls-hcz" secondAttribute="centerX" id="WmM-Cd-gzx"/>
-                            <constraint firstItem="rPy-wP-bYK" firstAttribute="top" secondItem="bNz-yu-yzF" secondAttribute="top" constant="12" id="mSz-iQ-WDH"/>
                             <constraint firstItem="voD-1y-3T5" firstAttribute="top" secondItem="bNz-yu-yzF" secondAttribute="top" constant="80" id="qiW-ga-0rJ"/>
                             <constraint firstItem="voD-1y-3T5" firstAttribute="bottom" secondItem="bNz-yu-yzF" secondAttribute="bottom" id="uKl-Hc-2k9"/>
                         </constraints>
@@ -2112,8 +2112,8 @@
                                                             </constraints>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iK-WP-lNg">
-                                                            <rect key="frame" x="143" y="165" width="52.5" height="36"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                            <rect key="frame" x="147" y="165" width="44" height="36"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
